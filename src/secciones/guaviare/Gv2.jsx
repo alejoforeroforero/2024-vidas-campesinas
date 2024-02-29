@@ -5,7 +5,7 @@ import videoG from '../../assets/guaviare/gv2/guaviare3.mp4';
 
 import './Gv2.css'
 
-const Gv2 = () => {
+const Gv2 = ({gv2Ref}) => {
     const videoRef = useRef(null);
 
     useGSAP(() => {
@@ -49,7 +49,7 @@ const Gv2 = () => {
       }, [])
 
   return (
-    <div className="seccion gv2" >
+    <div ref={gv2Ref} id='gv2-id' className="seccion gv2" >
         <div className="g2-video">
           <video loop playsInline muted className="g2-video-video" ref={videoRef} src={videoG}></video>
         </div>
