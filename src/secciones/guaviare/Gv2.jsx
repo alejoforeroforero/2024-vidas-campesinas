@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import videoG from '../../assets/guaviare/gv2/guaviare.mp4';
+import videoG from '../../assets/guaviare/gv2/guaviare3.mp4';
 
 import './Gv2.css'
 
@@ -27,11 +27,14 @@ const Gv2 = () => {
           .to(".toogle-canal-b", { opacity: 1, duration: 4 })
           .to(".g2-textos", { opacity: 1, duration: 8 }, '>12')
           .to(".g2-textos", { opacity: 1, duration: 4 })
-          .to(".g2-textos-p1", { opacity: 1, duration: 4 })
+          .to(".g2-textos-p1", { opacity: 1, y:10, duration: 30 }, '>12')
+          .to(".g2-textos-p1", { opacity: 1, duration: 4 }, '>30')
           .to(".g2-textos-p1", { opacity: 0, duration: 1 })
-          .to(".g2-textos-p2", { opacity: 1, duration: 4 })
+          .to(".g2-textos-p2", { opacity: 1, y:20, duration: 30 }, '>12')
+          .to(".g2-textos-p2", { opacity: 1, duration: 4 }, '>30')
           .to(".g2-textos-p2", { opacity: 0, duration: 1 })
-          .to(".g2-textos-p3", { opacity: 1, duration: 4 })
+          .to(".g2-textos-p3", { opacity: 1, y:10, duration: 30 }, '>12')
+          .to(".g2-textos-p3", { opacity: 1, duration: 4 }, '>30')
           .to(".g2-textos-p3", { opacity: 0, duration: 1 })
           .call(() => {
             videoRef.current.play();
