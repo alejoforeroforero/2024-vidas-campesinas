@@ -1,3 +1,71 @@
 .gv3 {
-  background-color: aqua;
+  position: relative;
+  background-color: rgb(223, 232, 211);
+  background: url("../../assets/guaviare/gv3/fondo-gv3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .gv3-mono {
+    position: absolute;
+    left: -2vw;
+    top: 5vh;
+    width: 20vw;
+    opacity: 0;
+  }
+
+  .gv3-flor-der{
+    position: absolute;
+    right:-2vw;
+    top:20vh;
+    width: 20vw;
+    opacity: 0;
+  }
+
+  .gv3-flor-izq{
+    position: absolute;
+    left:-2vw;
+    bottom:6vh;
+    width: 15vw;
+    opacity: 0;
+  }
+
+  .gv3-ramo{
+    position: absolute;
+    right:-2vw;
+    bottom:1vh;
+    width: 10vw;
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gv3 { 
+    .gv3-mono {
+      position: absolute;
+      left: -4vw;
+      top: 5vh;
+      width: 50vw;
+    }
+
+    .gv3-flor-der{
+      position: absolute;
+      right:-3vw;
+      top:20vh;
+      width: 40vw;
+    }
+
+    .gv3-flor-izq{
+      position: absolute;
+      left:-6vw;
+      bottom:6vh;
+      width: 40vw;
+    }
+
+    .gv3-ramo{
+      position: absolute;
+      right:-7vw;
+      bottom:1vh;
+      width: 30vw;
+    }
+  }
 }

@@ -9,6 +9,97 @@
   overflow: hidden;
 }
 
+.logo {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .logo {
+    height: 45vh;
+    img {
+      width: 75vw;
+    }
+  }
+}
+
+.scroll {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+
+  img {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .scroll {
+    height: 45vh;
+    img {
+      width: 75vw;
+    }
+  }
+}
+
+.toogle-canal-b {
+  position: fixed;
+  right: 0;
+  z-index: 110;
+  height: 30vh;
+  top: 35vh;
+  background-color: rgba(233, 233, 233, 0);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 2s cubic-bezier(0.77, 0, 0.175, 1);
+  
+  img{
+    height: 100%;
+    margin-right: -10px;
+  }
+}
+
+.toogle-canal-a {
+  position: fixed;
+  left: 0;
+  z-index: 110;
+  height: 30vh;
+  top: 35vh;
+  background-color: rgba(233, 233, 233, 0);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 2s cubic-bezier(0.77, 0, 0.175, 1);
+  
+  img{
+    height: 100%;
+    margin-left: -10px;
+  }
+}
 
 
 
+@keyframes fadeIn {
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
