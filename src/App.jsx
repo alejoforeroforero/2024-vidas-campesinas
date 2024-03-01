@@ -26,11 +26,10 @@ function App() {
   const [hidennCanalB, setHideCanalB] = useState(true);
 
   useEffect(() => {
-    setTimeout(()=>{
+    setTimeout(() => {
       setMostarMas(true);
     }, 10000)
   }, [])
-
 
 
   const gv2Ref = useRef(null);
@@ -65,17 +64,28 @@ function App() {
           <img src={scroll} alt="scroll-img" />
         </div>
 
+        <section className="seccion-general">
+          <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
+        </section>
 
-        <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
-        <Gv1 videoRef={videoRef} handleEmpezar={handleEmpezar} />
-        <Gv2 gv2Ref={gv2Ref} videoRef={videoRef} />
+        <section className='seccion-general'>
+          <Gv1 videoRef={videoRef} handleEmpezar={handleEmpezar} />
+        </section>
+
+        <section className="seccion-general">
+          <Gv2 gv2Ref={gv2Ref} videoRef={videoRef} />
+        </section>
+
         {mostrarMas &&
           <>
-            <Suspense fallback={<Loading />}><Gv3 /></Suspense>
-            <Suspense fallback={<Loading />}><Gv4 /></Suspense>
+            <section className="seccion-general">
+              <Suspense fallback={<Loading />}><Gv3 /></Suspense>
+            </section>
+            <section className="seccion-general">
+              <Suspense fallback={<Loading />}><Gv4 /></Suspense>
+            </section>
           </>
         }
-
       </Suspense>
     </>
   )

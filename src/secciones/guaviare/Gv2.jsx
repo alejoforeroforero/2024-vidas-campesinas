@@ -29,13 +29,15 @@ const Gv2 = ({ gv2Ref, videoRef }) => {
       .to(".g2-textos", { opacity: 1, duration: 30 }, '<12')
       .to(".g2-textos", { opacity: 1, duration: 30 })
       .to(".g2-textos-p1", { opacity: 1, y: 10, duration: 30 }, '>12')
-      .to(".g2-textos-p1", { opacity: 1, duration: 4 }, '>30')
+      .to(".g2-textos-p1", { opacity: 1, duration: 120 })
+      .to(".g2-textos-p1", { opacity: 1, duration: 30 })
       .to(".g2-textos-p1", { opacity: 0, duration: 30 })
       .to(".g2-textos-p2", { opacity: 1, y: 20, duration: 30 }, '>12')
-      .to(".g2-textos-p2", { opacity: 1, duration: 4 }, '>30')
+      .to(".g2-textos-p2", { opacity: 1, duration: 120 })
+      .to(".g2-textos-p2", { opacity: 1, duration: 30 }, '>30')
       .to(".g2-textos-p2", { opacity: 0, duration: 30 })
       .to(".g2-textos-p3", { opacity: 1, y: 10, duration: 30 }, '>12')
-      .to(".g2-textos-p3", { opacity: 1, duration: 4 }, '>30')
+      .to(".g2-textos-p3", { opacity: 1, duration: 120 }, '>30')
       .to(".g2-textos-p3", { opacity: 0, duration: 30 })
       .call(() => {
         videoRef.current.play();
