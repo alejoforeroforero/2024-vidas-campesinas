@@ -2,6 +2,7 @@ import React, { useState, Suspense, useRef, useEffect } from 'react'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 import Loading from './components/Loading';
 
 const Gv1 = React.lazy(() => import('./secciones/guaviare/Gv1'));
@@ -22,6 +23,8 @@ import './App.css'
 
 function App() {
   gsap.registerPlugin(ScrollTrigger);
+
+
   const [mostrarMas, setMostarMas] = useState(false);
   const [hidennCanalB, setHideCanalB] = useState(true);
 
@@ -44,49 +47,56 @@ function App() {
 
   return (
     <>
-      <Suspense>
-        {hidennCanalB &&
-          <div className='toogle-canal-b'>
-            <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
-          </div>
-        }
-        {!hidennCanalB &&
-          <div className='toogle-canal-a'>
-            <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
-          </div>
-        }
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <Suspense>
+            {hidennCanalB &&
+              <div className='toogle-canal-b'>
+                <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
+              </div>
+            }
+            {!hidennCanalB &&
+              <div className='toogle-canal-a'>
+                <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
+              </div>
+            }
 
-        <div className='logo'>
-          <img src={logo} alt="logo" />
+            <div className='logo'>
+              <img src={logo} alt="logo" />
+            </div>
+
+            <div ref={scrollRef} className='scroll'>
+              <img src={scroll} alt="scroll-img" />
+            </div>
+
+            <section className="seccion-general">
+              <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
+            </section>
+
+            <section className='seccion-general'>
+              <Gv1 videoRef={videoRef} handleEmpezar={handleEmpezar} />
+            </section>
+
+            <section className="seccion-general">
+              <Gv2 gv2Ref={gv2Ref} videoRef={videoRef} />
+            </section>
+
+            {mostrarMas &&
+              <>
+                <section className="seccion-general">
+                  <Suspense fallback={<Loading />}><Gv3 /></Suspense>
+                </section>
+                <section className="seccion-general">
+                  <Suspense fallback={<Loading />}><Gv4 /></Suspense>
+                </section>
+              </>
+            }
+          </Suspense>
+
         </div>
 
-        <div ref={scrollRef} className='scroll'>
-          <img src={scroll} alt="scroll-img" />
-        </div>
+      </div>
 
-        <section className="seccion-general">
-          <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
-        </section>
-
-        <section className='seccion-general'>
-          <Gv1 videoRef={videoRef} handleEmpezar={handleEmpezar} />
-        </section>
-
-        <section className="seccion-general">
-          <Gv2 gv2Ref={gv2Ref} videoRef={videoRef} />
-        </section>
-
-        {mostrarMas &&
-          <>
-            <section className="seccion-general">
-              <Suspense fallback={<Loading />}><Gv3 /></Suspense>
-            </section>
-            <section className="seccion-general">
-              <Suspense fallback={<Loading />}><Gv4 /></Suspense>
-            </section>
-          </>
-        }
-      </Suspense>
     </>
   )
 }
