@@ -13,23 +13,22 @@ const Gv2 = ({ gv2Ref, videoRef }) => {
         scrollTrigger: {
           trigger: ".gv2",
           start: `top top`,
-          end: "bottom",
+          end: "+=8200",
           invalidateOnRefresh: false,
           scrub: 1,
           pin: true,
-          markers: false
+          markers: true
         }
       })
       .call(() => {
         videoRef.current.play();
       })
-      .to(".logo", { opacity: 0, y: -70, duration: 50 })
-      .to(".scroll", { opacity: 0, y: 70, duration: 30 }, '<')
+      .to(".logo", { opacity: 0, y: -70, duration: 5 })
+      .to(".scroll", { opacity: 0, y: 70, duration: 3 }, '<')
       .to(".toogle-canal-b", { opacity: 1, duration: 4 })
       .to(".g2-textos", { opacity: 1, duration: 30 }, '<12')
-      .to(".g2-textos", { opacity: 1, duration: 30 })
-      .to(".g2-textos-p1", { opacity: 1, y: 10, duration: 30 }, '>12')
-      .to(".g2-textos-p1", { opacity: 1, duration: 120 })
+      .to(".g2-textos-p1", { opacity: 1, y: 10, duration: 0 }, '>12')
+      .to(".g2-textos-p1", { opacity: 1, duration: 40 })
       .to(".g2-textos-p1", { opacity: 1, duration: 30 })
       .to(".g2-textos-p1", { opacity: 0, duration: 30 })
       .to(".g2-textos-p2", { opacity: 1, y: 20, duration: 30 }, '>12')

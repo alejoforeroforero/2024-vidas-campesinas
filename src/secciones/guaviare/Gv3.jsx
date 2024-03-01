@@ -16,7 +16,7 @@ const Gv3 = () => {
         scrollTrigger: {
           trigger: ".gv3",
           start: `top top`,
-          end: "bottom",
+          end: "+=4200",
           invalidateOnRefresh: false,
           scrub: 1,
           pin: true,
