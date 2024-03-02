@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom' 
+import { NavLink } from 'react-router-dom'
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -17,7 +17,7 @@ const HomeV2 = () => {
         scrollTrigger: {
           trigger: ".homev2",
           start: `top top`,
-          end: "+=4200",
+          end: "+=3200",
           invalidateOnRefresh: false,
           scrub: 1,
           pin: true,
@@ -30,7 +30,10 @@ const HomeV2 = () => {
       .fromTo(".homev2-flor-izq", { opacity: 0, x: -30, y: 40 }, { opacity: 1, x: 0, y: 0, duration: 90, ease: 'rough' }, '<')
       .fromTo(".homev2-ramo", { opacity: 0 }, { opacity: 1, duration: 70, ease: 'rough' }, '<10')
       .fromTo(".homev2-ramo", { opacity: 0 }, { opacity: 1, duration: 70, ease: 'rough' }, '<10')
-      .fromTo(".homev2-menu", { opacity: 0 }, { opacity: 1, duration: 70, ease: 'rough' }, '+=10')
+      .fromTo(".homev2-menu", { opacity: 0 }, { opacity: 1, duration: 4, ease: 'rough' })
+      .fromTo("#h-m1", { opacity: 0, y: 100 }, { opacity: 1, y: 0, ease: 'back', duration: 20 })
+      .fromTo("#h-m2", { opacity: 0, y: 100 }, { opacity: 1, y: 0, ease: 'back', duration: 20 })
+      .fromTo("#h-m3", { opacity: 0, y: 100 }, { opacity: 1, y: 0, ease: 'rough', duration: 20 })
 
     return () => {
       tl.kill();
@@ -39,19 +42,22 @@ const HomeV2 = () => {
 
   const menu = [
     {
-      id: 'm1',
+      id: 'h-m1',
       titulo: 'GUAVIARE',
-      ir: '#gv4'
+      color: '#d05137',
+      ir: 'guaviare'
     },
     {
-      id: 'm2',
+      id: 'h-m2',
       titulo: 'CAQUETA',
-      ir: '#gv4'
+      color: '#d7de51',
+      ir: 'guaviare'
     },
     {
-      id: 'm3',
+      id: 'h-m3',
       titulo: 'CAUCA',
-      ir: '#gv4'
+      color: '#00a89d',
+      ir: 'guaviare'
     }
   ]
 
@@ -63,10 +69,15 @@ const HomeV2 = () => {
       <img className='homev2-mono' src={mono} alt="mono" />
       <div className="homev2-menu">
         {menu.map(item => {
-          return <h1 key={item.id}>{item.titulo}</h1>
+          return <NavLink
+            id={item.id}
+            style={{ color: item.color }}
+            key={item.id}
+            to={item.ir}
+          >{item.titulo}
+          </NavLink>
         })}
       </div>
-      <NavLink to='/guaviare'>Guaviare</NavLink>
     </div>
   )
 }
