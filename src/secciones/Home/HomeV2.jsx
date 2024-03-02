@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom' 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -65,6 +66,7 @@ const HomeV2 = () => {
           return <h1 key={item.id}>{item.titulo}</h1>
         })}
       </div>
+      <NavLink to='/guaviare'>Guaviare</NavLink>
     </div>
   )
 }

@@ -1,11 +1,21 @@
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useDispatch } from 'react-redux';
+import { cambiarDepartamento } from '../../redux/states/managerSlice';
 
 import videoG from '../../assets/guaviare/gv2/guaviare3.mp4';
 
 import './Gv2.css'
 
-const Gv2 = ({ gv2Ref, videoRef }) => {
+
+const Gv2 = ({ videoGuaviareRef }) => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cambiarDepartamento('guaviare'))
+  }, [dispatch])
 
   useGSAP(() => {
     const tl = gsap
@@ -21,11 +31,11 @@ const Gv2 = ({ gv2Ref, videoRef }) => {
         }
       })
       .call(() => {
-        videoRef.current.play();
+        videoGuaviareRef.current.play();
       })
       .to(".logo", { opacity: 0, y: -70, duration: 5 })
       .to(".scroll", { opacity: 0, y: 70, duration: 3 }, '<')
-      .to(".toogle-canal-b", { opacity: 1, duration: 4 })
+      // .to(".toogle-canal-b", { opacity: 1, duration: 4 })
       .to(".g2-textos", { opacity: 1, duration: 30 }, '<12')
       .to(".g2-textos-p1", { opacity: 1, y: 10, duration: 0 }, '>12')
       .to(".g2-textos-p1", { opacity: 1, duration: 40 })
@@ -39,11 +49,11 @@ const Gv2 = ({ gv2Ref, videoRef }) => {
       .to(".g2-textos-p3", { opacity: 1, duration: 120 }, '>30')
       .to(".g2-textos-p3", { opacity: 0, duration: 30 })
       .call(() => {
-        videoRef.current.play();
+        videoGuaviareRef.current.play();
       })
       .to(".g2-video", { opacity: 0.7, duration: 90 }, '>12')
       .call(() => {
-        videoRef.current.pause();
+        videoGuaviareRef.current.pause();
       })
 
     return () => {
@@ -52,9 +62,9 @@ const Gv2 = ({ gv2Ref, videoRef }) => {
   }, [])
 
   return (
-    <div ref={gv2Ref} id='gv2-id' className="seccion gv2" >
+    <div id='gv2-id' className="seccion gv2" >
       <div className="g2-video">
-        <video loop playsInline muted className="g2-video-video" ref={videoRef} src={videoG}></video>
+        <video loop playsInline muted className="g2-video-video" ref={videoGuaviareRef} src={videoG}></video>
       </div>
       <div className="g2-textos">
         <p className="g2-textos-p1"> HLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut

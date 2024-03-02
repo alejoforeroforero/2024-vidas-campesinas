@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Portada from './components/Portada';
 const Home = React.lazy(() => import('./secciones/Home/Home'));
+const Gv2 = React.lazy(() => import('./secciones/guaviare/Gv2'));
 
 import logo from './assets/guaviare/gv1/gv1-logo.png';
 import scroll from './assets/generales/scroll.png';
@@ -19,13 +20,16 @@ function App() {
 
   const [yaEmpezo, setYaEmpezo] = useState(false);
   const scrollRef = useRef(null);
-  const videHomeRef = useRef(null)
+  const videHomeRef = useRef(null);
+  const videoGuaviareRef = useRef(null);
 
   const handleEmpezar = () => {
     setYaEmpezo(true);
     console.log(departamento);
     if(departamento === 'home'){
       videHomeRef.current.play();
+    }else if(departamento === 'guaviare'){
+      videoGuaviareRef.current.play();
     }
     scrollRef.current.style.visibility = 'visible';
   }
@@ -48,7 +52,7 @@ function App() {
       <Suspense>
         <Routes>
           <Route path='/' element={<Home videHomeRef={videHomeRef} />} />
-          <Route path='/guaviare' element={<h1>Guaviare</h1>} />
+          <Route path='/guaviare' element={<Gv2 videoGuaviareRef={videoGuaviareRef} />} />
           <Route path='*' element={<h1>No se encontró nada</h1>} />
           <Route />
         </Routes>
