@@ -1,0 +1,72 @@
+.homev2 {
+    position: relative;
+    background-color: rgb(223, 232, 211);
+    background: url("../../assets/home/homev2/fondo-homev2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    .homev2-mono {
+      position: absolute;
+      left: -2vw;
+      top: 5vh;
+      width: 20vw;
+      opacity: 0;
+    }
+  
+    .homev2-flor-der{
+      position: absolute;
+      right:-2vw;
+      top:20vh;
+      width: 20vw;
+      opacity: 0;
+    }
+  
+    .homev2-flor-izq{
+      position: absolute;
+      left:-2vw;
+      bottom:6vh;
+      width: 15vw;
+      opacity: 0;
+    }
+  
+    .homev2-ramo{
+      position: absolute;
+      right:-2vw;
+      bottom:1vh;
+      width: 10vw;
+      opacity: 0;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .homev2 { 
+      .homev2-mono {
+        position: absolute;
+        left: -4vw;
+        top: 5vh;
+        width: 50vw;
+      }
+  
+      .homev2-flor-der{
+        position: absolute;
+        right:-3vw;
+        top:20vh;
+        width: 40vw;
+      }
+  
+      .homev2-flor-izq{
+        position: absolute;
+        left:-6vw;
+        bottom:6vh;
+        width: 40vw;
+      }
+  
+      .homev2-ramo{
+        position: absolute;
+        right:-7vw;
+        bottom:1vh;
+        width: 30vw;
+      }
+    }
+  }
+  
