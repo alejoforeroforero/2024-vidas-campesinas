@@ -1,17 +1,24 @@
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { cambiarDepartamento } from '../../redux/states/managerSlice';
 import './GuaviareHome.css'
 
-import videoGuaviare from '../../assets/home/guaviare3.mp4'
+import GuaviareEntrada from './GuaviareEntrada';
+import Jorge from './Jorge';
 
-const GuaviareHome = ({videoGuaviareRef}) => {
+const GuaviareHome = ({ videoGuaviareRef }) => {
 
-  console.log('llego');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cambiarDepartamento('guaviare'))
+  }, [dispatch])
 
   return (
-    <div className="seccion guaviare" >
-      <div className="guaviare-video">
-      <video ref={videoGuaviareRef} loop playsInline muted className="guaviare-video-video" src={videoGuaviare}></video>
-      </div>
-    </div>
+    <>
+      <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
+      <Jorge />
+    </>
   )
 }
 

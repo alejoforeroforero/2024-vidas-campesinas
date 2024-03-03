@@ -1,0 +1,45 @@
+.jorge{
+    background-color: rgb(131, 172, 70);
+    background: url("../../assets/guaviare/jorge/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .jorge-titulo{
+        height: 25vh;
+        width: 100vw;
+        display: flex;
+        justify-content:baseline;
+        align-items: end;
+        padding: 0 18vw;
+
+        h1{
+            text-align: left;
+        }
+    }
+
+    .jorge-contenido{
+        width: 100vw;
+        height: 75vh;
+        overflow: hidden;
+        position: relative;
+
+        .jorge-info{
+            position: absolute;
+            z-index: 2;
+            left: 15vw;
+            top:15vh;
+            width: 50px;
+            cursor: pointer;
+        }
+
+        .jorge-foto{
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            right: 0;
+            width: 80vw;
+        }
+
+
+    }
+}

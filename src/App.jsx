@@ -5,11 +5,19 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Portada from './components/Portada';
+
 const Home = React.lazy(() => import('./secciones/Home/Home'));
 const GuaviareHome = React.lazy(() => import('./secciones/guaviare/GuaviareHome'));
+const GuaviareB = React.lazy(() => import('./secciones/guaviare/GuaviareB'));
+
+import Loading from './components/Loading';
+
+// import GuaviareB from './secciones/guaviare/GuaviareB';
 
 import logo from './assets/generales/logo.png';
 import scroll from './assets/generales/scroll.png';
+import ejeAImg from './assets/generales/ejeA.png'
+import ejeBImg from './assets/generales/ejeB.png'
 
 import './App.css'
 
@@ -19,15 +27,17 @@ function App() {
   const departamento = useSelector(state => state.managerReducer.departamento);
 
   const [yaEmpezo, setYaEmpezo] = useState(false);
+  const [hidennCanalB, setHideCanalB] = useState(true);
+
   const scrollRef = useRef(null);
   const videHomeRef = useRef(null);
   const videoGuaviareRef = useRef(null);
 
   const handleEmpezar = () => {
     setYaEmpezo(true);
-    if(departamento === 'home'){
+    if (departamento === 'home') {
       videHomeRef.current.play();
-    }else if(departamento === 'guaviare'){
+    } else if (departamento === 'guaviare') {
       videoGuaviareRef.current.play();
     }
     scrollRef.current.style.visibility = 'visible';
@@ -48,6 +58,34 @@ function App() {
           <Portada handleEmpezar={handleEmpezar} />
         </section>
       }
+
+      {yaEmpezo && 
+       <Suspense>
+        <section className='seccion-b'>
+          {departamento === 'home' && 
+            <div>Hola Home</div>
+          }
+          {departamento === 'guaviare' &&             
+            <Suspense fallback={<Loading />}><GuaviareB /></Suspense>
+          }
+        </section>
+       </Suspense>
+      }
+
+      <div>
+        {hidennCanalB &&
+          <div className='toogle-canal-b'>
+            <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
+          </div>
+        }
+
+        {!hidennCanalB &&
+          <div className='toogle-canal-a'>
+            <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
+          </div>
+        }
+      </div>
+
       <Suspense>
         <Routes>
           <Route path='/' element={<Home videHomeRef={videHomeRef} />} />
@@ -56,7 +94,6 @@ function App() {
           <Route />
         </Routes>
       </Suspense>
-
 
 
       {/* <Suspense>

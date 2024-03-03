@@ -15,7 +15,6 @@ const Portada = ({ handleEmpezar }) => {
             .timeline()
             .to(".portada-loader", { opacity: 0.4, duration: 2 })
             .to(".portada-loader", { y: '-100vh', opacity: 0, duration: 1 })
-            .fromTo(".logo", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 5, ease: 'back' })
             .to(".portada-audifonos-img", { opacity: 1, duration: 2 }, '<1')
             .to(".portada-p1", { opacity: 1, duration: 1 }, '<1')
             .to(".portada-p2", { opacity: 1, duration: 1 }, '<0.5')
