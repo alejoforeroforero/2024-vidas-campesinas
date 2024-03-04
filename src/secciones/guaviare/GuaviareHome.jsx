@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
 import './GuaviareHome.css'
@@ -6,14 +6,33 @@ import './GuaviareHome.css'
 import GuaviareEntrada from './GuaviareEntrada';
 import Jorge from './Jorge';
 import Carlos from './Carlos';
+import LoadingIcons from 'react-loading-icons';
 
 const GuaviareHome = ({ videoGuaviareRef }) => {
+
+  const [esconderLoading, setEsconderLoading] = useState(false)
+  const [pintarJorge, setPintarJorge] = useState(false)
+  const [pintarCarlos, setPintarCarlos] = useState(false)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
   }, [dispatch])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEsconderLoading(true)
+    }, 2000)
+
+    setTimeout(() => {
+      setPintarJorge(true)
+    }, 8000)
+
+    setTimeout(() => {
+      setPintarCarlos(true)
+    }, 16000)
+  })
 
   const lineas = [
     {
@@ -28,10 +47,12 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const personaje = useSelector(state => state.managerReducer.personaje);
 
-  console.log(personaje);
-
   return (
     <>
+      {!esconderLoading &&
+        <div className='portada-loader'><LoadingIcons.ThreeDots stroke="#888" fill="666" /></div>
+      }
+
       <div className='guaviare-lineas'>
         {lineas.map(linea => {
           return <div key={linea.id}
@@ -40,8 +61,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         })}
       </div>
       <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-      <Jorge />
-      <Carlos />
+      {pintarJorge && <Jorge />}
+      {pintarCarlos && <Carlos />}
+
     </>
   )
 }

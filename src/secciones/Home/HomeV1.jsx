@@ -19,6 +19,7 @@ const HomeV1 = ({videHomeRef}) => {
               markers: false
             }
           })
+          .to(".toogle-canal-b", {opacity:0, duration:0.2})
           .call(() => {
             videHomeRef.current.play();
           })

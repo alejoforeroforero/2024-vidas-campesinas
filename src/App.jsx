@@ -21,6 +21,8 @@ import ejeAImg from './assets/generales/ejeA.png'
 import ejeBImg from './assets/generales/ejeB.png'
 
 import './App.css'
+import EnDesarrollo from './components/EnDesarrollo';
+import NotFound from './components/NotFound';
 
 function App() {
   gsap.registerPlugin(ScrollTrigger);
@@ -72,9 +74,6 @@ function App() {
           <NavLink onClick={()=>{setShowingMenu(false)}} to='./cauca'>Cauca</NavLink>
         </div>
         <section className='seccion-b'>
-          {departamento === 'home' && 
-            <div>Hola Home</div>
-          }
           {departamento === 'guaviare' &&             
             <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
           }
@@ -100,9 +99,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home videHomeRef={videHomeRef} />} />
           <Route path='/guaviare' element={<GuaviareHome videoGuaviareRef={videoGuaviareRef} />} />
-          <Route path='/caqueta' element={<h1>En desarrollo</h1>} />
-          <Route path='/cauca' element={<h1>En desarrollo</h1>} />
-          <Route path='*' element={<h1>En desarrollo</h1>} />
+          <Route path='/caqueta' element={<EnDesarrollo />} />
+          <Route path='/cauca' element={<EnDesarrollo />} />
+          <Route path='*' element={<NotFound />} />
           <Route />
         </Routes>
       </Suspense>

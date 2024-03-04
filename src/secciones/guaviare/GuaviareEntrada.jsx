@@ -1,9 +1,9 @@
-
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import './GuaviareEntrada.css'
-import videoGuaviare from '../../assets/guaviare/home/guaviare.mp4';
+import videoGuaviare from '../../assets/guaviare/home/guaviare2.mp4';
+import videoGuaviarePoster from '../../assets/guaviare/home/guaviare-poster.jpg';
 
 const GuaviareEntrada = ({ videoGuaviareRef }) => {
 
@@ -23,13 +23,14 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
       .call(() => {
         videoGuaviareRef.current.play();
       })
+      .to(".toogle-canal-b", {opacity:0, duration:0.2})
       .to(".logo", { opacity: 0, y: -70, duration: 10 })
       .to(".scroll", { opacity: 0, y: 70, duration: 15 }, '<1')
       .to(".guaviare-titulo", { opacity: 1, duration: 30 })
-      .fromTo(".guaviare-titulo-h1", { opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 20, ease: 'back' })
-      .fromTo(".guaviare-descripcion-h2", { opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 20, ease: 'rough' })
-      .fromTo(".guaviare-descripcion-hr", { opacity: 0, width:'1vw'}, {opacity: 1, width:'55vw', duration: 20, ease: 'rough' }, '<1')
-      .fromTo(".guaviare-descripcion-p", { opacity: 0, y: -20}, {opacity: 1, y: 0, duration: 20, ease: 'rough' }, '<10')
+      .fromTo(".guaviare-titulo-h1", { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 20, ease: 'back' })
+      .fromTo(".guaviare-descripcion-h2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 20, ease: 'rough' })
+      .fromTo(".guaviare-descripcion-hr", { opacity: 0, width: '1vw' }, { opacity: 1, width: '55vw', duration: 20, ease: 'rough' }, '<1')
+      .fromTo(".guaviare-descripcion-p", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 20, ease: 'rough' }, '<10')
       .call(() => {
         videoGuaviareRef.current.play();
       })
@@ -46,7 +47,15 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
   return (
     <div className="seccion guaviare" >
       <div className="guaviare-video">
-        <video ref={videoGuaviareRef} loop playsInline muted className="guaviare-video-video" src={videoGuaviare}></video>
+        <video
+          ref={videoGuaviareRef}
+          loop
+          playsInline
+          muted
+          className="guaviare-video-video"
+          src={videoGuaviare}>
+          poster={videoGuaviarePoster}
+        </video>
       </div>
       <div className="guaviare-contenido">
         <div className='guaviare-titulo'>

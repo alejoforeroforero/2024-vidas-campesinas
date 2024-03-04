@@ -1,0 +1,12 @@
+.en-desarrollo{
+    position: absolute;
+    z-index: 120;
+    background-color: brown;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-size: 3rem;
+}

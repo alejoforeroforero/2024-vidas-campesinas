@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
 
@@ -9,17 +9,25 @@ import HomeV2 from './HomeV2';
 
 const Home = ({ videHomeRef }) => {
 
+  const [pintarHome2, setPintarHome2] = useState(false);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(cambiarDepartamento('home'))
+    dispatch(cambiarDepartamento(''))
   }, [dispatch])
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setPintarHome2(true);
+    }, 8000);
+  }, [])
 
 
   return (
     <>
       <HomeV1 videHomeRef={videHomeRef} />
-      <HomeV2 />
+      {pintarHome2 && <HomeV2 />}      
     </>
   )
 }
