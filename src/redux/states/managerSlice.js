@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   departamento: "Guaviare",
+  personaje:''
 };
 
 const managerSlice = createSlice({
@@ -11,9 +12,12 @@ const managerSlice = createSlice({
     cambiarDepartamento(state, action) {
       state.departamento = action.payload;
     },
+    establecerPersonaje(state, action){
+      state.personaje = action.payload;
+    }
   },
 });
 
-export const { cambiarDepartamento } = managerSlice.actions
+export const { cambiarDepartamento, establecerPersonaje } = managerSlice.actions
 
 export default managerSlice.reducer;
