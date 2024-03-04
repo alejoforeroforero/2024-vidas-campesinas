@@ -12,7 +12,7 @@
   }
   .portada {
     position: fixed;
-    z-index: 100;
+    z-index: 120;
     height: 100vh;
     background-color: rgb(131, 172, 70);
     background: url("../assets/generales/portada-fondo.jpg");

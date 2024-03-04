@@ -23,7 +23,6 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
       .call(() => {
         videoGuaviareRef.current.play();
       })
-      .to(".toogle-canal-b", {opacity:0, duration:0.2})
       .to(".logo", { opacity: 0, y: -70, duration: 10 })
       .to(".scroll", { opacity: 0, y: 70, duration: 15 }, '<1')
       .to(".guaviare-titulo", { opacity: 1, duration: 30 })

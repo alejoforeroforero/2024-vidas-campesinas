@@ -13,7 +13,6 @@ const Portada = ({ handleEmpezar }) => {
     useGSAP(() => {
         const tl1 = gsap
             .timeline()
-            .to(".toogle-canal-b", {opacity:0, duration:0.2})
             .to(".portada-loader", { opacity: 0.4, duration: 2 })
             .to(".portada-loader", { y: '-100vh', opacity: 0, duration: 1 })
             .to(".portada-audifonos-img", { opacity: 1, duration: 2 }, '<1')

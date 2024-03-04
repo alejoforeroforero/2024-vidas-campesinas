@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useLayoutEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
 
@@ -13,7 +13,7 @@ const Home = ({ videHomeRef }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(cambiarDepartamento(''))
   }, [dispatch])
 

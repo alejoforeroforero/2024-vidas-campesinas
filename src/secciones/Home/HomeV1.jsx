@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import videoHome from '../../assets/home/guaviare3.mp4';
+import homePoster from '../../assets/home/home-poster.jpg';
 
 import './HomeV1.css'
 
@@ -19,7 +20,6 @@ const HomeV1 = ({videHomeRef}) => {
               markers: false
             }
           })
-          .to(".toogle-canal-b", {opacity:0, duration:0.2})
           .call(() => {
             videHomeRef.current.play();
           })
@@ -55,7 +55,15 @@ const HomeV1 = ({videHomeRef}) => {
     <div className='seccion home'>
       <div id='home-id' className="seccion home" >
         <div className="home-video">
-          <video ref={videHomeRef} loop playsInline muted className="home-video-video" src={videoHome}></video>
+          <video 
+            ref={videHomeRef} 
+            loop 
+            playsInline 
+            muted 
+            className="home-video-video" 
+            poster={homePoster}
+            src={videoHome}>            
+          </video>
         </div>
         <div className="home-textos">
           <p className="home-textos-p1"> HLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut

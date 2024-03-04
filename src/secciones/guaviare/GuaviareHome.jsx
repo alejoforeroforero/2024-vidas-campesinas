@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
 import './GuaviareHome.css'
@@ -16,7 +16,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
   }, [dispatch])
 

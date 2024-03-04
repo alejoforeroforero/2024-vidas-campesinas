@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useRef } from 'react';
+import React, { useState, Suspense, useRef, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { gsap } from "gsap";
@@ -32,14 +32,22 @@ function App() {
   const [yaEmpezo, setYaEmpezo] = useState(false);
   const [showingMenu, setShowingMenu] = useState(false);
   const [hidennCanalB, setHideCanalB] = useState(true);
+  const [withCanalB, setWithCanalB] = useState(false);
 
   const scrollRef = useRef(null);
   const videHomeRef = useRef(null);
   const videoGuaviareRef = useRef(null);
 
+  useLayoutEffect(()=>{
+    if(departamento != ''){      
+      setWithCanalB(true);
+    }
+  },[departamento])
+
   const handleEmpezar = () => {
     setYaEmpezo(true);
-    if (departamento === 'home') {
+    
+    if (departamento === '') {
       videHomeRef.current.play();
     } else if (departamento === 'guaviare') {
       videoGuaviareRef.current.play();
@@ -82,13 +90,13 @@ function App() {
       }
 
       <div>
-        {hidennCanalB &&
+        {hidennCanalB && withCanalB &&
           <div className='toogle-canal-b'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
           </div>
         }
 
-        {!hidennCanalB &&
+        {!hidennCanalB && withCanalB &&
           <div className='toogle-canal-a'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
           </div>
