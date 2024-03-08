@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
+import { establecerPersonaje } from '../../redux/states/managerSlice';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -51,7 +52,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           scrub: 1,
           pin: true,
           markers: false,
-          onEnter:()=>{
+          onEnter: () => {
             console.log('entro');
             videoGuaviareRef.current.play();
           }
@@ -67,12 +68,16 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .call(() => {
         videoGuaviareRef.current.play();
       })
-      .to(".guaviare-contenido", { opacity: 0, duration: 15 })      
+      .to(".guaviare-contenido", { opacity: 0, duration: 15 })
       .call(() => {
         videoGuaviareRef.current.pause();
+        // dispatch(establecerPersonaje('linea-jorge'));
       })
-      .to(".guaviare", { opacity: 0, duration: 15 })
-      .fromTo(".jorge", {opacity:0},{opacity:1}, 15)
+      .to(".guaviare", { opacity: 0, zIndex: 1, duration: 15 })
+      .fromTo(".jorge", { opacity: 0 }, { opacity: 1, zIndex: 1, duration: 15 }, '<1')
+      .to(".jorge", { opacity: 1, zIndex: 2, duration: 1 })
+      .fromTo(".jorge", { opacity: 1 }, { opacity: 0, duration: 15 })
+
 
     return () => {
       tl.kill();

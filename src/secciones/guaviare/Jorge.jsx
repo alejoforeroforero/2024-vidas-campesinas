@@ -1,9 +1,4 @@
 import { useState } from 'react';
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useDispatch } from 'react-redux';
-import { establecerPersonaje } from '../../redux/states/managerSlice';
-
 
 import infoImg from '../../assets/generales/biografia.png';
 import jorgeFoto from '../../assets/guaviare/jorge/jorge-cano.png';
