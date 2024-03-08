@@ -1,9 +1,10 @@
 .guaviare {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh important;
   overflow: hidden;
   opacity: 1;
+  z-index: 2;
 
   h1 {
     color: aliceblue;
@@ -25,6 +26,16 @@
     }
   }
 
+  .guaviare-mask{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
   .guaviare-contenido {
     position: absolute;
     left: 0px;
@@ -32,6 +43,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 2;
+    opacity:0;
     background-color: rgba(0, 0, 0, 0.3);
 
     .guaviare-titulo{
@@ -40,13 +52,11 @@
         display: flex;
         justify-content: center;
         align-items:self-end;
-        opacity:0;
 
         h1{
             color:rgb(199, 199, 199);
             font-size:4rem;
             font-weight: bold;
-            opacity:0;
         }
     }
 
@@ -63,16 +73,14 @@
             text-align: left;            
             font-size: 2rem;
             font-weight: bold;
-            opacity:0;
         }
 
         hr{
-            width:1vw;
+            width:60vw;
             height: 6px;
             background-color: brown;
             border: 0px;
             margin-top: 2vh;
-            opacity:0;
         }
 
         p{
@@ -80,7 +88,6 @@
             text-align: left;
             margin-top: 2vh;
             width:55vw;
-            opacity:0;
         }
     }
   }

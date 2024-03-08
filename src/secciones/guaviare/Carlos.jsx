@@ -27,35 +27,6 @@ const Carlos = () => {
     setShowingPopup(false)
   }
 
-  useGSAP(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".carlos",
-          start: `top top`,
-          end: "+=8200",
-          invalidateOnRefresh: false,
-          scrub: 1,
-          pin: true,
-          markers: false
-        }
-      })
-      .fromTo(".carlos-titulo", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 20, ease: 'rough' })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-carlos'), '<10');
-      })
-      .fromTo(".carlos-foto", { x: -180, y: 170 }, { x: 0, y: 0, duration: 20, ease: 'back' })
-      .fromTo(".carlos-info", { opacity: 0 }, { opacity: 1, duration: 10, ease: 'rough' }, '<4')
-      .fromTo(".carlos-entrada", { opacity: 1, zIndex: 2 }, { opacity: 0, zIndex: 1, duration: 10, ease: 'rough' })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-carlos'));
-      })
-      
-    return () => {
-      tl.kill();
-    }
-  }, [])
-
   return (
     <div className="seccion carlos" >
       <div className='carlos-entrada'>

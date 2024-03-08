@@ -1,18 +1,21 @@
 import { useEffect, useState, useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { cambiarDepartamento } from '../../redux/states/managerSlice';
-import './GuaviareHome.css'
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import GuaviareEntrada from './GuaviareEntrada';
 import Jorge from './Jorge';
 import Carlos from './Carlos';
 import LoadingIcons from 'react-loading-icons';
 
+import './GuaviareHome.css'
+
 const GuaviareHome = ({ videoGuaviareRef }) => {
 
-  const [esconderLoading, setEsconderLoading] = useState(false)
-  const [pintarJorge, setPintarJorge] = useState(false)
-  const [pintarCarlos, setPintarCarlos] = useState(false)
+  const [esconderLoading, setEsconderLoading] = useState(false);
+
+  const personaje = useSelector(state => state.managerReducer.personaje);
 
   const dispatch = useDispatch();
 
@@ -24,14 +27,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     setTimeout(() => {
       setEsconderLoading(true)
     }, 2000)
-
-    setTimeout(() => {
-      setPintarJorge(true)
-    }, 8000)
-
-    setTimeout(() => {
-      setPintarCarlos(true)
-    }, 16000)
   })
 
   const lineas = [
@@ -45,7 +40,46 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     },
   ]
 
-  const personaje = useSelector(state => state.managerReducer.personaje);
+  useGSAP(() => {
+    const tl = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".guaviare-contenedor-general",
+          start: `top top`,
+          end: "+=8200",
+          invalidateOnRefresh: false,
+          scrub: 1,
+          pin: true,
+          markers: false,
+          onEnter:()=>{
+            console.log('entro');
+            videoGuaviareRef.current.play();
+          }
+        }
+      })
+      .call(() => {
+        videoGuaviareRef.current.play();
+      })
+      .to(".logo", { opacity: 0, y: -70, duration: 10 })
+      .to(".scroll", { opacity: 0, y: 70, duration: 15 }, '<1')
+      .to(".guaviare-contenido", { opacity: 1, duration: 15 })
+      .to(".guaviare-contenido", { opacity: 1, duration: 15 })
+      .call(() => {
+        videoGuaviareRef.current.play();
+      })
+      .to(".guaviare-contenido", { opacity: 0, duration: 15 })      
+      .call(() => {
+        videoGuaviareRef.current.pause();
+      })
+      .to(".guaviare", { opacity: 0, duration: 15 })
+      .fromTo(".jorge", {opacity:0},{opacity:1}, 15)
+
+    return () => {
+      tl.kill();
+    }
+  }, [])
+
+
 
   return (
     <>
@@ -60,9 +94,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           />
         })}
       </div>
-      <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-      {pintarJorge && <Jorge />}
-      {pintarCarlos && <Carlos />}
+      <div className='guaviare-contenedor-general'>
+        <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
+        <Jorge />
+        <Carlos />
+      </div>
 
     </>
   )

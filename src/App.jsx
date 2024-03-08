@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useRef, useLayoutEffect } from 'react';
+import React, { useState, Suspense, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { gsap } from "gsap";
@@ -24,6 +24,7 @@ import './App.css'
 import EnDesarrollo from './components/EnDesarrollo';
 import NotFound from './components/NotFound';
 
+
 function App() {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -32,21 +33,15 @@ function App() {
   const [yaEmpezo, setYaEmpezo] = useState(false);
   const [showingMenu, setShowingMenu] = useState(false);
   const [hidennCanalB, setHideCanalB] = useState(true);
-  const [withCanalB, setWithCanalB] = useState(false);
 
   const scrollRef = useRef(null);
   const videHomeRef = useRef(null);
   const videoGuaviareRef = useRef(null);
 
-  useLayoutEffect(()=>{
-    if(departamento != ''){      
-      setWithCanalB(true);
-    }
-  },[departamento])
+   const handleEmpezar = () => {
 
-  const handleEmpezar = () => {
     setYaEmpezo(true);
-    
+
     if (departamento === '') {
       videHomeRef.current.play();
     } else if (departamento === 'guaviare') {
@@ -56,14 +51,13 @@ function App() {
   }
 
   return (
-    <>
-      <div className='logo'>
-        <img src={logo} alt="logo" />
-      </div>
-
-      <div ref={scrollRef} className='scroll'>
-        <img src={scroll} alt="scroll-img" />
-      </div>
+    <>    
+        <div className='logo'>
+          <img src={logo} alt="logo" />
+        </div>    
+        <div ref={scrollRef} className='scroll'>
+          <img src={scroll} alt="scroll-img" />
+        </div>     
 
       {!yaEmpezo &&
         <section className='seccion-general'>
@@ -71,32 +65,32 @@ function App() {
         </section>
       }
 
-      {yaEmpezo && 
-       <Suspense>
-        <div className='menu'>
-          <img onClick={()=>{setShowingMenu(!showingMenu)}} src={menu} alt="menu" />
-        </div>
-        <div className={showingMenu ? 'menu-contenido menu-show' : 'menu-contenido menu-hide'}>
-          <NavLink onClick={()=>{setShowingMenu(false)}} to='./guaviare'>Guaviare</NavLink>
-          <NavLink onClick={()=>{setShowingMenu(false)}} to='./caqueta'>Caqueta</NavLink>
-          <NavLink onClick={()=>{setShowingMenu(false)}} to='./cauca'>Cauca</NavLink>
-        </div>
-        <section className='seccion-b'>
-          {departamento === 'guaviare' &&             
-            <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
-          }
-        </section>
-       </Suspense>
+      {yaEmpezo &&
+        <Suspense>
+          <div className='menu'>
+            <img onClick={() => { setShowingMenu(!showingMenu) }} src={menu} alt="menu" />
+          </div>
+          <div className={showingMenu ? 'menu-contenido menu-show' : 'menu-contenido menu-hide'}>
+            <NavLink onClick={() => { setShowingMenu(false) }} to='./guaviare'>Guaviare</NavLink>
+            <NavLink onClick={() => { setShowingMenu(false) }} to='./caqueta'>Caqueta</NavLink>
+            <NavLink onClick={() => { setShowingMenu(false) }} to='./cauca'>Cauca</NavLink>
+          </div>
+          <section className='seccion-b'>
+            {departamento === 'guaviare' &&
+              <Suspense fallback={<Loading />}><GuaviareB hideCanalB={hidennCanalB} /></Suspense>
+            }
+          </section>
+        </Suspense>
       }
 
       <div>
-        {hidennCanalB && withCanalB &&
+        {hidennCanalB && 
           <div className='toogle-canal-b'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
           </div>
         }
 
-        {!hidennCanalB && withCanalB &&
+        {!hidennCanalB && 
           <div className='toogle-canal-a'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
           </div>

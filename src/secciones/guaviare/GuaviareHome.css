@@ -1,3 +1,10 @@
+guaviare-contenedor-general{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+}
 .guaviare-lineas{
     position: fixed;
     height: 100%;

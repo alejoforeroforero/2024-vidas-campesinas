@@ -20,8 +20,6 @@ import YoutubePlayer from '../../components/YoutubePlayer';
 
 const Jorge = () => {
 
-  const dispatch = useDispatch();
-
   const [showingPopup, setShowingPopup] = useState(false);
 
   const biografia = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, \
@@ -32,58 +30,6 @@ const Jorge = () => {
   const handleClosePopup = () => {
     setShowingPopup(false)
   }
-
-  useGSAP(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".jorge",
-          start: `top top`,
-          end: "+=8200",
-          invalidateOnRefresh: false,
-          scrub: 1,
-          pin: true,
-          markers: false
-        }
-      })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-jorge'));
-      })
-      .to(".scroll", { visibility: 'visible', duration: 2 })
-      .to(".logo", { visibility: 'visible', duration: 2 })
-      .to(".logo", { visibility: 'hidden', duration: 2 })
-      .to(".scroll", { visibility: 'hidden', duration: 2 })
-      .fromTo(".toogle-canal-b",{opacity:0}, { opacity:1, duration: 10 })
-      .fromTo(".jorge-titulo", { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 20, ease: 'rough' })
-      .to(".guaviare-lineas", {opacity:1, duration: 20},'<')
-      .fromTo(".jorge-foto", { x: 180, y: 170 }, { x: 0, y: 0, duration: 20, ease: 'back' })
-      .fromTo(".jorge-info", { opacity: 0 }, { opacity: 1, duration: 10, ease: 'rough' }, '<4')
-      .fromTo(".jorge-entrada", { opacity: 1, zIndex: 2 }, { opacity: 0, zIndex: 1, duration: 10, ease: 'rough' })
-      .fromTo(".jorge-youtube", { opacity: 0, zIndex: 1 }, { opacity: 1, zIndex: 2, duration: 10, ease: 'rough' }, '<5')
-      .fromTo(".jorge-youtube", { opacity: 1 }, { opacity: 1, duration: 40 })
-      .fromTo(".jorge-youtube", { opacity: 1, zIndex: 2 }, { opacity: 0, zIndex: 1, duration: 40, ease: 'rough' })
-      .fromTo(".jorge-audio", { opacity: 0, zIndex: 1, scale:3 }, { opacity: 1, zIndex: 2, scale:1, duration: 40, ease: 'rough' }, '<5')
-      .fromTo(".jorge-audio-frase-h2", { opacity: 0 }, { opacity: 1, duration: 10, ease: 'rough' })
-      .fromTo(".jorge-audio-continer", { opacity: 0 }, { opacity: 1, duration: 10, ease: 'rough' })
-      .fromTo(".jorge-audio", { opacity: 1, zIndex: 2 }, { opacity: 0, zIndex: 1, duration: 40, ease: 'rough' })    
-      .fromTo(".jorge-galeria", { opacity: 0, zIndex: 1 }, { opacity: 1, zIndex: 2, duration: 10, ease: 'rough' }, '<5')
-      .to(".jorge-foto-1", { opacity:1, duration: 20 }, '<-20')
-      .to(".jorge-foto-2", { opacity:1, duration: 20 })
-      .to(".jorge-foto-3", { opacity:1, duration: 20 })
-      .to(".jorge-foto-4", { opacity:1, duration: 20 })
-      .to(".jorge-foto-5", { opacity:1, duration: 20 })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-jorge'));
-      })
-      .to(".jorge-galeria", { opacity:0, duration: 10 })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-carlos'));
-      })
-      
-    return () => {
-      tl.kill();
-    }
-  }, [])
 
   const audios = [
     {
