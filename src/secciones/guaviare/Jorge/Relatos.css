@@ -15,7 +15,23 @@
     z-index: 2;
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 15vh;    
+
+    .relatos-audio-obj{
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 10px 10vw;
+      font-size: 0.8rem;
+
+      img{
+        width:24px;
+        cursor:pointer;
+      }
+    }
   }
 
   /* .relatos-video {

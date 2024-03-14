@@ -1,0 +1,12 @@
+.carousel-general{
+    border:1px solid red;
+
+    .image-container{
+        width:300px;
+        height: 300px;
+
+        img{
+            width:200px;
+        }
+    }
+}

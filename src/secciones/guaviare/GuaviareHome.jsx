@@ -9,6 +9,7 @@ import GuaviareEntrada from './GuaviareEntrada';
 import JorgeBio from './Jorge/Bio';
 import JorgeYoutube from './Jorge/Youtube';
 import JorgeRelatos from './Jorge/Relatos';
+import JorgeGaleria from './Jorge/Galeria';
 
 import LoadingIcons from 'react-loading-icons';
 
@@ -113,7 +114,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         jorgeRelatoVideoRef.current.play();
       })
       .fromTo(".jorge-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
-      .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 2, duration: tempo * 3 })
+      .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
+      // .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 1, duration: tempo * 3 })
 
     return () => {
       tl.kill();
@@ -140,7 +142,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           <JorgeYoutube />
           <JorgeRelatos
             jorgeRelatoVideoRef={jorgeRelatoVideoRef}
+            audioObj={audioObj}
           />
+          <JorgeGaleria />
         </div>
       </div>
     </>
