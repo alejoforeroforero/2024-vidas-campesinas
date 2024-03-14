@@ -1,12 +1,42 @@
 .carousel-general{
-    border:1px solid red;
+    width: 100vw;
+    height: 100vh;
 
     .image-container{
-        width:300px;
-        height: 300px;
+        width:100vw;
+        height: 80vh;
 
         img{
-            width:200px;
+            object-fit:contain;
+            height:80vh;
         }
+    }
+    .carousel-navegacion{
+        margin-top: 5vh;
+        display: flex;
+        justify-content:center;
+    }
+
+    .galerias-s{
+        width:10px;
+        height:10px;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .galerias-n{
+        width:10px;
+        height:10px;
+        border-radius: 50%;
+        background-color: rgb(112, 111, 111);
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    p{
+        margin-top: 2vh;
+        font-size: 0.7rem;
     }
 }

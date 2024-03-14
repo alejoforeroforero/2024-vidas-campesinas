@@ -1,11 +1,12 @@
+import { useState, useEffect } from 'react';
+import LoopVideo from '../../../components/LoopVideo';
+
 import relatosVideo from '../../../assets/guaviare/jorge/loop-relatos.mp4';
 import videoGuaviarePoster from '../../../assets/guaviare/home/guaviare-poster.jpg';
-import './Relatos.css'
-import LoopVideo from '../../../components/LoopVideo';
 import audioImg from '../../../assets/generales/audio.png';
 import audioOnImg from '../../../assets/generales/audio-on.png';
-import { useState, useEffect } from 'react';
 
+import './Relatos.css'
 
 const Relatos = ({ jorgeRelatoVideoRef, audioObj }) => {
 

@@ -115,7 +115,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .fromTo(".jorge-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
       .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
-      // .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 1, duration: tempo * 3 })
+      .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 1, duration: tempo * 3 })
 
     return () => {
       tl.kill();

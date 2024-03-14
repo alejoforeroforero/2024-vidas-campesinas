@@ -24,7 +24,6 @@ const Galeria = () => {
             {mostrarGaleria &&
                 <GaleriaJorge />
             }
-
         </div>
     )
 }

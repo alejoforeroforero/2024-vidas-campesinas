@@ -18,15 +18,31 @@ const GaleriaC = () => {
         setCurrentImage((currentImage + 1) % images.length);
     };
 
+    const handleOnClick = (index) => {
+        setCurrentImage(index);
+    }
 
     return (
         <div className="carousel-general">
             <div className="carousel-container">
-                <button onClick={prevImage}>Anterior</button>
                 <div className="image-container">
                     <img src={images[currentImage]} alt='images' />
                 </div>
-                <button onClick={nextImage}>Siguiente</button>
+                <div className='carousel-navegacion'>
+                    {images.map((img, index) => {
+                        return (
+                            <div 
+                                onClick={() => { handleOnClick(index) }} 
+                                key={index}
+                                className={(index ==currentImage) ? 'galerias-s' : 'galerias-n' }
+                            > 
+                            </div>
+                        )
+                    })}
+                </div>
+                {/* <button onClick={prevImage}>  </button>
+                <button onClick={nextImage}>Siguiente</button> */}
+                <p>{currentImage+1}</p>
             </div>
         </div>
 

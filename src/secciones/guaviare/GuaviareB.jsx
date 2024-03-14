@@ -4,6 +4,9 @@ import hojasDer from '../../assets/guaviare/canal-b/caceria/hojas-der.png';
 import onca from '../../assets/guaviare/canal-b/caceria/onca.png';
 
 import './GuaviareB.css';
+import CaceriaIntro from './Caceria/CaceriaIntro';
+import CaceriaAudio1 from './Caceria/CaceriaAudio1';
+import CaceriaAudio2 from './Caceria/CaceriaAudio2';
 
 const GuaviareB = ({ hideCanalB }) => {
 
@@ -11,22 +14,14 @@ const GuaviareB = ({ hideCanalB }) => {
         <>
             <div className={hideCanalB ? 'guaviare-canal-b canal-b-hide' : 'guaviare-canal-b canal-b-show'}>
                 <section className='cazeria-contenedor'>
-                    <div className='cazeria'>
-                        <img className='cazeria-titi' src={titi} alt="titi" />
-                        <img className='cazeria-hojas-izq' src={hojasIzq} alt="hojas-izq" />
-                        <img className='cazeria-hojas-der' src={hojasDer} alt="hojas-der" />
-                        <img className='cazeria-onca' src={onca} alt="hojas-onca" />
-                        <h1 className='cazeria-titulo'>CACERIA</h1>
-                        <h2 className='cazeria-frase'>“Frase sobre la cacería y época de comercio de pieles”</h2>
+                    <div>
+                        <CaceriaIntro />
                     </div>
-                    <div className='cazeria2'>
-                        <div className='cazeria2-fondo'></div>
-                        <img className='cazeria-titi' src={titi} alt="titi" />
-                        <img className='cazeria-hojas-izq' src={hojasIzq} alt="hojas-izq" />
-                        <img className='cazeria-hojas-der' src={hojasDer} alt="hojas-der" />
-                        <img className='cazeria-onca' src={onca} alt="hojas-onca" />
-                        <h1 className='cazeria-titulo'>CACERIA</h1>
-                        <h2 className='cazeria-frase'>“Frase sobre la cacería y época de comercio de pieles”</h2>
+                    <div>
+                        <CaceriaAudio1 />
+                    </div>
+                    <div>
+                        <CaceriaAudio2 />
                     </div>
                 </section>
             </div>

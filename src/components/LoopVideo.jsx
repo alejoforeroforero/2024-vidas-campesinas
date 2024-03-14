@@ -6,9 +6,11 @@ const LoopVideo = ({ videoRef, tiempo, video, poster }) => {
     const [mostrarVideo, setMostrarVideo] = useState(null);
 
     useEffect(() => {
-        setInterval(() => {
+        const timer = setTimeout(() => {
             setMostrarVideo(true);
         }, tiempo)
+
+        return () => clearTimeout(timer);
     }, [])
 
     return (

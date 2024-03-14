@@ -50,9 +50,6 @@ function App() {
     scrollRef.current.style.visibility = 'visible';
   }
 
-  //etZJPEVcpSU
-  //"Ke_53rCjS_U"
-
   return (
     <>
       <div className='logo'>

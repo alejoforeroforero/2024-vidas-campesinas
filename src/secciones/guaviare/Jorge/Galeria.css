@@ -1,15 +1,15 @@
 .jorge-galeria{
     background-color: rgb(2, 15, 26);
     position: absolute;
-    opacity: 1;
-    z-index: 10000;
+    opacity: 0;
+    z-index: 0;
 }
 
-.carousel {
+/* .carousel {
     height: 88vh;
+    border:1px solid red;
 
     img{
-        object-fit: cover;
-        height: 80vh;
+        width: 100vw;
     }
-}
+} */
