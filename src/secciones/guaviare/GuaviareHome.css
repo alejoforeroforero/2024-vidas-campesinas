@@ -1,31 +1,49 @@
-guaviare-contenedor-general{
+.guaviare-gsap{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+@media screen and (orientation: portrait) {
+  .guaviare-contenedor-general {
     position: relative;
     z-index: 1;
-    width: 100%;
-    height: 100%;
-
+    width: 100vw !important;
+    min-height: 100vh;
+  }
 }
-.guaviare-lineas{
-    position: fixed;
-    height: 100%;
-    width: 60px;
+
+@media screen and (orientation: landscape) {
+  .guaviare-contenedor-general {
+    position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    padding-left: 10px;
-    opacity:0;
+    width: 2000px !important;
+    height: 100vh;
+  }
 }
 
-.linea{
-    width:30px;
-    height: 3px;
-    background-color: aliceblue;
-    margin-top: 10px;
-    transition: 1s;
+.guaviare-lineas {
+  position: fixed;
+  height: 100%;
+  width: 60px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-left: 10px;
+  opacity: 0;
 }
 
-.linea-seleccionada{
-    width:50px;
+.linea {
+  width: 30px;
+  height: 3px;
+  background-color: aliceblue;
+  margin-top: 10px;
+  transition: 1s;
 }
+
+.linea-seleccionada {
+  width: 50px;
+}
+

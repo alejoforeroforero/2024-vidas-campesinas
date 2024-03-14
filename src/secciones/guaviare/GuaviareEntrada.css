@@ -1,6 +1,6 @@
 .guaviare {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100vh important;
   overflow: hidden;
   opacity: 1;
@@ -19,14 +19,14 @@
     z-index: 1;
 
     video {
-      height: 100%;
-      width: 100%;
+      height: 100vh;
+      width: 100vw;
       object-fit: cover;
       opacity: 1;
     }
   }
 
-  .guaviare-mask{
+  .guaviare-mask {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -43,52 +43,77 @@
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    opacity:0;
+    opacity: 0;
     background-color: rgba(0, 0, 0, 0.3);
 
-    .guaviare-titulo{
-        background-color: rgba(208, 81, 55, 0.5);
-        height: 38vh;
-        display: flex;
-        justify-content: center;
-        align-items:self-end;
+    .guaviare-titulo {
+      height: 28vh;
+      display: flex;
+      justify-content: center;
+      align-items: self-end;
 
-        h1{
-            color:rgb(199, 199, 199);
-            font-size:4rem;
-            font-weight: bold;
-        }
+      h1 {
+        color: rgb(208, 81, 55);
+        font-size: 4rem;
+        font-weight: bold;
+      }
     }
 
-    .guaviare-descripcion{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items:start;
-        padding: 5vh 10vw;
+    .guaviare-descripcion {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: start;
+      padding: 5vh 18vw;
 
-        h2{
-            color:rgb(199, 199, 199);
-            width: 100%;
-            text-align: left;            
-            font-size: 2rem;
-            font-weight: bold;
-        }
+      h2 {
+        color: rgb(199, 199, 199);
+        width: 100%;
+        text-align: left;
+        font-size: 2rem;
+        font-weight: bold;
+      }
 
-        hr{
-            width:60vw;
-            height: 6px;
-            background-color: brown;
-            border: 0px;
-            margin-top: 2vh;
-        }
+      hr {
+        width: 58vw;
+        height: 6px;
+        background-color: brown;
+        border: 0px;
+        margin-top: 2vh;
+      }
 
-        p{
-            font-size: 1.2rem;
-            text-align: left;
-            margin-top: 2vh;
-            width:55vw;
-        }
+      .guaviare-descripcion-p-contenedor {
+        position: relative;
+        width: 60vw;
+        height: 40vh;
+      }
+
+      p {
+        position: absolute;
+        font-size: 1rem;
+        text-align: left;
+        margin-top: 2vh;
+        width: 60vw;
+      }
+
+      .guaviare-descripcion-p1 {
+        opacity: 1;
+      }
+
+      .guaviare-descripcion-p2 {
+        opacity: 0;
+      }
+    }
+  }
+
+  .guaviare-descripcion-grafica{
+    position: absolute;
+    right: 0;
+    bottom: 4vh;
+    width: 40vw;
+
+    img{
+      width: 40vw;
     }
   }
 }

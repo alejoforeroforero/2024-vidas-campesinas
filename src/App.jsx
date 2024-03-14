@@ -38,7 +38,7 @@ function App() {
   const videHomeRef = useRef(null);
   const videoGuaviareRef = useRef(null);
 
-   const handleEmpezar = () => {
+  const handleEmpezar = () => {
 
     setYaEmpezo(true);
 
@@ -50,14 +50,17 @@ function App() {
     scrollRef.current.style.visibility = 'visible';
   }
 
+  //etZJPEVcpSU
+  //"Ke_53rCjS_U"
+
   return (
-    <>    
-        <div className='logo'>
-          <img src={logo} alt="logo" />
-        </div>    
-        <div ref={scrollRef} className='scroll'>
-          <img src={scroll} alt="scroll-img" />
-        </div>     
+    <>
+      <div className='logo'>
+        <img src={logo} alt="logo" />
+      </div>
+      <div ref={scrollRef} className='scroll'>
+        <img src={scroll} alt="scroll-img" />
+      </div>
 
       {!yaEmpezo &&
         <section className='seccion-general'>
@@ -84,13 +87,13 @@ function App() {
       }
 
       <div>
-        {hidennCanalB && 
+        {hidennCanalB &&
           <div className='toogle-canal-b'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
           </div>
         }
 
-        {!hidennCanalB && 
+        {!hidennCanalB &&
           <div className='toogle-canal-a'>
             <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeAImg} alt="" />
           </div>

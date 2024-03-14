@@ -1,0 +1,36 @@
+.jorge-relatos {
+  position: absolute;
+  width: 100vw;
+  height: 100vh important;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 0;
+
+  .jorge-relatos-contenido {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid red;
+  }
+
+  /* .relatos-video {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+    
+        video {
+          height: 100vh;
+          width: 100vw;
+          object-fit: cover;
+          opacity: 1;
+        }
+    } */
+}

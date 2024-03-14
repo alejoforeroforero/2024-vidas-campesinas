@@ -1,0 +1,20 @@
+.youtube-portal{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 1000;
+
+    .close-portal{
+        position: absolute;
+        right:0px;
+        top:0px;
+        z-index: 1200;
+        background-color: red;
+        padding: 20px;
+        border: none;
+        cursor: pointer;
+    }
+}
