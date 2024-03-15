@@ -7,8 +7,10 @@
         height: 80vh;
 
         img{
+            width:100vw;
+            height: 80vh;
+            aspect-ratio: 3/2;
             object-fit:contain;
-            height:80vh;
         }
     }
     .carousel-navegacion{

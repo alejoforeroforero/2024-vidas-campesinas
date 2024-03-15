@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { escogerCancion } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 
 import relatosVideo from '../../../assets/guaviare/jorge/loop-relatos.mp4';
@@ -8,31 +10,41 @@ import audioOnImg from '../../../assets/generales/audio-on.png';
 
 import './Relatos.css'
 
-const Relatos = ({ jorgeRelatoVideoRef, audioObj }) => {
+const Relatos = ({ jorgeRelatoVideoRef }) => {
+
+    const dispatch = useDispatch();
+    const cancionActual = useSelector(state => state.managerReducer.cancionActual);
 
     const [pAudio1, setPAudio1] = useState(null);
     const [pAudio2, setPAudio2] = useState(null);
 
-    useEffect(()=>{
-        audioObj[1].pause();
-        audioObj[2].pause();
-
-        if(pAudio1){
-            audioObj[1].play();
-        }else if(pAudio2){
-            audioObj[2].play();
+    useEffect(() => {
+        if (cancionActual == null) {
+            setPAudio1(false);
+            setPAudio2(false);
         }
-    }, [pAudio1, pAudio2])
+    }, [cancionActual])
 
-
-    const playAudio1 = ()=>{
-        setPAudio1(!pAudio1);
-        setPAudio2(false)
+    const playAudio1 = () => {
+        if (cancionActual == 1) {
+            setPAudio1(false);
+            dispatch(escogerCancion(null));
+        } else {
+            setPAudio1(true);
+            setPAudio2(false);
+            dispatch(escogerCancion(1));
+        }
     }
 
-    const playAudio2 = ()=>{ 
-        setPAudio2(!pAudio2)
-        setPAudio1(false)
+    const playAudio2 = () => {
+        if (cancionActual == 2) {
+            setPAudio2(false);
+            dispatch(escogerCancion(null));
+        } else {
+            setPAudio1(false);
+            setPAudio2(true);
+            dispatch(escogerCancion(2));
+        }
     }
 
     return (
@@ -46,11 +58,11 @@ const Relatos = ({ jorgeRelatoVideoRef, audioObj }) => {
             <div className="relatos-mask"></div>
             <div className="jorge-relatos-contenido">
                 <div className='relatos-audio-obj'>
-                    <img src={(pAudio1) ? audioOnImg : audioImg} onClick={()=>{playAudio1()}} ></img>
+                    <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
                     <p>"Cuando llegué al Raudal"</p>
                 </div>
                 <div className='relatos-audio-obj'>
-                    <img src={(pAudio2) ? audioOnImg : audioImg} onClick={()=>{playAudio2()}} ></img>
+                    <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
                     <p>"Somos nuestras propias ambulancias"</p>
                 </div>
             </div>

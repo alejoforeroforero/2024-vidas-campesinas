@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   departamento: '',
   personaje:'',
-  youtube:null
+  youtube:null,
+  cancionActual:null,
+  cancionAnterior:null
 };
 
 const managerSlice = createSlice({
@@ -18,11 +20,14 @@ const managerSlice = createSlice({
     },
     cambiarYotube(state, action){
       state.youtube = action.payload
+    },
+    escogerCancion(state, action){
+      state.cancionAnterior = state.cancionActual;
+      state.cancionActual = action.payload
     }
-
   },
 });
 
-export const { cambiarDepartamento, establecerPersonaje, cambiarYotube } = managerSlice.actions
+export const { cambiarDepartamento, establecerPersonaje, cambiarYotube, escogerCancion } = managerSlice.actions
 
 export default managerSlice.reducer;

@@ -50,6 +50,15 @@ function App() {
     scrollRef.current.style.visibility = 'visible';
   }
 
+  const handleCanalBOnClick = () => {
+    setHideCanalB(!hidennCanalB)
+    console.log(window.scrollY)
+
+    setTimeout(()=>{
+      
+    })
+  }
+
   return (
     <>
       <div className='logo'>
@@ -86,7 +95,7 @@ function App() {
       <div>
         {hidennCanalB &&
           <div className='toogle-canal-b'>
-            <img onClick={() => setHideCanalB(!hidennCanalB)} src={ejeBImg} alt="" />
+            <img onClick={()=>handleCanalBOnClick()} src={ejeBImg} alt="" />
           </div>
         }
 

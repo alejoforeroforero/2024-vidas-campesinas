@@ -1,6 +1,11 @@
 import { useEffect, useState, useLayoutEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { cambiarDepartamento, establecerPersonaje, cambiarYotube } from '../../redux/states/managerSlice';
+import {
+  cambiarDepartamento,
+  establecerPersonaje,
+  cambiarYotube,
+  escogerCancion,
+} from '../../redux/states/managerSlice';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { crearAudioPlayer } from './components/RelatosPlayer';
@@ -21,18 +26,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const [esconderLoading, setEsconderLoading] = useState(false);
   const audioObj = crearAudioPlayer();
 
-  const playAudio = (index) => {
-    if(!audioObj[index].playing()){
-      audioObj[index].play();
-    }
-  }
-
-  const pausarAudio = (index) => {
-    if(audioObj[index].playing()){
-      audioObj[index].pause();
-    }
-  }
-
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
   }, [dispatch])
@@ -47,19 +40,37 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   // const tempo = 4;
   const tempo = 2;
   const personaje = useSelector(state => state.managerReducer.personaje);
+  const cancionActual = useSelector(state => state.managerReducer.cancionActual);
+  const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
   const jorgeRelatoVideoRef = useRef(null);
+
+  useEffect(() => {
+    if (cancionAnterior != null) {
+      audioObj[cancionAnterior].pause();
+    }
+
+    if (cancionActual != null) {
+      audioObj[cancionActual].play();
+    }
+  }, [cancionActual])
 
 
   const lineas = [
     {
       id: 'linea-jorge',
-      titulo: 'Jorge Cano'
+      titulo: 'Jorge Cano',
+      navegacion: 'guaviare-jorge-navegacion'
     },
     {
       id: 'linea-carlos',
-      titulo: 'Carlos Mancera'
+      titulo: 'Carlos Mancera',
+      navegacion: 'guaviare-carlos-navegacion'
     },
   ]
+
+  const handleNavegacion = (id)=>{
+    window.scrollTo({ top: 7000, behavior: 'auto' });
+  }
 
   useGSAP(() => {
     const tl = gsap
@@ -74,6 +85,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           markers: false,
           onEnter: () => {
             videoGuaviareRef.current.play();
+          },
+          onUpdate:(self)=>{
+            // console.log(self.progress.toFixed(3), window.scrollY);
           }
         }
       })
@@ -91,17 +105,18 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .fromTo(".jorge-bio", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<')
       .call(() => {
         videoGuaviareRef.current.play();
+        dispatch(escogerCancion(null))
       })
       .call(() => {
         videoGuaviareRef.current.pause();
         dispatch(establecerPersonaje('linea-jorge'));
-        playAudio(0);
+        dispatch(escogerCancion(0))
       })
       .fromTo(".jorge-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
       .to(".jorge-bio", { opacity: 0, zIndex: 1, duration: tempo * 3 })
       .fromTo(".jorge-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 3 }, '<5')
       .call(() => {
-        pausarAudio(0);
+        dispatch(escogerCancion(null))
       })
       .fromTo(".jorge-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
       .to(".jorge-youtube", { opacity: 1, zIndex: 2, duration: tempo * 2 })
@@ -109,6 +124,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .fromTo(".jorge-relatos", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<1')
       .call(() => {
         jorgeRelatoVideoRef.current.pause();
+        dispatch(escogerCancion(null))
       })
       .call(() => {
         jorgeRelatoVideoRef.current.play();
@@ -130,7 +146,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
       <div className='guaviare-lineas'>
         {lineas.map(linea => {
-          return <div key={linea.id}
+          return <div 
+            onClick={()=>{handleNavegacion(linea.navegacion)}}
+            key={linea.id}
             className={personaje === linea.id ? 'linea linea-seleccionada' : 'linea'}
           />
         })}
@@ -138,12 +156,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       <div className='guaviare-gsap'>
         <div className='guaviare-contenedor-general'>
           <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-          <JorgeBio />
+          <div id='guaviare-jorge-navegacion'>
+            <JorgeBio />
+          </div>
           <JorgeYoutube />
-          <JorgeRelatos
-            jorgeRelatoVideoRef={jorgeRelatoVideoRef}
-            audioObj={audioObj}
-          />
+          <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
           <JorgeGaleria />
         </div>
       </div>

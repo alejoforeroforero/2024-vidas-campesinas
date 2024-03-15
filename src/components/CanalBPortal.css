@@ -1,11 +1,11 @@
-.youtube-portal{
+.canal-b-portal{
     position: fixed;
     left:0;
     top:0;
     width: 100vw;
     height: 100vh;
-    background-color: black;
-    z-index: 1000;
+    background-color: rgb(235, 44, 44);
+    z-index: 400;
 
     .close-portal{
         position: absolute;

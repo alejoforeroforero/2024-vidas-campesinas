@@ -36,14 +36,15 @@
 }
 
 .linea {
-  width: 30px;
-  height: 3px;
-  background-color: aliceblue;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(81, 83, 84);
   margin-top: 10px;
   transition: 1s;
 }
 
 .linea-seleccionada {
-  width: 50px;
+  background-color: rgb(236, 241, 243);
 }
 

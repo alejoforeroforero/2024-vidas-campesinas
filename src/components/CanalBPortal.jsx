@@ -1,20 +1,20 @@
 import ReactDOM from "react-dom";
 
-import './YoutubePortal.css';
+import './CanalBPortal.css';
 
-const YoutubePortal = ({open, children, onClose}) => {
+const CanalBPortal = ({open, children, onClose}) => {
 
     if(!open) return null;
 
     return ReactDOM.createPortal(
         <>
-            <div className="youtube-portal">
+            <div className="canal-b-portal">
                 <div className="close-portal" onClick={onClose}>X</div>
                 {children}
             </div>
         </>,
-        document.getElementById('portal')
+        document.getElementById('b-portal')
     )
 }
 
-export default YoutubePortal
+export default CanalBPortal
