@@ -3,9 +3,10 @@
     left:0;
     top:0;
     width: 100vw;
-    height: 100vh;
-    background-color: rgb(235, 44, 44);
+    height: 1000vh;
+    background-color: rgb(101, 101, 99);
     z-index: 400;
+    overflow: scroll;
 
     .close-portal{
         position: absolute;

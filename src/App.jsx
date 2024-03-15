@@ -1,6 +1,6 @@
 import React, { useState, Suspense, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes, NavLink, useNavigate } from 'react-router-dom';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -23,6 +23,7 @@ import ejeBImg from './assets/generales/ejeB.png'
 import './App.css'
 import EnDesarrollo from './components/EnDesarrollo';
 import NotFound from './components/NotFound';
+import GuaviareTemas from './secciones/guaviaretemas/GuaviareTemas';
 
 
 function App() {
@@ -37,15 +38,16 @@ function App() {
   const scrollRef = useRef(null);
   const videHomeRef = useRef(null);
   const videoGuaviareRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleEmpezar = () => {
 
     setYaEmpezo(true);
 
     if (departamento === '') {
-      videHomeRef.current.play();
+      videHomeRef.current?.play();
     } else if (departamento === 'guaviare') {
-      videoGuaviareRef.current.play();
+      videoGuaviareRef.current?.play();
     }
     scrollRef.current.style.visibility = 'visible';
   }
@@ -55,8 +57,8 @@ function App() {
     console.log(window.scrollY)
 
     setTimeout(()=>{
-      
-    })
+      navigate('/guaviaretemas')
+    }, 2000);
   }
 
   return (
@@ -110,6 +112,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home videHomeRef={videHomeRef} />} />
           <Route path='/guaviare' element={<GuaviareHome videoGuaviareRef={videoGuaviareRef} />} />
+          <Route path='/guaviaretemas' element={<GuaviareTemas />} />
           <Route path='/caqueta' element={<EnDesarrollo />} />
           <Route path='/cauca' element={<EnDesarrollo />} />
           <Route path='*' element={<NotFound />} />
