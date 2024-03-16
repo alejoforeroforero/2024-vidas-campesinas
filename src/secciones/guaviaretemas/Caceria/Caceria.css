@@ -1,0 +1,77 @@
+.guaviare-temas {
+  position: absolute;
+  width: 100vw;
+  height: 100vh important;
+  overflow: hidden;
+  opacity: 1;
+  z-index: 2;
+
+  .guaviare-caceria-video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+
+    video {
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
+      opacity: 1;
+    }
+  }
+
+  .guaviare-caceria-mask {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .guaviare-caceria-contenido {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    .guaviare-caceria-entrada {
+      height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items:self-start;
+
+      .guaviare-caceria-titulo {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: end;
+        height: 45vh;
+
+        h1 {
+          color: #00a69a;
+          font-size: 4rem;
+          font-weight: bold;
+          width: 100%;
+        }
+      }
+
+      hr {
+        width: 70vw;
+        margin: auto;
+        width: 65vw;
+        height: 6px;
+        border: 0;
+        background-color: #00a69a;
+      }
+    }
+  }
+}

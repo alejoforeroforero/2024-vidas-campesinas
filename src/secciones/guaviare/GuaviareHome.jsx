@@ -22,9 +22,18 @@ import './GuaviareHome.css'
 
 
 const GuaviareHome = ({ videoGuaviareRef }) => {
+
   const dispatch = useDispatch();
-  const [esconderLoading, setEsconderLoading] = useState(false);
-  const audioObj = crearAudioPlayer();
+ 
+   // const tempo = 4;
+   const tempo = 2;
+   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
+   const personaje = useSelector(state => state.managerReducer.personaje);
+   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
+   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
+   const [esconderLoading, setEsconderLoading] = useState(false);  
+   const jorgeRelatoVideoRef = useRef(null);
+   const audioObj = crearAudioPlayer();
 
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
@@ -32,18 +41,19 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setEsconderLoading(true);
-    }, 2000)
+      setEsconderLoading(true);      
+    }, 2000);
 
-    return () => clearTimeout(timer);
-  })
-  // const tempo = 4;
-  const tempo = 2;
-  const personaje = useSelector(state => state.managerReducer.personaje);
-  const cancionActual = useSelector(state => state.managerReducer.cancionActual);
-  const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
-  const jorgeRelatoVideoRef = useRef(null);
+    const timerScroll = setTimeout(()=>{
+      window.scrollTo({ top: yCanalA, behavior: 'smooth' });
+    }, 500);
 
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(timerScroll);
+    }
+  }, [])
+ 
   useEffect(() => {
     if (cancionAnterior != null) {
       audioObj[cancionAnterior].pause();
@@ -86,9 +96,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           onEnter: () => {
             videoGuaviareRef.current.play();
           },
-          onUpdate:(self)=>{
-            // console.log(self.progress.toFixed(3), window.scrollY);
-          }
+          // onUpdate:(self)=>{
+         
+          // }
         }
       })
       .call(() => {

@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  departamento: '',
-  personaje:'',
-  youtube:null,
-  cancionActual:null,
-  cancionAnterior:null
+  departamento: "",
+  personaje: "",
+  youtube: null,
+  cancionActual: null,
+  cancionAnterior: null,
+  yCanalA: 0,
+  yCanalB: 0,
 };
 
 const managerSlice = createSlice({
@@ -15,19 +17,32 @@ const managerSlice = createSlice({
     cambiarDepartamento(state, action) {
       state.departamento = action.payload;
     },
-    establecerPersonaje(state, action){
+    establecerPersonaje(state, action) {
       state.personaje = action.payload;
     },
-    cambiarYotube(state, action){
-      state.youtube = action.payload
+    cambiarYotube(state, action) {
+      state.youtube = action.payload;
     },
-    escogerCancion(state, action){
+    escogerCancion(state, action) {
       state.cancionAnterior = state.cancionActual;
-      state.cancionActual = action.payload
-    }
+      state.cancionActual = action.payload;
+    },
+    establecerYCanalA(state, action) {
+      state.yCanalA = action.payload;
+    },
+    establecerYCanalB(state, action) {
+      state.yCanalB = action.payload;
+    },
   },
 });
 
-export const { cambiarDepartamento, establecerPersonaje, cambiarYotube, escogerCancion } = managerSlice.actions
+export const {
+  cambiarDepartamento,
+  establecerPersonaje,
+  cambiarYotube,
+  escogerCancion,
+  establecerYCanalA,
+  establecerYCanalB
+} = managerSlice.actions;
 
 export default managerSlice.reducer;
