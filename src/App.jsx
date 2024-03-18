@@ -5,7 +5,6 @@ import { establecerYCanalA, establecerYCanalB, escogerCancion } from './redux/st
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 import Portada from './components/Portada';
 
 const Home = React.lazy(() => import('./secciones/Home/Home'));
@@ -46,13 +45,13 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useLayoutEffect(() => {
-    if (departamento === 'guaviare-temas') {
-      setMostrarLogo(false);
-      setYaEmpezo(true);
-      setHideCanalB(false);
-    }
-  }, [departamento])
+  // useLayoutEffect(() => {
+  //   if (departamento === 'guaviare-temas') {
+  //     setMostrarLogo(false);
+  //     setYaEmpezo(true);
+  //     setHideCanalB(false);
+  //   }
+  // }, [departamento])
 
   const handleEmpezar = () => {
     setYaEmpezo(true);
@@ -64,19 +63,23 @@ function App() {
     scrollRef.current.style.visibility = 'visible';
   }
 
+  //Sólo para testing, quitar o comentar este useEffect
   useEffect(() => {
     console.log(yCanalA);
     console.log(departamento);
   }, [yCanalA])
 
   const handleCanalBOnClick = () => {
-    seccionBRef.current.style.animation = '2s irAIzq'
-    setHideCanalB(!hidennCanalB)
-    dispatch(establecerYCanalA(window.scrollY))
-    dispatch(escogerCancion(null))
-    setTimeout(() => {
-      navigate('/guaviaretemas')
-    }, 2000);
+    setHideCanalB(!hidennCanalB);
+    dispatch(establecerYCanalA(window.scrollY));
+    dispatch(escogerCancion(null));
+    // seccionBRef.current.style.animation = '2s irAIzq'
+    // setHideCanalB(!hidennCanalB)
+    // dispatch(establecerYCanalA(window.scrollY))
+    // dispatch(escogerCancion(null))
+    // setTimeout(() => {
+    //   navigate('/guaviaretemas')
+    // }, 2000);
   }
 
   const handleCanalAOnClick = () => {

@@ -45,33 +45,62 @@
     .guaviare-caceria-entrada {
       height: 100vh;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       justify-content: center;
-      align-items:self-start;
+
+      .guaviare-caceria-top{
+        text-align: left;
+
+        img{
+          width:55vw;
+          transform: rotate(80deg);
+        }
+      }
 
       .guaviare-caceria-titulo {
         width: 100%;
         display: flex;
-        justify-content: flex-end;
-        align-items: end;
-        height: 45vh;
+        align-items:center;
+        justify-content:center;
+        flex-wrap: wrap;
+
 
         h1 {
           color: #00a69a;
           font-size: 4rem;
           font-weight: bold;
           width: 100%;
+          margin: 0;
+          padding: 0;
+          line-height:normal
         }
-      }
 
-      hr {
-        width: 70vw;
-        margin: auto;
-        width: 65vw;
-        height: 6px;
-        border: 0;
-        background-color: #00a69a;
-      }
+        hr {
+          width: 70vw;
+          margin: auto;
+          width: 65vw;
+          height: 6px;
+          border: 0;
+          background-color: #00a69a;
+          margin: 0;
+        }
+      }    
+    }
+  }
+
+  .guaviare-caceria-danta{
+    position: relative;
+    height: 30vh;
+
+    .danta{
+      width: 45vw;
+    }
+
+    .hoja{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 45vw;
     }
   }
 }

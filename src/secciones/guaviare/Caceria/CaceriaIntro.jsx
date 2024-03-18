@@ -1,35 +1,54 @@
-import { useEffect, useRef } from 'react';
-import LoopVideo from '../../../components/LoopVideo';
 
-import caceriaLoopVideo from '../../../assets/guaviare/caceria/loop.mp4';
-import videoGuaviarePoster from '../../../assets/guaviare/home/guaviare-poster.jpg';
-
+import { useState } from 'react';
 import './CaceriaIntro.css';
-
 
 const CaceriaIntro = () => {
 
-    const caceriaLoop = useRef(null)
+    const secciones = ['intro', 'fotos', 'audio']
 
-    useEffect(()=>{
-        const timer = setTimeout(() => {
-            caceriaLoop.current.play();
-        }, 5000)
+    const [currentImage, setCurrentImage] = useState(0);
 
-        return () => clearTimeout(timer);
-    },[])
+    const prevImage = () => {
+        setCurrentImage((currentImage - 1 + secciones.length) % secciones.length);
+    };
+
+    const nextImage = () => {
+        setCurrentImage((currentImage + 1) % secciones.length);
+    };
+
+    const pintarF1 = () => {
+        return (
+            <div>
+                F1
+            </div>
+        )
+    }
+
+    const pintarF2 = () => {
+        return (
+            <div>
+                F2
+            </div>
+        )
+    }
+
+    const pintarF3 = () => {
+        return (
+            <div>
+                F3
+            </div>
+        )
+    }
 
     return (
         <div className='guaviare-caceria'>
-            <div className="guaviare-caceria-intro">
-                    Hola amigos
+            <div className="guaviare-caceria-contenido">
+                {currentImage == 0 && pintarF1()}
+                {currentImage == 1 && pintarF2()}
+                {currentImage == 2 && pintarF3()}
             </div>
-            <LoopVideo
-                videoRef={caceriaLoop}
-                tiempo='3000'
-                video={caceriaLoopVideo}
-                poster={videoGuaviarePoster}
-            />
+            <button className='guaviare-caceria-prev' onClick={prevImage}>Prev </button>
+            <button className='guaviare-caceria-next'  onClick={nextImage}>Siguiente</button>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 .guaviare-canal-b {
   position: fixed;
-  width: 0;
+  width: 100vw;
   height: 100vh;
   max-width: 100vw;
   z-index: 100;
@@ -8,33 +8,23 @@
   padding: 0;
   transition: 2s cubic-bezier(0.77, 0, 0.175, 1);
   left:0vw;
-}
+  overflow: scroll;
 
-@keyframes irAIzq{
-  from{
-    width: 100vw;
-    left:100vw;
-
-  }to{
-    width: 100vw;
-    left:0vw;
+  .canal-b-interior{
+    height: 100vh;
+    max-height: 100vh;
+    overflow: scroll;
+    width: 90vw;
+    background-color: rgb(62, 64, 64);
   }
 }
 
-@keyframes irDer{
-  from{
-    width:0;
 
-  }to{
-    width:100vw;
-  }
-}
-
-/* .canal-b-hide {
+.canal-b-hide {
   left:100vw;
 }
 
 .canal-b-show {
   left:0;
-} */
+}
 

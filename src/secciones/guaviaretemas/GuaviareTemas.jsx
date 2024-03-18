@@ -76,6 +76,7 @@ const GuaviareTemas = ({seccionBRef}) => {
       <div className='guaviare-temas-gsap'>
         <div className='guaviare-temas-contenedor-general'>
           <Caceria videoCaceriaRef={videoCaceriaRef} />
+          <Caceria videoCaceriaRef={videoCaceriaRef} />
           {/* <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
           <div id='guaviare-jorge-navegacion'>
             <JorgeBio />
