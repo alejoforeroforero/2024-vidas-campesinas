@@ -1,0 +1,33 @@
+.carlos-bio {
+  background: url("../../../assets/guaviare/carlos/carlos-cel.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+
+  .carlos-contenido {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    h1 {
+      text-align: left;
+      padding-left: 15vw;
+      margin-top: 65vh;
+    }
+
+    .carlos-info {
+      padding-left: 15vw;
+      padding-top: 10px;
+      text-align: left;
+      position: relative;
+      img {
+        width: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -9,21 +9,26 @@
     height: 100vh;
     overflow: hidden;
     background-color: rgb(143, 143, 138);
+    border-bottom:1px solid black;
   }
 
   .guaviare-caceria-prev{
     position: absolute;
+    padding: 10px;
     width: 5vw;
     overflow: hidden;
     left: 30vw;
     bottom:15vh;
+    text-align: center;
   }
 
   .guaviare-caceria-next{
+    padding: 10px;
     position: absolute;
     width: 5vw;
     overflow: hidden;
     right: 30vw;
     bottom:15vh;
+    text-align: center;
   }
 }

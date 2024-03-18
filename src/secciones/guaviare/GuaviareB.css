@@ -14,8 +14,9 @@
     height: 100vh;
     max-height: 100vh;
     overflow: scroll;
-    width: 90vw;
+    width: 100vw;
     background-color: rgb(62, 64, 64);
+    border-bottom:2px solid black;
   }
 }
 

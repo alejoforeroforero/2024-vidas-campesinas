@@ -16,6 +16,11 @@ import JorgeYoutube from './Jorge/Youtube';
 import JorgeRelatos from './Jorge/Relatos';
 import JorgeGaleria from './Jorge/Galeria';
 
+import CarlosBio from './Carlos/Bio';
+import CarlosYoutube from './Carlos/Youtube';
+import CarlosRelatos from './Carlos/Relatos';
+import CarlosGaleria from './Carlos/Galeria';
+
 import LoadingIcons from 'react-loading-icons';
 
 import './GuaviareHome.css'
@@ -88,7 +93,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         scrollTrigger: {
           trigger: ".guaviare-gsap",
           start: `top top`,
-          end: "+=20200",
+          end: "+=40200",
           invalidateOnRefresh: false,
           scrub: 1,
           pin: true,
@@ -141,7 +146,17 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .fromTo(".jorge-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
       .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
-      .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 1, duration: tempo * 3 })
+      .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
+      .to(".jorge-galeria", { opacity: 0, zIndex: 1, duration: tempo * 2 })
+      .fromTo(".carlos-bio", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<')
+      .call(() => {
+        dispatch(escogerCancion(null))
+      })
+      .call(() => {
+        dispatch(establecerPersonaje('linea-carlos'));
+        // dispatch(escogerCancion(0))
+      })
+      .fromTo(".carlos-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
 
     return () => {
       tl.kill();
@@ -172,6 +187,12 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           <JorgeYoutube />
           <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
           <JorgeGaleria />
+          <div id='guaviare-carlos-navegacion'>
+            <CarlosBio />
+          </div>
+          <CarlosYoutube />
+          {/* <CarlosRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} /> */}
+          <CarlosGaleria />
         </div>
       </div>
     </>

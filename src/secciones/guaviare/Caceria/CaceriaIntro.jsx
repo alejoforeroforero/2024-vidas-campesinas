@@ -4,7 +4,7 @@ import './CaceriaIntro.css';
 
 const CaceriaIntro = () => {
 
-    const secciones = ['intro', 'fotos', 'audio']
+    const secciones = ['intro', 'fotos', 'audio', 'otros']
 
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -19,7 +19,7 @@ const CaceriaIntro = () => {
     const pintarF1 = () => {
         return (
             <div>
-                F1
+                Screen 1
             </div>
         )
     }
@@ -27,7 +27,7 @@ const CaceriaIntro = () => {
     const pintarF2 = () => {
         return (
             <div>
-                F2
+                 Screen 2
             </div>
         )
     }
@@ -35,7 +35,15 @@ const CaceriaIntro = () => {
     const pintarF3 = () => {
         return (
             <div>
-                F3
+                 Screen 3
+            </div>
+        )
+    }
+
+    const pintarF4 = () => {
+        return (
+            <div>
+                 Screen 4
             </div>
         )
     }
@@ -46,9 +54,10 @@ const CaceriaIntro = () => {
                 {currentImage == 0 && pintarF1()}
                 {currentImage == 1 && pintarF2()}
                 {currentImage == 2 && pintarF3()}
+                {currentImage == 3 && pintarF4()}
             </div>
-            <button className='guaviare-caceria-prev' onClick={prevImage}>Prev </button>
-            <button className='guaviare-caceria-next'  onClick={nextImage}>Siguiente</button>
+            <button className='guaviare-caceria-prev' onClick={prevImage}>&#60;</button>
+            <button className='guaviare-caceria-next'  onClick={nextImage}>&#62;</button>
         </div>
     )
 }
