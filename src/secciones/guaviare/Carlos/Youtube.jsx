@@ -27,7 +27,7 @@ const Youtube = () => {
     }
 
     return (
-        <div className='seccion jorge-youtube'>
+        <div className='seccion carlos-youtube'>
             <YoutubePortal open={isOpen} onClose={() => setIsOpen(false)} >
                 <div id="player-container" className='player-container'>
                     <YouTube
@@ -38,7 +38,7 @@ const Youtube = () => {
                     />
                 </div>
             </YoutubePortal>
-            <div className='jorge-youtube-contenido'>
+            <div className='carlos-youtube-contenido'>
                 <div>
                     <img onClick={handleOnClick} src={playImg} alt="play" />
                 </div>

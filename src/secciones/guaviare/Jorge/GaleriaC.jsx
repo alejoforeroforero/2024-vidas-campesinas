@@ -23,7 +23,7 @@ const GaleriaC = () => {
     }
 
     return (
-        <div className="carousel-general">
+        <div className="carousel-jorge-general">
             <div className="carousel-container">
                 <div className="image-container">
                     <img src={images[currentImage]} alt='images' />

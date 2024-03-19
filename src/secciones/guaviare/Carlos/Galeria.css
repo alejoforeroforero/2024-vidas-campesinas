@@ -1,15 +1,7 @@
-.jorge-galeria{
-    background-color: rgb(2, 15, 26);
+.carlos-galeria{
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     z-index: 0;
+    left: 0px;
+    top:0px;
 }
-
-/* .carousel {
-    height: 88vh;
-    border:1px solid red;
-
-    img{
-        width: 100vw;
-    }
-} */

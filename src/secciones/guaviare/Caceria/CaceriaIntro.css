@@ -15,20 +15,22 @@
   .guaviare-caceria-prev{
     position: absolute;
     padding: 10px;
-    width: 5vw;
+    width: 30px;
+    height: 30px;
     overflow: hidden;
     left: 30vw;
-    bottom:15vh;
+    bottom:20vh;
     text-align: center;
   }
 
   .guaviare-caceria-next{
     padding: 10px;
     position: absolute;
-    width: 5vw;
+    width: 30px;
+    height: 30px;
     overflow: hidden;
     right: 30vw;
-    bottom:15vh;
+    bottom:20vh;
     text-align: center;
   }
 }

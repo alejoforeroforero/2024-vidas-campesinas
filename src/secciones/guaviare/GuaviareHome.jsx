@@ -29,16 +29,19 @@ import './GuaviareHome.css'
 const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const dispatch = useDispatch();
- 
-   // const tempo = 4;
-   const tempo = 2;
-   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
-   const personaje = useSelector(state => state.managerReducer.personaje);
-   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
-   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
-   const [esconderLoading, setEsconderLoading] = useState(false);  
-   const jorgeRelatoVideoRef = useRef(null);
-   const audioObj = crearAudioPlayer();
+
+  // const tempo = 4;
+  const duracionPrimerST = 5000;
+  const duracionTotal = 5000;
+  const tempo = 1;
+  const yCanalA = useSelector(state => state.managerReducer.yCanalA);
+  const personaje = useSelector(state => state.managerReducer.personaje);
+  const cancionActual = useSelector(state => state.managerReducer.cancionActual);
+  const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
+  const [esconderLoading, setEsconderLoading] = useState(false);
+  const jorgeRelatoVideoRef = useRef(null);
+  const audioObj = crearAudioPlayer();
+  const carlosRelatoVideoRef = useRef(null);
 
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
@@ -46,10 +49,10 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setEsconderLoading(true);      
+      setEsconderLoading(true);
     }, 2000);
 
-    const timerScroll = setTimeout(()=>{
+    const timerScroll = setTimeout(() => {
       window.scrollTo({ top: yCanalA, behavior: 'smooth' });
     }, 500);
 
@@ -58,7 +61,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       clearTimeout(timerScroll);
     }
   }, [])
- 
+
   useEffect(() => {
     if (cancionAnterior != null) {
       audioObj[cancionAnterior].pause();
@@ -83,7 +86,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     },
   ]
 
-  const handleNavegacion = (id)=>{
+  const handleNavegacion = (id) => {
     window.scrollTo({ top: 7000, behavior: 'auto' });
   }
 
@@ -91,26 +94,23 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     const tl = gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".guaviare-gsap",
+          trigger: ".guaviare-jorge-gsap",
           start: `top top`,
-          end: "+=40200",
+          end: `+=${duracionPrimerST}`,
           invalidateOnRefresh: false,
-          scrub: 1,
+          scrub: 0,
           pin: true,
           markers: false,
           onEnter: () => {
             videoGuaviareRef.current.play();
           },
-          // onUpdate:(self)=>{
-         
-          // }
         }
       })
       .call(() => {
         videoGuaviareRef.current.play();
       })
-      .to(".logo", { opacity: 0, y: -70, duration: tempo * 2 })
-      .to(".scroll", { opacity: 0, y: 70, duration: tempo * 3 }, '<1')
+      .to(".logo", { opacity: 0, y: -70, duration: tempo * 1.3 })
+      .to(".scroll", { opacity: 0, y: 70, duration: tempo * 1.8 }, '<1')
       .to(".logo", { visibility: 'hidden', duration: 1 })
       .to(".scroll", { visibility: 'hidden', duration: 1 })
       .to(".guaviare-contenido", { opacity: 1, duration: tempo * 3 })
@@ -128,13 +128,13 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(0))
       })
       .fromTo(".jorge-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
-      .to(".jorge-bio", { opacity: 0, zIndex: 1, duration: tempo * 3 })
-      .fromTo(".jorge-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 3 }, '<5')
+      .to(".jorge-bio", { opacity: 0, zIndex: 1, duration: tempo * 2 })
+      .fromTo(".jorge-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<0.5')
       .call(() => {
         dispatch(escogerCancion(null))
       })
-      .fromTo(".jorge-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
-      .to(".jorge-youtube", { opacity: 1, zIndex: 2, duration: tempo * 2 })
+      .fromTo(".jorge-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 1 })
+      .to(".jorge-youtube", { opacity: 1, zIndex: 2, duration: tempo * 1 })
       .to(".jorge-youtube", { opacity: 0, zIndex: 1, duration: tempo * 2 })
       .fromTo(".jorge-relatos", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<1')
       .call(() => {
@@ -148,18 +148,55 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
       .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
       .to(".jorge-galeria", { opacity: 0, zIndex: 1, duration: tempo * 2 })
+
+    const tl2 = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".guaviare-carlos-gsap",
+          start: `top top`,
+          end: `+=${duracionTotal}`,
+          invalidateOnRefresh: false,
+          scrub: 1,
+          pin: true,
+          markers: false,
+          onEnter: () => {
+            //videoGuaviareRef.current.play();
+          },
+        }
+      })
       .fromTo(".carlos-bio", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<')
       .call(() => {
-        dispatch(escogerCancion(null))
+        // videoGuaviareRef.current.play();
+        // dispatch(escogerCancion(null))
       })
       .call(() => {
         dispatch(establecerPersonaje('linea-carlos'));
-        // dispatch(escogerCancion(0))
+        dispatch(escogerCancion(0))
       })
       .fromTo(".carlos-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
-
+      .to(".carlos-bio", { opacity: 0, zIndex: 1, duration: tempo * 2 })
+      .fromTo(".carlos-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<0.5')
+      .call(() => {
+        dispatch(escogerCancion(null))
+      })
+      .fromTo(".carlos-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 1 })
+      .to(".carlos-youtube", { opacity: 1, zIndex: 2, duration: tempo * 1 })
+      .to(".carlos-youtube", { opacity: 0, zIndex: 1, duration: tempo * 2 })
+      .fromTo(".carlos-relatos", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<1')
+      .call(() => {
+        carlosRelatoVideoRef.current.pause();
+        dispatch(escogerCancion(null))
+      })
+      .call(() => {
+        carlosRelatoVideoRef.current.play();
+      })
+      .fromTo(".carlos-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
+      .fromTo(".carlos-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
+      .fromTo(".carlos-galeria", { opacity: 0 }, { opacity: 1, zIndex: 2, duration: tempo * 3 }, '<')
+      .fromTo(".carlos-galeria", { opacity: 1}, { opacity: 0, zIndex: 2, duration: tempo * 1 })
     return () => {
       tl.kill();
+      tl2.kill();
     }
   }, [])
 
@@ -171,8 +208,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
       <div className='guaviare-lineas'>
         {lineas.map(linea => {
-          return <div 
-            onClick={()=>{handleNavegacion(linea.navegacion)}}
+          return <div
+            onClick={() => { handleNavegacion(linea.navegacion) }}
             key={linea.id}
             className={personaje === linea.id ? 'linea linea-seleccionada' : 'linea'}
           />
@@ -180,19 +217,23 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       </div>
       <div className='guaviare-gsap'>
         <div className='guaviare-contenedor-general'>
-          <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-          <div id='guaviare-jorge-navegacion'>
-            <JorgeBio />
+          <div className='guaviare-jorge-gsap'>
+            <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
+            <div id='guaviare-jorge-navegacion'>
+              <JorgeBio />
+            </div>
+            <JorgeYoutube />
+            <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
+            <JorgeGaleria />
           </div>
-          <JorgeYoutube />
-          <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
-          <JorgeGaleria />
-          <div id='guaviare-carlos-navegacion'>
-            <CarlosBio />
+          <div className='guaviare-carlos-gsap'>
+            <div id='guaviare-carlos-navegacion'>
+              <CarlosBio />
+            </div>
+            <CarlosYoutube />
+            <CarlosRelatos carlosRelatoVideoRef={carlosRelatoVideoRef} />
+            <CarlosGaleria />
           </div>
-          <CarlosYoutube />
-          {/* <CarlosRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} /> */}
-          <CarlosGaleria />
         </div>
       </div>
     </>

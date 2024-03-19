@@ -1,12 +1,12 @@
-.jorge-youtube {
-  background: url("../../../assets/guaviare/jorge/fondo-video-cel.jpg");
+.carlos-youtube {
+  background: url("../../../assets/guaviare/carlos/fondo-video-cel.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   opacity: 0;
   z-index: 0;
 
-  .jorge-youtube-contenido {
+  .carlos-youtube-contenido {
     width: 100vw;
     height: 100vh;
     margin: auto;

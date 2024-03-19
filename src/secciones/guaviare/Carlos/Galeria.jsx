@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import GaleriaJorge from './GaleriaC';
+import GaleriaCarlos from './GaleriaC';
 
 import './Galeria.css'
 
@@ -17,12 +17,12 @@ const Galeria = () => {
     }, [])
 
     return (
-        <div className='seccion jorge-galeria'>
+        <div className='seccion carlos-galeria'>
             {!mostrarGaleria &&
-                <div>Hola</div>
+                <div>Loading...</div>
             }
             {mostrarGaleria &&
-                <GaleriaJorge />
+                <GaleriaCarlos />
             }
         </div>
     )

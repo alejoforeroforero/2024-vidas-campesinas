@@ -48,3 +48,17 @@
   background-color: rgb(236, 241, 243);
 }
 
+.guaviare-contenedor-general{
+  position: relative;
+}
+
+.guaviare-jorge-gsap{
+  position: relative;
+  height: 100vh;
+}
+
+.guaviare-carlos-gsap{
+  position: relative;
+  height: 100vh;
+}
+
