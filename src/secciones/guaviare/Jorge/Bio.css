@@ -3,10 +3,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  opacity: 0;
-  z-index: 1;
 
-  .jorge-contenido {
+  .bio-contenido {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -19,7 +17,7 @@
       margin-top: 65vh;
     }
 
-    .jorge-info {
+    .info {
       padding-left: 15vw;
       padding-top: 10px;
       text-align: left;

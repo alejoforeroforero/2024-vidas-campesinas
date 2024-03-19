@@ -7,7 +7,6 @@ const initialState = {
   cancionActual: null,
   cancionAnterior: null,
   yCanalA: 0,
-  yCanalB: 0,
 };
 
 const managerSlice = createSlice({
@@ -30,9 +29,6 @@ const managerSlice = createSlice({
     establecerYCanalA(state, action) {
       state.yCanalA = action.payload;
     },
-    establecerYCanalB(state, action) {
-      state.yCanalB = action.payload;
-    },
   },
 });
 
@@ -42,7 +38,6 @@ export const {
   cambiarYotube,
   escogerCancion,
   establecerYCanalA,
-  establecerYCanalB
 } = managerSlice.actions;
 
 export default managerSlice.reducer;

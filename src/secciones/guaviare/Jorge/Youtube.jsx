@@ -38,7 +38,7 @@ const Youtube = () => {
                     />
                 </div>
             </YoutubePortal>
-            <div className='jorge-youtube-contenido'>
+            <div className='contenido'>
                 <div>
                     <img onClick={handleOnClick} src={playImg} alt="play" />
                 </div>

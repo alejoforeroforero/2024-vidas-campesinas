@@ -3,10 +3,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  opacity: 0;
-  z-index: 0;
 
-  .jorge-youtube-contenido {
+  .contenido {
     width: 100vw;
     height: 100vh;
     margin: auto;
@@ -60,52 +58,3 @@
   }
 }
 
-/* .youtube-general {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 1);
-
-  @media (orientation: portrait) {
-    .youtube-general-container {
-      margin: 0% 100%;
-      width: 100vh;
-      height: 100vw;
-      background-color: rgb(251, 235, 19);
-      transform: rotate(90deg);
-      transform-origin: top left;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-  
-      .youtube-cerrar{
-          position: absolute;
-          right:0;
-          top:0;
-          width: 80px;
-      }
-    }
-  }
-
-  @media (orientation: landscape) {
-    .youtube-general-container {
-      margin: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgb(251, 235, 19);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-  
-      .youtube-cerrar{
-          position: absolute;
-          right:0;
-          top:0;
-          width: 80px;
-      }
-    }
-  } 
-} */

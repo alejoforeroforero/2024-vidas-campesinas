@@ -1,10 +1,5 @@
 .guaviare {
-  position: absolute;
-  width: 100vw;
-  height: 100vh important;
-  overflow: hidden;
-  opacity: 1;
-  z-index: 2;
+  position: relative;
 
   h1 {
     color: aliceblue;
@@ -16,7 +11,7 @@
     top: 0px;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    background: url("../../assets/guaviare/home/guaviare-poster.jpg");
 
     video {
       height: 100vh;
@@ -32,7 +27,6 @@
     top: 0px;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
   }
 
@@ -42,9 +36,8 @@
     top: 0px;
     width: 100vw;
     height: 100vh;
-    z-index: 2;
-    opacity: 0;
     background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
 
     .guaviare-titulo {
       height: 28vh;
@@ -97,11 +90,11 @@
       }
 
       .guaviare-descripcion-p1 {
-        opacity: 1;
+        visibility: hidden;
       }
 
       .guaviare-descripcion-p2 {
-        opacity: 0;
+        visibility: hidden;
       }
     }
   }

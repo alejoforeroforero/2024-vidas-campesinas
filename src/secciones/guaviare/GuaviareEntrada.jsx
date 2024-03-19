@@ -1,5 +1,4 @@
 import videoGuaviare from '../../assets/guaviare/home/guaviare.mp4';
-import videoGuaviarePoster from '../../assets/guaviare/home/guaviare-poster.jpg';
 import guaviareGrafica from '../../assets/guaviare/home/pictograma.png';
 
 import './GuaviareEntrada.css'
@@ -16,7 +15,6 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
           muted
           className="guaviare-video-video"
           src={videoGuaviare}>
-          poster={videoGuaviarePoster}
         </video>
       </div>
       <div className="guaviare-mask"></div>

@@ -4,7 +4,6 @@ import { escogerCancion } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 
 import relatosVideo from '../../../assets/guaviare/jorge/loop-relatos.mp4';
-import videoGuaviarePoster from '../../../assets/guaviare/home/guaviare-poster.jpg';
 import audioImg from '../../../assets/generales/audio.png';
 import audioOnImg from '../../../assets/generales/audio-on.png';
 
@@ -53,10 +52,9 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
                 videoRef={jorgeRelatoVideoRef}
                 tiempo='3000'
                 video={relatosVideo}
-                poster={videoGuaviarePoster}
             />
             <div className="relatos-mask"></div>
-            <div className="jorge-relatos-contenido">
+            <div className="relatos-contenido">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
                     <p>"Cuando llegué al Raudal"</p>

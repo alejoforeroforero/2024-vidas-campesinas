@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import img1 from '../../../assets/guaviare/jorge/foto1.jpg';
-import img2 from '../../../assets/guaviare/jorge/foto2.jpg';
-import img3 from '../../../assets/guaviare/jorge/foto3.jpg';
-import './GaleriaC.css'
+import img1 from '../../../assets/guaviare/carlos/foto3.jpg';
+import img2 from '../../../assets/guaviare/carlos/foto4.jpg';
+import img3 from '../../../assets/guaviare/carlos/foto5.jpg';
+
 
 const GaleriaC = () => {
 
@@ -23,31 +23,31 @@ const GaleriaC = () => {
     }
 
     return (
-        <div className="carousel-carlos-general">
-            <div className="carousel-container">
+        <div className="carousel-general">
+            <div className="container">
                 <div className="image-container">
                     <img src={images[currentImage]} alt='images' />
+                </div>
+                <div className='carousel-botones'>
+                    <button onClick={prevImage}>&#60;</button>
+                    <button onClick={nextImage}>&#62;</button>
                 </div>
                 <div className='carousel-navegacion'>
                     {images.map((img, index) => {
                         return (
-                            <div 
-                                onClick={() => { handleOnClick(index) }} 
+                            <div
+                                onClick={() => { handleOnClick(index) }}
                                 key={index}
-                                className={(index ==currentImage) ? 'galerias-s' : 'galerias-n' }
-                            > 
+                                className={(index == currentImage) ? 'galerias-s' : 'galerias-n'}
+                            >
                             </div>
                         )
                     })}
                 </div>
-                {/* <button onClick={prevImage}>  </button>
-                <button onClick={nextImage}>Siguiente</button> */}
-                <p>{currentImage+1}</p>
+                <p>{currentImage + 1} de {images.length}</p>
             </div>
         </div>
-
     );
-
 }
 
 export default GaleriaC

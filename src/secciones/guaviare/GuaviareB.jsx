@@ -1,4 +1,3 @@
-import Caceria from '../guaviaretemas/Caceria/Caceria';
 import CaceriaIntro from './Caceria/CaceriaIntro';
 import './GuaviareB.css';
 

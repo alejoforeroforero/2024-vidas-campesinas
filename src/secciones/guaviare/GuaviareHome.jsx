@@ -21,6 +21,11 @@ import CarlosYoutube from './Carlos/Youtube';
 import CarlosRelatos from './Carlos/Relatos';
 import CarlosGaleria from './Carlos/Galeria';
 
+import DayanaBio from './Dayana/Bio';
+import DayanaYoutube1 from './Dayana/Youtube';
+import DayanaYoutube2 from './Dayana/Youtube2';
+import DayanaGaleria from './Dayana/Galeria';
+
 import LoadingIcons from 'react-loading-icons';
 
 import './GuaviareHome.css'
@@ -30,10 +35,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const dispatch = useDispatch();
 
-  // const tempo = 4;
-  const duracionPrimerST = 5000;
-  const duracionTotal = 5000;
-  const tempo = 1;
   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
   const personaje = useSelector(state => state.managerReducer.personaje);
   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
@@ -91,33 +92,29 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   }
 
   useGSAP(() => {
-    const tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".guaviare-jorge-gsap",
-          start: `top top`,
-          end: `+=${duracionPrimerST}`,
-          invalidateOnRefresh: false,
-          scrub: 0,
-          pin: true,
-          markers: false,
-          onEnter: () => {
-            videoGuaviareRef.current.play();
-          },
-        }
-      })
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.wrap',
+        start: "top top",
+        end: "+=8000",
+        pin: true,
+        scrub: 1,
+        marker: true
+      },
+      defaults: { duration: 5 }
+    })
+      .to(".logo", { opacity: 0, y: -70, duration: 0.2 })
+      .to(".scroll", { opacity: 0, y: 70, duration: 0.2 }, '<0.05')
+      .to(".logo", { visibility: 'hidden', duration: 0 })
+      .to(".scroll", { visibility: 'hidden', duration: 0 })
       .call(() => {
         videoGuaviareRef.current.play();
       })
-      .to(".logo", { opacity: 0, y: -70, duration: tempo * 1.3 })
-      .to(".scroll", { opacity: 0, y: 70, duration: tempo * 1.8 }, '<1')
-      .to(".logo", { visibility: 'hidden', duration: 1 })
-      .to(".scroll", { visibility: 'hidden', duration: 1 })
-      .to(".guaviare-contenido", { opacity: 1, duration: tempo * 3 })
-      .to(".guaviare-descripcion-p1", { opacity: 0, duration: tempo * 3 })
-      .to(".guaviare-descripcion-p2", { opacity: 1, duration: tempo * 3 }, `<${tempo * 2}`)
-      .to(".guaviare", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-      .fromTo(".jorge-bio", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<')
+      .to('.box1', { autoAlpha: 1 })
+      .to('.guaviare-contenido', { autoAlpha: 1 })
+      .to('.guaviare-descripcion-p1', { autoAlpha: 1 })
+      .to('.guaviare-descripcion-p1', { opacity: 0 })
+      .to('.guaviare-descripcion-p2', { autoAlpha: 1 }, '<')
       .call(() => {
         videoGuaviareRef.current.play();
         dispatch(escogerCancion(null))
@@ -127,16 +124,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(establecerPersonaje('linea-jorge'));
         dispatch(escogerCancion(0))
       })
-      .fromTo(".jorge-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
-      .to(".jorge-bio", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-      .fromTo(".jorge-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<0.5')
+      .to('.box2', { autoAlpha: 1 })
       .call(() => {
         dispatch(escogerCancion(null))
       })
-      .fromTo(".jorge-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 1 })
-      .to(".jorge-youtube", { opacity: 1, zIndex: 2, duration: tempo * 1 })
-      .to(".jorge-youtube", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-      .fromTo(".jorge-relatos", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<1')
+      .to('.box3', { autoAlpha: 1 })
       .call(() => {
         jorgeRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
@@ -144,61 +136,64 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .call(() => {
         jorgeRelatoVideoRef.current.play();
       })
-      .fromTo(".jorge-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
-      .fromTo(".jorge-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
-      .fromTo(".jorge-galeria", { opacity: 0 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
-      .to(".jorge-galeria", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-
-    const tl2 = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".guaviare-carlos-gsap",
-          start: `top top`,
-          end: `+=${duracionTotal}`,
-          invalidateOnRefresh: false,
-          scrub: 1,
-          pin: true,
-          markers: false,
-          onEnter: () => {
-            //videoGuaviareRef.current.play();
-          },
-        }
-      })
-      .fromTo(".carlos-bio", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<')
+      .to('.box4', { autoAlpha: 1 })
       .call(() => {
-        // videoGuaviareRef.current.play();
-        // dispatch(escogerCancion(null))
+        jorgeRelatoVideoRef.current.play();
       })
       .call(() => {
-        dispatch(establecerPersonaje('linea-carlos'));
-        dispatch(escogerCancion(0))
-      })
-      .fromTo(".carlos-bio", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 2 })
-      .to(".carlos-bio", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-      .fromTo(".carlos-youtube", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<0.5')
-      .call(() => {
+        jorgeRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
       })
-      .fromTo(".carlos-youtube", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 1 })
-      .to(".carlos-youtube", { opacity: 1, zIndex: 2, duration: tempo * 1 })
-      .to(".carlos-youtube", { opacity: 0, zIndex: 1, duration: tempo * 2 })
-      .fromTo(".carlos-relatos", { opacity: 0 }, { opacity: 0.5, zIndex: 1, duration: tempo * 2 }, '<1')
+      .to('.box5', { autoAlpha: 1 })
+      .to('.box6', { autoAlpha: 1 })
+      .to('.box7', { autoAlpha: 1 })
+      .call(()=>{
+        carlosRelatoVideoRef.current.play();
+      })
+      .to('.box8', { autoAlpha: 1 })
+      .call(()=>{
+        carlosRelatoVideoRef.current.play();
+      })
       .call(() => {
         carlosRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
       })
-      .call(() => {
-        carlosRelatoVideoRef.current.play();
-      })
-      .fromTo(".carlos-relatos", { opacity: 0.5 }, { opacity: 1, zIndex: 2, duration: tempo * 3 })
-      .fromTo(".carlos-relatos", { opacity: 1 }, { opacity: 0, zIndex: 1, duration: tempo * 3 })
-      .fromTo(".carlos-galeria", { opacity: 0 }, { opacity: 1, zIndex: 2, duration: tempo * 3 }, '<')
-      .fromTo(".carlos-galeria", { opacity: 1}, { opacity: 0, zIndex: 2, duration: tempo * 1 })
+      .to('.box9', { autoAlpha: 1 })
+      .to('.box10', { autoAlpha: 1 })
+      .to('.box11', { autoAlpha: 1 })
+      .to('.box12', { autoAlpha: 1 })
+      .to('.box13', { autoAlpha: 1 })
+      .to('.box14', { autoAlpha: 1 })
+      .to('.box15', { autoAlpha: 1 })
+      .to('.box16', { autoAlpha: 1 })
+      .to('.box17', { autoAlpha: 1 })
+      .to('.box18', { autoAlpha: 1 })
+      .to('.box19', { autoAlpha: 1 })
+      .to('.box20', { autoAlpha: 1 })
+      .to('.box21', { autoAlpha: 1 })
+      .to('.box22', { autoAlpha: 1 })
+      .to('.box23', { autoAlpha: 1 })
+      .to('.box24', { autoAlpha: 1 })
+      .to('.box25', { autoAlpha: 1 })
+      .to('.box26', { autoAlpha: 1 })
+      .to('.box27', { autoAlpha: 1 })
+      .to('.box28', { autoAlpha: 1 })
+      .to('.box29', { autoAlpha: 1 })
+      .to('.box30', { autoAlpha: 1 })
+      .to('.box31', { autoAlpha: 1 })
+      .to('.box32', { autoAlpha: 1 })
+      .to('.box33', { autoAlpha: 1 })
+      .to('.box34', { autoAlpha: 1 })
+      .to('.box35', { autoAlpha: 1 })
+      .to('.box36', { autoAlpha: 1 })
+      .to('.box37', { autoAlpha: 1 })
+      .to('.box38', { autoAlpha: 1 })
+      .to('.box39', { autoAlpha: 1 })
+
     return () => {
       tl.kill();
-      tl2.kill();
     }
-  }, [])
+  })
 
   return (
     <>
@@ -215,26 +210,77 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           />
         })}
       </div>
-      <div className='guaviare-gsap'>
-        <div className='guaviare-contenedor-general'>
-          <div className='guaviare-jorge-gsap'>
-            <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-            <div id='guaviare-jorge-navegacion'>
-              <JorgeBio />
-            </div>
-            <JorgeYoutube />
-            <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
-            <JorgeGaleria />
-          </div>
-          <div className='guaviare-carlos-gsap'>
-            <div id='guaviare-carlos-navegacion'>
-              <CarlosBio />
-            </div>
-            <CarlosYoutube />
-            <CarlosRelatos carlosRelatoVideoRef={carlosRelatoVideoRef} />
-            <CarlosGaleria />
+      <div className="wrap">
+        <div className="box box1">
+          <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
+        </div>
+        <div className="box box2">
+          <div id='guaviare-jorge-navegacion'>
+            <JorgeBio />
           </div>
         </div>
+        <div className="box box3">
+          <JorgeYoutube />
+        </div>
+        <div className="box box4">
+          <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
+        </div>
+        <div className="box box5">
+          <JorgeGaleria />
+        </div>
+        <div className="box box6">
+          <CarlosBio />
+        </div>
+        <div className="box box7">
+          <CarlosYoutube />
+        </div>
+        <div className="box box8">
+          <CarlosRelatos carlosRelatoVideoRef={carlosRelatoVideoRef} />
+        </div>
+        <div className="box box9">
+          <CarlosGaleria />
+        </div>
+        <div className="box box10">
+          <DayanaBio />
+        </div>
+        <div className="box box11">
+          <DayanaYoutube1 />
+        </div>
+        <div className="box box12">
+          <DayanaYoutube2 />
+        </div>
+        <div className="box box13">
+          <DayanaGaleria />
+        </div>
+        <div className="box box14">14</div>
+        <div className="box box15">15</div>
+        <div className="box box16">16</div>
+        <div className="box box17">17</div>
+        <div className="box box18">18</div>
+        <div className="box box19">19</div>
+
+        <div className="box box20">20</div>
+        <div className="box box21">21</div>
+        <div className="box box22">22</div>
+        <div className="box box23">23</div>
+        <div className="box box24">24</div>
+        <div className="box box25">25</div>
+        <div className="box box26">26</div>
+        <div className="box box27">27</div>
+        <div className="box box28">28</div>
+        <div className="box box29">29</div>
+
+        <div className="box box30">30</div>
+        <div className="box box31">31</div>
+        <div className="box box32">32</div>
+        <div className="box box33">33</div>
+        <div className="box box34">34</div>
+        <div className="box box35">35</div>
+        <div className="box box36">36</div>
+        <div className="box box37">37</div>
+        <div className="box box38">38</div>
+        <div className="box box39">39</div>
+
       </div>
     </>
   )

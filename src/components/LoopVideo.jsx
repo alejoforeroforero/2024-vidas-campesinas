@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './LoopVideo.css'
 
-const LoopVideo = ({ videoRef, tiempo, video, poster }) => {
+const LoopVideo = ({ videoRef, tiempo, video }) => {
 
     const [mostrarVideo, setMostrarVideo] = useState(null);
 
@@ -24,7 +24,6 @@ const LoopVideo = ({ videoRef, tiempo, video, poster }) => {
                     muted
                     className="jorge-relatos-video"
                     src={video}>
-                    poster={poster}
                 </video>
             }
         </div>
