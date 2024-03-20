@@ -25,26 +25,26 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
     }, [cancionActual])
 
     const playAudio1 = () => {
-        if (cancionActual == 1) {
+        if (cancionActual == 3) {
             setPAudio1(false);
             dispatch(escogerCancion(null));
         } else {
             setPAudio1(true);
             setPAudio2(false);
-            dispatch(escogerCancion(1));
+            dispatch(escogerCancion(3));
         }
     }
 
-    const playAudio2 = () => {
-        if (cancionActual == 2) {
-            setPAudio2(false);
-            dispatch(escogerCancion(null));
-        } else {
-            setPAudio1(false);
-            setPAudio2(true);
-            dispatch(escogerCancion(2));
-        }
-    }
+    // const playAudio2 = () => {
+    //     if (cancionActual == 2) {
+    //         setPAudio2(false);
+    //         dispatch(escogerCancion(null));
+    //     } else {
+    //         setPAudio1(false);
+    //         setPAudio2(true);
+    //         dispatch(escogerCancion(2));
+    //     }
+    // }
 
     return (
         <div className="seccion carlos-relatos" >
@@ -57,12 +57,12 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
             <div className="relatos-contenido">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
-                    <p>"Cuando llegué al Raudal"</p>
+                    <p> “Llegamos a este territorio porque era muy productivo en Cacao”</p>
                 </div>
-                <div className='relatos-audio-obj'>
+                {/* <div className='relatos-audio-obj'>
                     <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
                     <p>"Somos nuestras propias ambulancias"</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )

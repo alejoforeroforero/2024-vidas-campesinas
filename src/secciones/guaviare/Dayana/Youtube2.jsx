@@ -31,7 +31,7 @@ const Youtube = () => {
             <YoutubePortal open={isOpen} onClose={() => setIsOpen(false)} >
                 <div id="player-container" className='player-container'>
                     <YouTube
-                        videoId="-9AvYOpalrk"
+                        videoId="1922XFwLkcw"
                         opts={opts}
                         onReady={onPlayerReady}
                         onStateChange={onStateChange}
@@ -43,7 +43,7 @@ const Youtube = () => {
                     <img onClick={handleOnClick} src={playImg} alt="play" />
                 </div>
                 <div>
-                    <p>“Video 2 de Dayana”</p>
+                    <p>“Señor Pronto alivio”</p>
                 </div>
             </div>
         </div>

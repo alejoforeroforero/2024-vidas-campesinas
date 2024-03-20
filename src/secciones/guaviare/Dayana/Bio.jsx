@@ -21,7 +21,7 @@ const Bio = () => {
     return (
         <div className='seccion dayana-bio'>
             <div className='bio-contenido'>
-                <h1 className='jorge-titulo-h1'>Dayana <br />---</h1>
+                <h1 className='dayana-titulo-h1'>Dayana <br />Novoa</h1>
                 <div className='info'>
                     <img onClick={() => setShowingPopup(true)} src={infoImg} alt="info" />
                 </div>

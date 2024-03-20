@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import img1 from '../../../assets/guaviare/jorge/foto1.jpg';
-import img2 from '../../../assets/guaviare/jorge/foto2.jpg';
-import img3 from '../../../assets/guaviare/jorge/foto3.jpg';
+import img1 from '../../../assets/guaviare/dayana/foto1.jpg';
+import img2 from '../../../assets/guaviare/dayana/foto2.jpg';
+import img3 from '../../../assets/guaviare/dayana/foto3.jpg';
+import img4 from '../../../assets/guaviare/dayana/foto4.jpg';
 
 
 const GaleriaC = () => {
 
-    const images = [img1, img2, img3];
+    const images = [img1, img2, img3, img4];
 
     const [currentImage, setCurrentImage] = useState(0);
 

@@ -11,6 +11,7 @@ import { useGSAP } from "@gsap/react";
 import { crearAudioPlayer } from './components/RelatosPlayer';
 
 import GuaviareEntrada from './GuaviareEntrada';
+
 import JorgeBio from './Jorge/Bio';
 import JorgeYoutube from './Jorge/Youtube';
 import JorgeRelatos from './Jorge/Relatos';
@@ -26,6 +27,11 @@ import DayanaYoutube1 from './Dayana/Youtube';
 import DayanaYoutube2 from './Dayana/Youtube2';
 import DayanaGaleria from './Dayana/Galeria';
 
+import WilliamBio from './William/Bio';
+import WilliamYoutube from './William/Youtube';
+import WilliamRelatos from './William/Relatos';
+import WilliamGaleria from './William/Galeria';
+
 import LoadingIcons from 'react-loading-icons';
 
 import './GuaviareHome.css'
@@ -40,9 +46,10 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
   const [esconderLoading, setEsconderLoading] = useState(false);
-  const jorgeRelatoVideoRef = useRef(null);
   const audioObj = crearAudioPlayer();
+  const jorgeRelatoVideoRef = useRef(null);  
   const carlosRelatoVideoRef = useRef(null);
+  const williamRelatoVideoRef = useRef(null);
 
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
@@ -84,6 +91,16 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       id: 'linea-carlos',
       titulo: 'Carlos Mancera',
       navegacion: 'guaviare-carlos-navegacion'
+    },
+    {
+      id: 'linea-dayana',
+      titulo: 'Dayana Novoa',
+      navegacion: 'guaviare-dayana-navegacion'
+    },
+    {
+      id: 'linea-william',
+      titulo: 'William Mora',
+      navegacion: 'guaviare-william-navegacion'
     },
   ]
 
@@ -143,15 +160,24 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .call(() => {
         jorgeRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
+        dispatch(establecerPersonaje('linea-jorge'));
       })
       .to('.box5', { autoAlpha: 1 })
+      .call(()=>{
+        dispatch(establecerPersonaje('linea-carlos'));
+        carlosRelatoVideoRef.current.pause();
+        dispatch(escogerCancion(null))
+      })
       .to('.box6', { autoAlpha: 1 })
       .to('.box7', { autoAlpha: 1 })
       .call(()=>{
+        dispatch(escogerCancion(null))
+      })
+      .call(() => {
         carlosRelatoVideoRef.current.play();
       })
       .to('.box8', { autoAlpha: 1 })
-      .call(()=>{
+      .call(() => {
         carlosRelatoVideoRef.current.play();
       })
       .call(() => {
@@ -159,13 +185,40 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(null))
       })
       .to('.box9', { autoAlpha: 1 })
+      .call(()=>{
+        dispatch(establecerPersonaje('linea-carlos'));
+      })
+      .call(()=>{
+        dispatch(establecerPersonaje('linea-dayana'));
+      })
       .to('.box10', { autoAlpha: 1 })
       .to('.box11', { autoAlpha: 1 })
       .to('.box12', { autoAlpha: 1 })
       .to('.box13', { autoAlpha: 1 })
+      .call(() => {
+        dispatch(escogerCancion(null))
+      })
+      .call(() => {
+        dispatch(establecerPersonaje('linea-william'));
+        dispatch(escogerCancion(4))
+      })
       .to('.box14', { autoAlpha: 1 })
+      .call(() => {
+        dispatch(escogerCancion(null))
+      })
       .to('.box15', { autoAlpha: 1 })
+      .call(() => {
+        williamRelatoVideoRef.current.pause();
+        dispatch(escogerCancion(null))
+      })
+      .call(() => {
+        williamRelatoVideoRef.current.play();
+      })
       .to('.box16', { autoAlpha: 1 })
+      .call(() => {
+        williamRelatoVideoRef.current.pause();
+        dispatch(escogerCancion(null))
+      })
       .to('.box17', { autoAlpha: 1 })
       .to('.box18', { autoAlpha: 1 })
       .to('.box19', { autoAlpha: 1 })
@@ -252,13 +305,22 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box13">
           <DayanaGaleria />
         </div>
-        <div className="box box14">14</div>
-        <div className="box box15">15</div>
-        <div className="box box16">16</div>
-        <div className="box box17">17</div>
+        <div className="box box14">
+          <div id='guaviare-william-navegacion'>
+            <WilliamBio />
+          </div>
+        </div>
+        <div className="box box15">
+          <WilliamYoutube />
+        </div>
+        <div className="box box16">
+          <WilliamRelatos williamRelatoVideoRef={williamRelatoVideoRef} />
+        </div>
+        <div className="box box17">
+          <WilliamGaleria />
+        </div>
         <div className="box box18">18</div>
         <div className="box box19">19</div>
-
         <div className="box box20">20</div>
         <div className="box box21">21</div>
         <div className="box box22">22</div>

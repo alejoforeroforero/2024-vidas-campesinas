@@ -21,7 +21,8 @@ const Bio = () => {
     return (
         <div className='seccion carlos-bio'>
             <div className='bio-contenido'>
-                <h1 className='carlos-titulo-h1'>Jorge <br />Luis Cano</h1>
+                <h1 className='carlos-titulo-h1'>Carlos <br />Julio Mancera</h1>
+                <p>“Ya no podemos cultivar mucho. Ahora nos buscamos la comida con el turismo”</p>
                 <div className='info'>
                     <img onClick={() => setShowingPopup(true)} src={infoImg} alt="info" />
                 </div>
