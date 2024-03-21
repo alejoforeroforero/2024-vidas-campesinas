@@ -6,6 +6,7 @@ const initialState = {
   youtube: null,
   cancionActual: null,
   cancionAnterior: null,
+  videoActual: null,
   yCanalA: 0,
 };
 
@@ -29,6 +30,26 @@ const managerSlice = createSlice({
     establecerYCanalA(state, action) {
       state.yCanalA = action.payload;
     },
+    changeVideo(state, action) {
+      if (state.videoActual !== action.payload) {
+        if (state.videoActual != null) {
+          const prevVideo = document.getElementById(state.videoActual);
+
+          if (!prevVideo.paused) {
+            prevVideo?.pause();
+          }
+        }
+      }
+
+      state.videoActual = action.payload;
+
+      if (state.videoActual != null) {
+        const currentVideo = document.getElementById(action.payload);
+        if (currentVideo.paused) {
+          currentVideo.play();
+        }
+      }
+    },
   },
 });
 
@@ -38,6 +59,7 @@ export const {
   cambiarYotube,
   escogerCancion,
   establecerYCanalA,
+  changeVideo,
 } = managerSlice.actions;
 
 export default managerSlice.reducer;

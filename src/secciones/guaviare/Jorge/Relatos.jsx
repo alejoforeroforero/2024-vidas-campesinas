@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { escogerCancion } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 
-import relatosVideo from '../../../assets/guaviare/jorge/loop-relatos.mp4';
+import relatosVideo from '../../../assets/guaviare/jorge/loop-jorge.mp4';
 import audioImg from '../../../assets/generales/audio.png';
 import audioOnImg from '../../../assets/generales/audio-on.png';
 
@@ -16,6 +16,15 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
 
     const [pAudio1, setPAudio1] = useState(null);
     const [pAudio2, setPAudio2] = useState(null);
+    const [mostrarVideo, setMostrarVideo] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMostrarVideo(true);
+        }, 4000)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     useEffect(() => {
         if (cancionActual == null) {
@@ -48,13 +57,16 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
 
     return (
         <div className="seccion jorge-relatos" >
-            <LoopVideo
-                videoRef={jorgeRelatoVideoRef}
-                tiempo='3000'
-                video={relatosVideo}
-            />
+            {!mostrarVideo && <div>Loading</div>}
+            {mostrarVideo &&
+                <LoopVideo
+                    videoRef={jorgeRelatoVideoRef}
+                    tiempo='3000'
+                    video={relatosVideo}
+                />
+            }
             <div className="relatos-mask"></div>
-            <div className="relatos-contenido">
+            <div className="relatos-contenido jorge-relatos-gsap">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
                     <p>"Cuando llegué al Raudal"</p>

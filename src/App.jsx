@@ -22,6 +22,7 @@ import ejeAImg from './assets/generales/ejeA.png'
 import ejeBImg from './assets/generales/ejeB.png'
 
 import './App.css'
+import './GeneralB.css'
 import EnDesarrollo from './components/EnDesarrollo';
 import NotFound from './components/NotFound';
 

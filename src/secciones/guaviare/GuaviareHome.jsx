@@ -47,7 +47,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
   const [esconderLoading, setEsconderLoading] = useState(false);
   const audioObj = crearAudioPlayer();
-  const jorgeRelatoVideoRef = useRef(null);  
+  const jorgeRelatoVideoRef = useRef(null);
   const carlosRelatoVideoRef = useRef(null);
   const williamRelatoVideoRef = useRef(null);
 
@@ -113,7 +113,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       scrollTrigger: {
         trigger: '.wrap',
         start: "top top",
-        end: "+=8000",
+        end: "+=12000",
         pin: true,
         scrub: 1,
         marker: true
@@ -142,41 +142,53 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(0))
       })
       .to('.box2', { autoAlpha: 1 })
+      .to('.box2', { opacity: 1, duration:2 })
       .call(() => {
         dispatch(escogerCancion(null))
       })
       .to('.box3', { autoAlpha: 1 })
+      .to('.box3', { opacity: 1, duration:2 })
       .call(() => {
-        jorgeRelatoVideoRef.current.pause();
+        jorgeRelatoVideoRef.current?.pause();
         dispatch(escogerCancion(null))
       })
       .call(() => {
-        jorgeRelatoVideoRef.current.play();
+        jorgeRelatoVideoRef.current?.play();
       })
       .to('.box4', { autoAlpha: 1 })
+      .fromTo('.jorge-relatos-gsap', { opacity: 0 }, { opacity: 1, duration:5 })      
+      .fromTo('.jorge-relatos-gsap', { opacity: 1 }, { opacity: 0, duration:2 })
       .call(() => {
-        jorgeRelatoVideoRef.current.play();
+        dispatch(establecerPersonaje('linea-jorge'));
+        jorgeRelatoVideoRef.current?.play();
       })
       .call(() => {
-        jorgeRelatoVideoRef.current.pause();
-        dispatch(escogerCancion(null))
-        dispatch(establecerPersonaje('linea-jorge'));
+        jorgeRelatoVideoRef.current?.pause();
+        dispatch(escogerCancion(null));             
       })
       .to('.box5', { autoAlpha: 1 })
-      .call(()=>{
-        dispatch(establecerPersonaje('linea-carlos'));
+      .to('.box5', { opacity: 1, duration:2 })
+      .call(() => {        
         carlosRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
+        dispatch(establecerPersonaje('linea-carlos')); 
       })
       .to('.box6', { autoAlpha: 1 })
+      .to('.box6', { opacity: 1, duration:2 })
       .to('.box7', { autoAlpha: 1 })
-      .call(()=>{
+      .call(() => {
         dispatch(escogerCancion(null))
       })
       .call(() => {
         carlosRelatoVideoRef.current.play();
       })
+      .to('.box7', { opacity: 1, duration:2 })
       .to('.box8', { autoAlpha: 1 })
+      .call(() => {
+        carlosRelatoVideoRef.current.play();
+      })
+      .fromTo('.carlos-relatos-gsap', { opacity: 0 }, { opacity: 1, duration:5 })      
+      .fromTo('.carlos-relatos-gsap', { opacity: 1 }, { opacity: 0, duration:2 })
       .call(() => {
         carlosRelatoVideoRef.current.play();
       })
@@ -185,42 +197,58 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(null))
       })
       .to('.box9', { autoAlpha: 1 })
-      .call(()=>{
+      .call(() => {
         dispatch(establecerPersonaje('linea-carlos'));
       })
-      .call(()=>{
+      .call(() => {
         dispatch(establecerPersonaje('linea-dayana'));
       })
+      .to('.box9', { opacity: 1, duration:2 })    
       .to('.box10', { autoAlpha: 1 })
+      .to('.box10', { opacity: 1, duration:2 })  
       .to('.box11', { autoAlpha: 1 })
+      .to('.box11', { opacity: 1, duration:2 })  
       .to('.box12', { autoAlpha: 1 })
+      .to('.box12', { opacity: 1, duration:2 })  
       .to('.box13', { autoAlpha: 1 })
       .call(() => {
+        dispatch(establecerPersonaje('linea-dayana'));
         dispatch(escogerCancion(null))
       })
+      .to('.box13', { opacity: 1, duration:2 })  
       .call(() => {
         dispatch(establecerPersonaje('linea-william'));
         dispatch(escogerCancion(4))
       })
       .to('.box14', { autoAlpha: 1 })
+      .to('.box14', { opacity: 1, duration:2 }) 
       .call(() => {
         dispatch(escogerCancion(null))
       })
       .to('.box15', { autoAlpha: 1 })
+      .to('.box15', { opacity: 1, duration:2 }) 
       .call(() => {
         williamRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
-      })
+      })      
+      .to('.box16', { autoAlpha: 1 })
       .call(() => {
         williamRelatoVideoRef.current.play();
       })
-      .to('.box16', { autoAlpha: 1 })
+      .to('.box16', { opacity: 1, duration:2 }) 
+      .fromTo('.william-relatos-gsap', { opacity: 0 }, { opacity: 1, duration:5 })      
+      .fromTo('.william-relatos-gsap', { opacity: 1 }, { opacity: 0, duration:2 })
+      .call(() => {
+        williamRelatoVideoRef.current.play();
+      })
       .call(() => {
         williamRelatoVideoRef.current.pause();
         dispatch(escogerCancion(null))
       })
       .to('.box17', { autoAlpha: 1 })
+      .to('.box17', { opacity: 1, duration:2 })
       .to('.box18', { autoAlpha: 1 })
+      .to('.box18', { opacity: 1, duration:2 })
       .to('.box19', { autoAlpha: 1 })
       .to('.box20', { autoAlpha: 1 })
       .to('.box21', { autoAlpha: 1 })

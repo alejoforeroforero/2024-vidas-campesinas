@@ -11,7 +11,7 @@ const Galeria = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setMostrarGaleria(true)
-        }, 10000)
+        }, 20000)
 
         return () => clearTimeout(timer);
     }, [])

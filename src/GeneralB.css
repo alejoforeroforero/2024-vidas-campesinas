@@ -1,0 +1,64 @@
+.flecha-atras {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  left: 15vw;
+  bottom: 15vh;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+
+  img {
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+.flecha-adelante {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  right: 15vw;
+  bottom: 15vh;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+
+  img {
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
+.relatos-audio-obj {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px 10vw;
+  font-size: 0.8rem;
+
+  audio {
+    visibility: hidden;
+    display: none;
+  }
+
+  img {
+    width: 40px;
+    cursor: pointer;
+  }
+
+  p {
+    text-align: left;
+    padding-left: 4px;
+  }
+}
+
+.seccion-b-abajo{
+  position: absolute;
+  bottom: 10vw;
+  width: 16vw;
+  left: 42vw;
+  opacity: 0.6;
+}

@@ -168,24 +168,38 @@
   .image-container{
       width:100vw;
       height: 70vh;
+      
 
       img{
           width:100vw;
           height: 70vh;
           aspect-ratio: 3/2;
           object-fit:contain;
+          
+      }
+
+      .image-s{
+        animation: fadeIn 3s ease-out;
+      }
+
+      .image-n{
+        animation: fadeIn 3s ease-out;
       }
   }
 
   .carousel-botones{
+    height: 10vh;
+    overflow: hidden;
 
     button{
       border: none;
       cursor: pointer;
       background-color:transparent;
-      color:#fff;
-      margin: 0 15px;
-      font-size: 2rem;
+      
+      img{
+        width: 35px;
+        margin: 0 30px;
+      }
     }
   }
 
@@ -202,6 +216,7 @@
       background-color: rgb(255, 255, 255);
       cursor: pointer;
       margin: 0 5px;
+      transition: 2s;
   }
 
   .galerias-n{

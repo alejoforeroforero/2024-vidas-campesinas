@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { escogerCancion } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 
-import relatosVideo from '../../../assets/guaviare/carlos/loop-relatos.mp4';
+import relatosVideo from '../../../assets/guaviare/carlos/loop-carlos.mp4';
 import audioImg from '../../../assets/generales/audio.png';
 import audioOnImg from '../../../assets/generales/audio-on.png';
 
@@ -16,6 +16,15 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
 
     const [pAudio1, setPAudio1] = useState(null);
     const [pAudio2, setPAudio2] = useState(null);
+    const [mostrarVideo, setMostrarVideo] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMostrarVideo(true);
+        }, 6000)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     useEffect(() => {
         if (cancionActual == null) {
@@ -35,26 +44,19 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
         }
     }
 
-    // const playAudio2 = () => {
-    //     if (cancionActual == 2) {
-    //         setPAudio2(false);
-    //         dispatch(escogerCancion(null));
-    //     } else {
-    //         setPAudio1(false);
-    //         setPAudio2(true);
-    //         dispatch(escogerCancion(2));
-    //     }
-    // }
+
 
     return (
         <div className="seccion carlos-relatos" >
-            <LoopVideo
-                videoRef={carlosRelatoVideoRef}
-                tiempo='3000'
-                video={relatosVideo}
-            />
+            {!mostrarVideo && <div>Loading</div>}
+            {mostrarVideo &&
+                <LoopVideo
+                    videoRef={carlosRelatoVideoRef}
+                    video={relatosVideo}
+                />
+            }
             <div className="relatos-mask"></div>
-            <div className="relatos-contenido">
+            <div className="relatos-contenido carlos-relatos-gsap">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
                     <p> “Llegamos a este territorio porque era muy productivo en Cacao”</p>

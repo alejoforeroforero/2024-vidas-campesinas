@@ -1,31 +1,21 @@
-import { useEffect, useState } from 'react'
 import './LoopVideo.css'
 
-const LoopVideo = ({ videoRef, tiempo, video }) => {
-
-    const [mostrarVideo, setMostrarVideo] = useState(null);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setMostrarVideo(true);
-        }, tiempo)
-
-        return () => clearTimeout(timer);
-    }, [])
+const LoopVideo = ({ videoRef, video, vId }) => {
 
     return (
         <div className="relatos-video">
-            {!mostrarVideo && <div> descargando </div>}
-            {mostrarVideo &&
-                <video
-                    ref={videoRef}
-                    loop
-                    playsInline
-                    muted
-                    className="jorge-relatos-video"
-                    src={video}>
-                </video>
-            }
+            <video
+                ref={videoRef}
+                id={vId}
+                loop
+                playsInline
+                muted
+                className="jorge-relatos-video"
+                src={video}
+                onTimeUpdate={()=>{console.log('hola')}}
+                >
+                
+            </video>
         </div>
     )
 }

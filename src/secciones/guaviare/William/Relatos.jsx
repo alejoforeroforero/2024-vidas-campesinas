@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { escogerCancion } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 
-import relatosVideo from '../../../assets/guaviare/william/loop-relatos.mp4';
+import relatosVideo from '../../../assets/guaviare/william/loop-william.mp4';
 import audioImg from '../../../assets/generales/audio.png';
 import audioOnImg from '../../../assets/generales/audio-on.png';
 
@@ -16,6 +16,15 @@ const Relatos = ({ williamRelatoVideoRef }) => {
 
     const [pAudio1, setPAudio1] = useState(null);
     const [pAudio2, setPAudio2] = useState(null);
+    const [mostrarVideo, setMostrarVideo] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMostrarVideo(true);
+        }, 10000)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     useEffect(() => {
         if (cancionActual == null) {
@@ -35,34 +44,21 @@ const Relatos = ({ williamRelatoVideoRef }) => {
         }
     }
 
-    // const playAudio2 = () => {
-    //     if (cancionActual == 2) {
-    //         setPAudio2(false);
-    //         dispatch(escogerCancion(null));
-    //     } else {
-    //         setPAudio1(false);
-    //         setPAudio2(true);
-    //         dispatch(escogerCancion(2));
-    //     }
-    // }
-
     return (
         <div className="seccion william-relatos" >
-            <LoopVideo
-                videoRef={williamRelatoVideoRef}
-                tiempo='3000'
-                video={relatosVideo}
-            />
+            {!mostrarVideo && <div>Loading</div>}
+            {mostrarVideo &&
+                <LoopVideo
+                    videoRef={williamRelatoVideoRef}
+                    video={relatosVideo}
+                />
+            }
             <div className="relatos-mask"></div>
-            <div className="relatos-contenido">
+            <div className="relatos-contenido william-relatos-gsap">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
                     <p>"Cuando me curaron de la picadura de raya"</p>
                 </div>
-                {/* <div className='relatos-audio-obj'>
-                    <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
-                    <p>"Somos nuestras propias ambulancias"</p>
-                </div> */}
             </div>
         </div>
     )

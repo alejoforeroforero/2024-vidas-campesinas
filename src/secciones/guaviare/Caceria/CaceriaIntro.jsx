@@ -1,10 +1,16 @@
 
 import { useState } from 'react';
 import './CaceriaIntro.css';
+import CaceriaF1 from './CaceriaF1';
+import CaceriaF2 from './CaceriaF2';
+import flechaAdelante from '../../../assets/generales/flecha-adelante.png';
+import flechaAtras from '../../../assets/generales/flecha-atras.png';
+import abajoImg from '../../../assets/generales/abajo.png';
+import CaceriaF3 from './CaceriaF3';
 
 const CaceriaIntro = () => {
 
-    const secciones = ['intro', 'fotos', 'audio', 'otros']
+    const secciones = ['intro', 'audio1', 'audio2']
 
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -16,48 +22,24 @@ const CaceriaIntro = () => {
         setCurrentImage((currentImage + 1) % secciones.length);
     };
 
-    const pintarF1 = () => {
-        return (
-            <div>
-                Screen 1
-            </div>
-        )
-    }
-
-    const pintarF2 = () => {
-        return (
-            <div>
-                 Screen 2
-            </div>
-        )
-    }
-
-    const pintarF3 = () => {
-        return (
-            <div>
-                 Screen 3
-            </div>
-        )
-    }
-
-    const pintarF4 = () => {
-        return (
-            <div>
-                 Screen 4
-            </div>
-        )
-    }
-
     return (
         <div className='guaviare-caceria'>
             <div className="guaviare-caceria-contenido">
-                {currentImage == 0 && pintarF1()}
-                {currentImage == 1 && pintarF2()}
-                {currentImage == 2 && pintarF3()}
-                {currentImage == 3 && pintarF4()}
+                {currentImage == 0 && <CaceriaF1 />}
+                {currentImage == 1 && <CaceriaF2 />}
+                {currentImage == 2 && <CaceriaF3 />}
             </div>
-            <button className='guaviare-caceria-prev' onClick={prevImage}>&#60;</button>
-            <button className='guaviare-caceria-next'  onClick={nextImage}>&#62;</button>
+            {currentImage != 0 &&
+                <button className='flecha-atras' onClick={prevImage}>
+                    <img src={flechaAtras} alt='flecha'></img>
+                </button>
+            }
+            {currentImage != secciones.length - 1 &&
+                <button className='flecha-adelante' onClick={nextImage}>
+                    <img src={flechaAdelante} alt='flecha'></img>
+                </button>
+            }
+            <img className='seccion-b-abajo' src={abajoImg} alt="abajo" />
         </div>
     )
 }
