@@ -55,10 +55,10 @@ function App() {
   }
 
   //Sólo para testing, quitar o comentar este useEffect
-  useEffect(() => {
-    console.log(yCanalA);
-    console.log(departamento);
-  }, [yCanalA])
+  // useEffect(() => {
+  //   console.log(yCanalA);
+  //   console.log(departamento);
+  // }, [yCanalA])
 
   const handleCanalBOnClick = () => {
     setHideCanalB(!hidennCanalB);

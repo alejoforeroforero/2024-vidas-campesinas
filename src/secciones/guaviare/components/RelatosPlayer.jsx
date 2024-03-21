@@ -9,6 +9,7 @@ import sWilliam1 from '../../../assets/guaviare/william/william1.mp3';
 import sWilliam2 from '../../../assets/guaviare/william/william2.mp3';
 
 export const crearAudioPlayer = () => {
+
     const [sounds] = useState([
         new Howl({ src: s1 }),
         new Howl({ src: s2 }),
