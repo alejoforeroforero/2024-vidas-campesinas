@@ -124,10 +124,11 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
     const handleOnCerrar = () => {
         const div = document.getElementById(id);
         div.style.animation = booleano ? 'fadeOut 1s' : 'fadeOut2 1s';
-        setShowControls(false);
+        setShowControls(false);        
 
         setTimeout(() => {
             div.style.visibility = 'hidden';
+            setIsPlaying(false);
             video.pauseVideo();
             setMostrarMask(true);
             setBooleano(!booleano);
@@ -147,14 +148,14 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
     const drawControls = () => {
         return (
             <div onClick={handleGeneralOnClick} className='video-controls' style={{ opacity: showControls ? '1' : '0' }}>
-                <div className='video-play-img-container'>
+                {/* <div className='video-play-img-container'>
                     <FontAwesomeIcon
                         onClick={handleIconOnClick}
                         icon={isPlaying ? faPause : faPlay}
                         size="2xl"
                         style={{ color: "rgb(215, 215, 215)", }}
                     />
-                </div>
+                </div> */}
                 <div className='video-img-container'>
                     <img ref={imgThumbnailRef} src={imgThumbnail}></img>
                 </div>

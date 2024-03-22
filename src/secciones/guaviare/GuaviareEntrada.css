@@ -11,7 +11,8 @@
     top: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(67, 67, 67);
+    background: url('../../assets/guaviare/home/guaviare-poster.jpg');
+    background-repeat: no-repeat;
 
     video {
       height: 100vh;

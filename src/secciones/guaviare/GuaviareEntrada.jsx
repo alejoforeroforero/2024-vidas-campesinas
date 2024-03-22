@@ -1,5 +1,6 @@
 import videoGuaviare from '../../assets/guaviare/home/guaviare.mp4';
 import guaviareGrafica from '../../assets/guaviare/home/pictograma.png';
+import guaviarePoster from '../../assets/guaviare/home/guaviare-poster.jpg';
 
 import './GuaviareEntrada.css'
 
@@ -10,6 +11,7 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
       <div className="guaviare-video">
         <video
           ref={videoGuaviareRef}
+          poster={guaviarePoster}
           loop
           playsInline
           muted

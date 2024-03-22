@@ -426,7 +426,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         {pintarYoutubeDayana1 &&
           <YT
             refYoutubeFx={refYoutubeDayana1}
-            youtubeVideoId="7FeSnVNixRg"
+            youtubeVideoId="yXqkGR1jqu8"
             imgThumbnail={dayanaThumbnail1}
             id='youtube-dayana1'
           />
@@ -436,7 +436,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         {pintarYoutubeDayana2 &&
           <YT
             refYoutubeFx={refYoutubeDayana2}
-            youtubeVideoId="7FeSnVNixRg"
+            youtubeVideoId="1922XFwLkcw"
             imgThumbnail={dayanaThumbnail2}
             id='youtube-dayana2'
           />
@@ -446,7 +446,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         {pintarYoutubeWilliam &&
           <YT
             refYoutubeFx={refYoutubeWilliam}
-            youtubeVideoId="7FeSnVNixRg"
+            youtubeVideoId="Ke_53rCjS_U"
             imgThumbnail={williamThumbnail}
             id='youtube-william'
           />
