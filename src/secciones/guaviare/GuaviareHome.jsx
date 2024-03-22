@@ -7,7 +7,7 @@ import {
 } from '../../redux/states/managerSlice';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { crearAudioPlayer } from './components/RelatosPlayer';
+// import { crearAudioPlayer } from './components/RelatosPlayer';
 
 import GuaviareEntrada from './GuaviareEntrada';
 
@@ -43,6 +43,15 @@ import williamThumbnail from '../../assets/guaviare/william/fondo-video-cel.jpg'
 
 import './GuaviareHome.css'
 
+import {
+  agregarS1,
+  agregarS2, 
+  agregarS3, 
+  agregarS4, 
+  agregarS5,
+  agregarS6,
+} from './components/s1';
+
 const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const dispatch = useDispatch();
@@ -52,7 +61,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
   const [esconderLoading, setEsconderLoading] = useState(false);
-  const audioObj = crearAudioPlayer();
+  const [audioObj, setSonidos] = useState([]);
+  // const audioObj = crearAudioPlayer();
 
   const jorgeRelatoVideoRef = useRef(null);
   const carlosRelatoVideoRef = useRef(null);
@@ -76,8 +86,15 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   }, [dispatch])
 
   useEffect(() => {
+    console.log(audioObj);
+  }, [audioObj])
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setEsconderLoading(true);
+
+      const s1 = agregarS1();
+      setSonidos(prevItems => [...prevItems, s1]);
     }, 3000);
     //Cuadrar el scroll cuando se viene de B
     // const timerScroll = setTimeout(() => {
@@ -86,22 +103,32 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
     const timerYTJorge = setTimeout(() => {
       setPintarYoutubeJorge(true);
+      const s2 = agregarS2();
+      setSonidos(prevItems => [...prevItems, s2]);
     }, 10000);
 
     const timerYTCarlos = setTimeout(() => {
       setPintarYoutubeCarlos(true);
+      const s3 = agregarS3();
+      setSonidos(prevItems => [...prevItems, s3]);
     }, 16000);
 
     const timerYTDayana = setTimeout(() => {
       setPintarYoutubeDayana1(true);
+      const s4 = agregarS4();
+      setSonidos(prevItems => [...prevItems, s4]);
     }, 22000);
 
     const timerYTDayana2 = setTimeout(() => {
       setPintarYoutubeDayana2(true);
+      const s5 = agregarS5();
+      setSonidos(prevItems => [...prevItems, s5]);
     }, 28000);
 
     const timerYTWilliam = setTimeout(() => {
       setPintarYoutubeWilliam(true);
+      const s6 = agregarS6();
+      setSonidos(prevItems => [...prevItems, s6]);
     }, 28000);
 
     return () => {
@@ -114,6 +141,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       //clearTimeout(timerScroll);
     }
   }, [])
+
 
   useEffect(() => {
     if (cancionAnterior != null) {
@@ -230,7 +258,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box4', { autoAlpha: 1 })
       .fromTo('.jorge-relatos-gsap', { opacity: 0 }, { opacity: 1, duration: 5 })
-      .to('.jorge-relatos-gsap', {opacity:1, duration:2})
+      .to('.jorge-relatos-gsap', { opacity: 1, duration: 2 })
       .fromTo('.jorge-relatos-gsap', { opacity: 1 }, { opacity: 0, duration: 5 })
       .call(() => {
         dispatch(establecerPersonaje('linea-jorge'));
@@ -251,7 +279,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box6', { autoAlpha: 1 })
       .to('.box6', { opacity: 1, duration: 2 })
-      .fromTo('.carlos-info', {opacity:0}, {opacity:1, duration:2})
+      .fromTo('.carlos-info', { opacity: 0 }, { opacity: 1, duration: 2 })
       .to('.carlos-info', { opacity: 1, duration: 2 })
       .to('.carlos-info', { opacity: 0, duration: 2 })
       .to('.box6', { opacity: 1, duration: 2 })
@@ -291,7 +319,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .to('.box9', { opacity: 1, duration: 2 })
       .to('.box10', { autoAlpha: 1 })
       .to('.box10', { opacity: 1, duration: 2 })
-      .fromTo('.dayana-info', {opacity:0}, {opacity:1, duration:2})
+      .fromTo('.dayana-info', { opacity: 0 }, { opacity: 1, duration: 2 })
       .to('.dayana-info', { opacity: 1, duration: 2 })
       .to('.dayana-info', { opacity: 0, duration: 2 })
       .to('.box10', { opacity: 1, duration: 2 })
@@ -313,7 +341,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box14', { autoAlpha: 1 })
       .to('.box14', { opacity: 1, duration: 2 })
-      .fromTo('.william-info', {opacity:0}, {opacity:1, duration:2})
+      .fromTo('.william-info', { opacity: 0 }, { opacity: 1, duration: 2 })
       .to('.william-info', { opacity: 1, duration: 2 })
       .to('.william-info', { opacity: 0, duration: 2 })
       .call(() => {
