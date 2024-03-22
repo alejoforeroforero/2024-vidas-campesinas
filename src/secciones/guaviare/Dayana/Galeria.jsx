@@ -7,24 +7,22 @@ const Galeria = () => {
 
     const [mostrarGaleria, setMostrarGaleria] = useState(false);
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setMostrarGaleria(true)
-    //     }, 20000)
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMostrarGaleria(true)
+        }, 30000)
 
-    //     return () => clearTimeout(timer);
-    // }, [])
+        return () => clearTimeout(timer);
+    }, [])
 
     return (
-       
         <div className='seccion dayana-galeria'>
-             <GaleriaDayana />
-            {/* {!mostrarGaleria &&
+            {!mostrarGaleria &&
                 <div>Loading...</div>
             }
             {mostrarGaleria &&
                 <GaleriaDayana />
-            } */}
+            }
         </div>
     )
 }

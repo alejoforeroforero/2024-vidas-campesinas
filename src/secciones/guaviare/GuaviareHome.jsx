@@ -71,7 +71,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const [williamYoutubeRef, setWilliamYoutubeRef] = useState(null);
   const [pintarYoutubeWilliam, setPintarYoutubeWilliam] = useState(false);
 
-
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
   }, [dispatch])
@@ -87,26 +86,30 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
     const timerYTJorge = setTimeout(() => {
       setPintarYoutubeJorge(true);
-    }, 5000);
+    }, 10000);
 
     const timerYTCarlos = setTimeout(() => {
       setPintarYoutubeCarlos(true);
-    }, 8000);
+    }, 16000);
 
     const timerYTDayana = setTimeout(() => {
       setPintarYoutubeDayana1(true);
+    }, 22000);
+
+    const timerYTDayana2 = setTimeout(() => {
       setPintarYoutubeDayana2(true);
-    }, 10000);
+    }, 28000);
 
     const timerYTWilliam = setTimeout(() => {
       setPintarYoutubeWilliam(true);
-    }, 10000);
+    }, 28000);
 
     return () => {
       clearTimeout(timer);
       clearTimeout(timerYTJorge);
       clearTimeout(timerYTCarlos);
       clearTimeout(timerYTDayana);
+      clearTimeout(timerYTDayana2);
       clearTimeout(timerYTWilliam);
       //clearTimeout(timerScroll);
     }
@@ -240,9 +243,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box5', { autoAlpha: 1 })
       .to('.box5', { opacity: 1, duration: 2 })
-      .fromTo('.jorge-botones-galeria', {opacity:0}, {opacity:1, duration:2})
-      .to('.jorge-botones-galeria', { opacity: 1, duration: 2 })
-      .to('.jorge-botones-galeria', { opacity: 0, duration: 2 })
       .to('.box5', { opacity: 1, duration: 2 })
       .call(() => {
         carlosRelatoVideoRef.current.pause();
@@ -281,9 +281,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(null))
       })
       .to('.box9', { autoAlpha: 1 })
-      .fromTo('.carlos-botones-galeria', {opacity:0}, {opacity:1, duration:2})
-      .to('.carlos-botones-galeria', { opacity: 1, duration: 2 })
-      .to('.carlos-botones-galeria', { opacity: 0, duration: 2 })
       .to('.box9', { opacity: 1, duration: 2 })
       .call(() => {
         dispatch(establecerPersonaje('linea-carlos'));
@@ -304,9 +301,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .to('.box12', { autoAlpha: 1 })
       .to('.box12', { opacity: 1, duration: 2 })
       .to('.box13', { autoAlpha: 1 })
-      .fromTo('.dayana-botones-galeria', {opacity:0}, {opacity:1, duration:2})
-      .to('.dayana-botones-galeria', { opacity: 1, duration: 2 })
-      .to('.dayana-botones-galeria', { opacity: 0, duration: 2 })
       .to('.box13', { opacity: 1, duration: 2 })
       .call(() => {
         dispatch(establecerPersonaje('linea-dayana'));
@@ -350,9 +344,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(null))
       })
       .to('.box17', { autoAlpha: 1 })
-      .fromTo('.william-galeria-botones', {opacity:0}, {opacity:1, duration:2})
-      .to('.william-galeria-botones', { opacity: 1, duration: 2 })
-      .to('.william-galeria-botones', { opacity: 0, duration: 2 })
       .to('.box17', { opacity: 1, duration: 2 })
       .to('.box18', { autoAlpha: 1 })
       .to('.box18', { opacity: 1, duration: 2 })
