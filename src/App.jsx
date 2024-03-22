@@ -33,7 +33,7 @@ function App() {
   const departamento = useSelector(state => state.managerReducer.departamento);
   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
 
-  const [yaEmpezo, setYaEmpezo] = useState(false);
+  const [yaEmpezo, setYaEmpezo] = useState(true);
   const [showingMenu, setShowingMenu] = useState(false);
   const [hidennCanalB, setHideCanalB] = useState(true);
   const [mostrarLogo, setMostrarLogo] = useState(true);

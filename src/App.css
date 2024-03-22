@@ -244,3 +244,20 @@
   }
 }
 
+@keyframes fadeOut{
+  from{
+    opacity:1;
+  }
+  to{
+    opacity:0;
+  }
+}
+
+@keyframes fadeOut2{
+  from{
+    opacity:1;
+  }
+  to{
+    opacity:0;
+  }
+}

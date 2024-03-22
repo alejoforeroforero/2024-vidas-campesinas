@@ -20,9 +20,6 @@ const managerSlice = createSlice({
     establecerPersonaje(state, action) {
       state.personaje = action.payload;
     },
-    cambiarYotube(state, action) {
-      state.youtube = action.payload;
-    },
     escogerCancion(state, action) {
       state.cancionAnterior = state.cancionActual;
       state.cancionActual = action.payload;
@@ -56,7 +53,6 @@ const managerSlice = createSlice({
 export const {
   cambiarDepartamento,
   establecerPersonaje,
-  cambiarYotube,
   escogerCancion,
   establecerYCanalA,
   changeVideo,

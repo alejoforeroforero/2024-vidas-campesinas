@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   cambiarDepartamento,
   establecerPersonaje,
-  cambiarYotube,
   escogerCancion,
 } from '../../redux/states/managerSlice';
 import { gsap } from "gsap";
@@ -34,8 +33,13 @@ import WilliamGaleria from './William/Galeria';
 
 import LoadingIcons from 'react-loading-icons';
 
-import './GuaviareHome.css'
+/* Youtube componentes */
+import YT from '../../components/YT';
+import jorgeThumbnail from '../../assets/guaviare/jorge/fondo-video-cel.jpg';
+import carlosThumbnail from '../../assets/guaviare/carlos/fondo-video-cel.jpg';
+import dayanaThumbnail1 from '../../assets/guaviare/carlos/fondo-video-cel.jpg';
 
+import './GuaviareHome.css'
 
 const GuaviareHome = ({ videoGuaviareRef }) => {
 
@@ -47,9 +51,21 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
   const [esconderLoading, setEsconderLoading] = useState(false);
   const audioObj = crearAudioPlayer();
+
   const jorgeRelatoVideoRef = useRef(null);
   const carlosRelatoVideoRef = useRef(null);
   const williamRelatoVideoRef = useRef(null);
+
+  /* Variables para Youtube */
+
+  const [jorgeYoutubeRef, setJorgeYoutubeRef] = useState(null);
+  const [pintarYoutubeJorge, setPintarYoutubeJorge] = useState(false);
+  const [carlosYoutubeRef, setCarlosYoutubeRef] = useState(null);
+  const [pintarYoutubeCarlos, setPintarYoutubeCarlos] = useState(false);
+  const [dayana1YoutubeRef, setDayana1YoutubeRef] = useState(null);
+  const [pintarYoutubeDayana1, setPintarYoutubeDayana1] = useState(false);
+
+
 
   useLayoutEffect(() => {
     dispatch(cambiarDepartamento('guaviare'))
@@ -64,21 +80,31 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     //   window.scrollTo({ top: yCanalA, behavior: 'smooth' });
     // }, 500);
 
+    const timerYTJorge = setTimeout(() => {
+      setPintarYoutubeJorge(true);
+    }, 5000);
+
+    const timerYTCarlos = setTimeout(() => {
+      setPintarYoutubeCarlos(true);
+    }, 8000);
+
+    const timerYTDayana = setTimeout(() => {
+      setPintarYoutubeDayana1(true);
+    }, 10000);
+
     return () => {
       clearTimeout(timer);
+      clearTimeout(timerYTJorge);
+      clearTimeout(timerYTCarlos);
+      clearTimeout(timerYTDayana);
       //clearTimeout(timerScroll);
     }
   }, [])
 
   useEffect(() => {
-
-  },[])
-
-  useEffect(() => {
     if (cancionAnterior != null) {
       audioObj[cancionAnterior].pause();
     }
-
     if (cancionActual != null) {
       audioObj[cancionActual].play();
     }
@@ -110,6 +136,18 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const handleNavegacion = (id) => {
     //window.scrollTo({ top: 7000, behavior: 'auto' });
+  }
+
+  const refYoutubeJorge = (video) => {
+    setJorgeYoutubeRef(video);
+  }
+
+  const refYoutubeCarlos = (video) => {
+    setCarlosYoutubeRef(video);
+  }
+
+  const refYoutubeDayana1 = (video) => {
+    setDayana1YoutubeRef(video);
   }
 
   useGSAP(() => {
@@ -280,6 +318,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     }
   })
 
+
+
   return (
     <>
       {!esconderLoading &&
@@ -295,6 +335,45 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           />
         })}
       </div>
+
+      {/* Videos de youtube */}
+
+
+      <div className='yt-contenedor' id='youtube-jorge'>
+        {pintarYoutubeJorge &&
+          <YT
+            refYoutubeFx={refYoutubeJorge}
+            youtubeVideoId="-9AvYOpalrk"
+            imgThumbnail={jorgeThumbnail}
+            id='youtube-jorge'
+          />
+        }
+      </div>
+      <div className='yt-contenedor' id='youtube-carlos'>
+        {pintarYoutubeCarlos &&
+          <YT
+            refYoutubeFx={refYoutubeCarlos}
+            youtubeVideoId="7FeSnVNixRg"
+            imgThumbnail={carlosThumbnail}
+            id='youtube-carlos'
+          />
+        }
+      </div>
+      <div className='yt-contenedor' id='youtube-dayana1'>
+        {pintarYoutubeDayana1 &&
+          <YT
+            refYoutubeFx={refYoutubeDayana1}
+            youtubeVideoId="7FeSnVNixRg"
+            imgThumbnail={dayanaThumbnail1}
+            id='youtube-dayana1'
+          />
+        }
+      </div>
+
+
+
+      {/* Boxes */}
+
       <div className="wrap">
         <div className="box box1">
           <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
@@ -305,7 +384,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           </div>
         </div>
         <div className="box box3">
-          <JorgeYoutube />
+          {jorgeYoutubeRef != null && <JorgeYoutube youtubeRef={jorgeYoutubeRef} />}
+          {jorgeYoutubeRef == null && <div>Descargando...</div>}
         </div>
         <div className="box box4">
           <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
@@ -317,7 +397,9 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           <CarlosBio />
         </div>
         <div className="box box7">
-          <CarlosYoutube />
+          {carlosYoutubeRef != null && <CarlosYoutube youtubeRef={carlosYoutubeRef} />}
+          {carlosYoutubeRef == null && <div>Descargando...</div>}
+          {/* <CarlosYoutube /> */}
         </div>
         <div className="box box8">
           <CarlosRelatos carlosRelatoVideoRef={carlosRelatoVideoRef} />
@@ -329,10 +411,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           <DayanaBio />
         </div>
         <div className="box box11">
-          <DayanaYoutube1 />
+          {dayana1YoutubeRef != null && <DayanaYoutube1 youtubeRef={dayana1YoutubeRef} />}
+          {dayana1YoutubeRef == null && <div>Descargando...</div>}
         </div>
         <div className="box box12">
-          <DayanaYoutube2 />
+          {/* <DayanaYoutube2 /> */}
         </div>
         <div className="box box13">
           <DayanaGaleria />
