@@ -22,7 +22,7 @@ const Bio = () => {
         <div className='seccion william-bio'>
             <div className='bio-contenido'>
                 <h1 className='william-titulo-h1'>William <br />Mora</h1>
-                <div className='info'>
+                <div className='info william-info'>
                     <img onClick={() => setShowingPopup(true)} src={infoImg} alt="info" />
                 </div>
                 {showingPopup && <InfoPopup biografia={biografia} handleClosePopup={handleClosePopup} />}

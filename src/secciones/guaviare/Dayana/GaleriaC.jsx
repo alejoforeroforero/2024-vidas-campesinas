@@ -35,7 +35,7 @@ const GaleriaC = () => {
                     {booleanImg && <img className='image-s' src={images[currentImage]} alt='images' />}
                     {!booleanImg && <img className='image-n' src={images[currentImage]} alt='images' />}
                 </div>
-                <div className='carousel-botones'>
+                <div className='carousel-botones dayana-botones-galeria'>
                     <button onClick={prevImage}>
                         <img src={flechaAtras} alt='flecha'></img>
                     </button>
@@ -55,7 +55,7 @@ const GaleriaC = () => {
                         )
                     })}
                 </div>
-                <p>{currentImage + 1} de {images.length}</p>
+                {/* <p>{currentImage + 1} de {images.length}</p> */}
             </div>
         </div>
     );

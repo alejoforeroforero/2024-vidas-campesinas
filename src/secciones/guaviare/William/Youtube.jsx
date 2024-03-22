@@ -1,43 +1,16 @@
-import { useState } from 'react';
-import YouTube from 'react-youtube';
 import playImg from '../../../assets/generales/play_video.png'
-
 import './Youtube.css';
-import YoutubePortal from '../../../components/YoutubePortal';
 
-const Youtube = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const onPlayerReady = (event) => {
-        //setVideoElement(event.target);
-    }
-
-    const onStateChange = () => {
-        console.log('entro state change');
-    }
-
-    const opts = {
-        playerVars: {
-            autoplay: 1,
-        },
-    };
+const Youtube = ({ youtubeRef }) => {
 
     const handleOnClick = () => {
-        setIsOpen(true);
+        const div = document.getElementById('youtube-william');
+        div.style.visibility = 'visible';
+        youtubeRef.playVideo();
     }
 
     return (
         <div className='seccion william-youtube'>
-            <YoutubePortal open={isOpen} onClose={() => setIsOpen(false)} >
-                <div id="player-container" className='player-container'>
-                    <YouTube
-                        videoId="Ke_53rCjS_U"
-                        opts={opts}
-                        onReady={onPlayerReady}
-                        onStateChange={onStateChange}
-                    />
-                </div>
-            </YoutubePortal>
             <div className='contenido'>
                 <div>
                     <img onClick={handleOnClick} src={playImg} alt="play" />

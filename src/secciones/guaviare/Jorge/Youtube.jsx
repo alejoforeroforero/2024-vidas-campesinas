@@ -1,7 +1,7 @@
 import playImg from '../../../assets/generales/play_video.png'
 import './Youtube.css';
 
-const Youtube = ({youtubeRef}) => {
+const Youtube = ({ youtubeRef }) => {
 
     const handleOnClick = () => {
         const div = document.getElementById('youtube-jorge');
@@ -12,7 +12,7 @@ const Youtube = ({youtubeRef}) => {
     return (
         <div className='seccion jorge-youtube'>
             <div className='contenido'>
-                <div>
+                <div className='jorge-youtube-play'>
                     <img onClick={handleOnClick} src={playImg} alt="play" />
                 </div>
                 <div>
