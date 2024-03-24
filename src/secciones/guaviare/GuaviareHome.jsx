@@ -41,26 +41,55 @@ import dayanaThumbnail1 from '../../assets/guaviare/dayana/fondo-video-cel.jpg';
 import dayanaThumbnail2 from '../../assets/guaviare/dayana/fondo-video-cel2.jpg';
 import williamThumbnail from '../../assets/guaviare/william/fondo-video-cel.jpg';
 
-import './GuaviareHome.css'
-
+/* Importación de audios */
 import {
   agregarS1,
-  agregarS2, 
-  agregarS3, 
-  agregarS4, 
+  agregarS2,
+  agregarS3,
+  agregarS4,
   agregarS5,
   agregarS6,
 } from './components/s1';
+
+import './GuaviareHome.css'
+
+const lineas = [
+  {
+    id: 'linea-jorge',
+    titulo: 'Jorge Cano',
+    navegacion: 'guaviare-jorge-navegacion'
+  },
+  {
+    id: 'linea-carlos',
+    titulo: 'Carlos Mancera',
+    navegacion: 'guaviare-carlos-navegacion'
+  },
+  {
+    id: 'linea-dayana',
+    titulo: 'Dayana Novoa',
+    navegacion: 'guaviare-dayana-navegacion'
+  },
+  {
+    id: 'linea-william',
+    titulo: 'William Mora',
+    navegacion: 'guaviare-william-navegacion'
+  },
+]
+
 
 const GuaviareHome = ({ videoGuaviareRef }) => {
 
   const dispatch = useDispatch();
 
+  const [pintarBioJorge, setPintarBioJorge] = useState(false);
+
+
+
   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
   const personaje = useSelector(state => state.managerReducer.personaje);
   const cancionActual = useSelector(state => state.managerReducer.cancionActual);
   const cancionAnterior = useSelector(state => state.managerReducer.cancionAnterior);
-  const [esconderLoading, setEsconderLoading] = useState(false);
+  const [esconderLoading, setEsconderLoading] = useState(true);
   const [audioObj, setSonidos] = useState([]);
   // const audioObj = crearAudioPlayer();
 
@@ -86,61 +115,69 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   }, [dispatch])
 
   useEffect(() => {
-    console.log(audioObj);
-  }, [audioObj])
-
-  useEffect(() => {
     const timer = setTimeout(() => {
       setEsconderLoading(true);
-
-      const s1 = agregarS1();
-      setSonidos(prevItems => [...prevItems, s1]);
     }, 3000);
-    //Cuadrar el scroll cuando se viene de B
-    // const timerScroll = setTimeout(() => {
-    //   window.scrollTo({ top: yCanalA, behavior: 'smooth' });
-    // }, 500);
 
-    const timerYTJorge = setTimeout(() => {
-      setPintarYoutubeJorge(true);
-      const s2 = agregarS2();
-      setSonidos(prevItems => [...prevItems, s2]);
-    }, 10000);
+    return () => clearTimeout(timer);
+  })
 
-    const timerYTCarlos = setTimeout(() => {
-      setPintarYoutubeCarlos(true);
-      const s3 = agregarS3();
-      setSonidos(prevItems => [...prevItems, s3]);
-    }, 16000);
+  // useEffect(() => {
+  //   console.log(audioObj);
+  // }, [audioObj])
 
-    const timerYTDayana = setTimeout(() => {
-      setPintarYoutubeDayana1(true);
-      const s4 = agregarS4();
-      setSonidos(prevItems => [...prevItems, s4]);
-    }, 22000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setEsconderLoading(true);
 
-    const timerYTDayana2 = setTimeout(() => {
-      setPintarYoutubeDayana2(true);
-      const s5 = agregarS5();
-      setSonidos(prevItems => [...prevItems, s5]);
-    }, 28000);
+  //     const s1 = agregarS1();
+  //     setSonidos(prevItems => [...prevItems, s1]);
+  //   }, 3000);
+  //   //Cuadrar el scroll cuando se viene de B
+  //   // const timerScroll = setTimeout(() => {
+  //   //   window.scrollTo({ top: yCanalA, behavior: 'smooth' });
+  //   // }, 500);
 
-    const timerYTWilliam = setTimeout(() => {
-      setPintarYoutubeWilliam(true);
-      const s6 = agregarS6();
-      setSonidos(prevItems => [...prevItems, s6]);
-    }, 28000);
+  //   const timerYTJorge = setTimeout(() => {
+  //     setPintarYoutubeJorge(true);
+  //     const s2 = agregarS2();
+  //     setSonidos(prevItems => [...prevItems, s2]);
+  //   }, 10000);
 
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timerYTJorge);
-      clearTimeout(timerYTCarlos);
-      clearTimeout(timerYTDayana);
-      clearTimeout(timerYTDayana2);
-      clearTimeout(timerYTWilliam);
-      //clearTimeout(timerScroll);
-    }
-  }, [])
+  //   const timerYTCarlos = setTimeout(() => {
+  //     setPintarYoutubeCarlos(true);
+  //     const s3 = agregarS3();
+  //     setSonidos(prevItems => [...prevItems, s3]);
+  //   }, 16000);
+
+  //   const timerYTDayana = setTimeout(() => {
+  //     setPintarYoutubeDayana1(true);
+  //     const s4 = agregarS4();
+  //     setSonidos(prevItems => [...prevItems, s4]);
+  //   }, 22000);
+
+  //   const timerYTDayana2 = setTimeout(() => {
+  //     setPintarYoutubeDayana2(true);
+  //     const s5 = agregarS5();
+  //     setSonidos(prevItems => [...prevItems, s5]);
+  //   }, 28000);
+
+  //   const timerYTWilliam = setTimeout(() => {
+  //     setPintarYoutubeWilliam(true);
+  //     const s6 = agregarS6();
+  //     setSonidos(prevItems => [...prevItems, s6]);
+  //   }, 28000);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //     clearTimeout(timerYTJorge);
+  //     clearTimeout(timerYTCarlos);
+  //     clearTimeout(timerYTDayana);
+  //     clearTimeout(timerYTDayana2);
+  //     clearTimeout(timerYTWilliam);
+  //     //clearTimeout(timerScroll);
+  //   }
+  // }, [])
 
 
   useEffect(() => {
@@ -153,28 +190,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   }, [cancionActual])
 
 
-  const lineas = [
-    {
-      id: 'linea-jorge',
-      titulo: 'Jorge Cano',
-      navegacion: 'guaviare-jorge-navegacion'
-    },
-    {
-      id: 'linea-carlos',
-      titulo: 'Carlos Mancera',
-      navegacion: 'guaviare-carlos-navegacion'
-    },
-    {
-      id: 'linea-dayana',
-      titulo: 'Dayana Novoa',
-      navegacion: 'guaviare-dayana-navegacion'
-    },
-    {
-      id: 'linea-william',
-      titulo: 'William Mora',
-      navegacion: 'guaviare-william-navegacion'
-    },
-  ]
+
 
   const handleNavegacion = (id) => {
     //window.scrollTo({ top: 7000, behavior: 'auto' });
@@ -200,17 +216,20 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     setWilliamYoutubeRef(video);
   }
 
+
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.wrap',
+        trigger: '.box1',
         start: "top top",
-        end: "+=12000",
+        end: "bottom",
         pin: true,
-        scrub: 1,
-        marker: true
+        scrub: 0,
+        onEnter:()=>{
+          console.log('entro');
+        }
       },
-      defaults: { duration: 5 }
+      defaults: { duration: 1 }
     })
       .to(".logo", { opacity: 0, y: -70, duration: 0.2 })
       .to(".scroll", { opacity: 0, y: 70, duration: 0.2 }, '<0.05')
@@ -219,9 +238,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .call(() => {
         videoGuaviareRef.current.play();
       })
-      .to('.box1', { autoAlpha: 1 })
       .to('.guaviare-contenido', { autoAlpha: 1 })
       .to('.guaviare-descripcion-p1', { autoAlpha: 1 })
+      .call(()=>{
+        (!pintarBioJorge) && setPintarBioJorge(true)
+      })
       .to('.guaviare-descripcion-p1', { opacity: 0 })
       .to('.guaviare-descripcion-p2', { autoAlpha: 1 }, '<')
       .call(() => {
@@ -232,177 +253,28 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         videoGuaviareRef.current.pause();
         dispatch(establecerPersonaje('linea-jorge'));
       })
-      .to('.box2', { autoAlpha: 1 })
-      .call(() => {
-        dispatch(escogerCancion(0));
+      .to('.guaviare-descripcion-p2', { opacity: 0  })
+      .to('box1', {zIndex:1})
+      .fromTo('.box1', {clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'}, {clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 0%)', duration:8}, '+10')
+      
+
+      // .to('.box1', {opacity:0})
+
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.box2',
+          start: "top top",
+          onEnter:()=>{
+            console.log('descargar 3');
+          }
+        },
       })
-      .to('.box2', { opacity: 1, duration: 2 })
-      .fromTo('.jorge-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.jorge-info', { opacity: 1, duration: 2 })
-      .to('.jorge-info', { opacity: 0, duration: 2 })
-      .to('.box2', { opacity: 1, duration: 2 })
-      .call(() => {
-        dispatch(escogerCancion(null))
-      })
-      .to('.box3-negro', { autoAlpha: 1 })
-      .to('.box3', { autoAlpha: 1 })
-      .to('.box3', { opacity: 1, duration: 2 })
-      .to('.box3', { opacity: 1, duration: 2 })
-      .to('.box4-negro', { autoAlpha: 1 })
-      .call(() => {
-        jorgeRelatoVideoRef.current?.pause();
-        dispatch(escogerCancion(null))
-      })
-      .call(() => {
-        jorgeRelatoVideoRef.current?.play();
-      })
-      .to('.box4', { autoAlpha: 1 })
-      .fromTo('.jorge-relatos-gsap', { opacity: 0 }, { opacity: 1, duration: 5 })
-      .to('.jorge-relatos-gsap', { opacity: 1, duration: 2 })
-      .fromTo('.jorge-relatos-gsap', { opacity: 1 }, { opacity: 0, duration: 5 })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-jorge'));
-        jorgeRelatoVideoRef.current?.play();
-      })
-      .to('.box4', { autoAlpha: 1 })
-      .call(() => {
-        jorgeRelatoVideoRef.current?.pause();
-        dispatch(escogerCancion(null));
-      })
-      .to('.box5', { autoAlpha: 1 })
-      .to('.box5', { opacity: 1, duration: 2 })
-      .to('.box5', { opacity: 1, duration: 2 })
-      .call(() => {
-        carlosRelatoVideoRef.current.pause();
-        dispatch(escogerCancion(null))
-        dispatch(establecerPersonaje('linea-carlos'));
-      })
-      .to('.box6', { autoAlpha: 1 })
-      .to('.box6', { opacity: 1, duration: 2 })
-      .fromTo('.carlos-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.carlos-info', { opacity: 1, duration: 2 })
-      .to('.carlos-info', { opacity: 0, duration: 2 })
-      .to('.box6', { opacity: 1, duration: 2 })
-      .to('.box7-negro', { autoAlpha: 1 })
-      .to('.box7', { autoAlpha: 1 })
-      .call(() => {
-        dispatch(escogerCancion(null))
-      })
-      .call(() => {
-        carlosRelatoVideoRef.current.play();
-      })
-      .to('.box7', { opacity: 1, duration: 2 })
-      .to('.box8-negro', { autoAlpha: 1 })
-      .to('.box8', { autoAlpha: 1 })
-      .call(() => {
-        carlosRelatoVideoRef.current.play();
-      })
-      .fromTo('.carlos-relatos-gsap', { opacity: 0 }, { opacity: 1, duration: 5 })
-      .to('.carlos-relatos-gsap', { opacity: 1, duration: 2 })
-      .fromTo('.carlos-relatos-gsap', { opacity: 1 }, { opacity: 0, duration: 2 })
-      .call(() => {
-        carlosRelatoVideoRef.current.play();
-      })
-      .to('.box8', { autoAlpha: 1 })
-      .call(() => {
-        carlosRelatoVideoRef.current.pause();
-        dispatch(escogerCancion(null))
-      })
-      .to('.box9', { autoAlpha: 1 })
-      .to('.box9', { opacity: 1, duration: 2 })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-carlos'));
-      })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-dayana'));
-      })
-      .to('.box9', { opacity: 1, duration: 2 })
-      .to('.box10', { autoAlpha: 1 })
-      .to('.box10', { opacity: 1, duration: 2 })
-      .fromTo('.dayana-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.dayana-info', { opacity: 1, duration: 2 })
-      .to('.dayana-info', { opacity: 0, duration: 2 })
-      .to('.box10', { opacity: 1, duration: 2 })
-      .to('.box11', { autoAlpha: 1 })
-      .to('.box11', { opacity: 1, duration: 2 })
-      .to('.box12-negro', { autoAlpha: 1 })
-      .to('.box12', { autoAlpha: 1 })
-      .to('.box12', { opacity: 1, duration: 2 })
-      .to('.box13', { autoAlpha: 1 })
-      .to('.box13', { opacity: 1, duration: 2 })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-dayana'));
-        dispatch(escogerCancion(null))
-      })
-      .to('.box13', { opacity: 1, duration: 2 })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-william'));
-        dispatch(escogerCancion(4))
-      })
-      .to('.box14', { autoAlpha: 1 })
-      .to('.box14', { opacity: 1, duration: 2 })
-      .fromTo('.william-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.william-info', { opacity: 1, duration: 2 })
-      .to('.william-info', { opacity: 0, duration: 2 })
-      .call(() => {
-        dispatch(escogerCancion(null))
-      })
-      .to('.box14', { opacity: 1, duration: 2 })
-      .to('.box15-negro', { autoAlpha: 1 })
-      .to('.box15', { autoAlpha: 1 })
-      .to('.box15', { opacity: 1, duration: 2 })
-      .call(() => {
-        williamRelatoVideoRef.current.pause();
-        dispatch(escogerCancion(null))
-      })
-      .to('.box16', { autoAlpha: 1 })
-      .call(() => {
-        williamRelatoVideoRef.current.play();
-      })
-      .to('.box16', { opacity: 1, duration: 2 })
-      .fromTo('.william-relatos-gsap', { opacity: 0 }, { opacity: 1, duration: 5 })
-      .to('.william-relatos-gsap', { opacity: 1, duration: 2 })
-      .fromTo('.william-relatos-gsap', { opacity: 1 }, { opacity: 0, duration: 2 })
-      .call(() => {
-        williamRelatoVideoRef.current.play();
-      })
-      .to('.box16', { opacity: 1, duration: 2 })
-      .call(() => {
-        williamRelatoVideoRef.current.pause();
-        dispatch(escogerCancion(null))
-      })
-      .to('.box17', { autoAlpha: 1 })
-      .to('.box17', { opacity: 1, duration: 2 })
-      .to('.box18', { autoAlpha: 1 })
-      .to('.box18', { opacity: 1, duration: 2 })
-      .to('.box19', { autoAlpha: 1 })
-      .to('.box20', { autoAlpha: 1 })
-      .to('.box21', { autoAlpha: 1 })
-      .to('.box22', { autoAlpha: 1 })
-      .to('.box23', { autoAlpha: 1 })
-      .to('.box24', { autoAlpha: 1 })
-      .to('.box25', { autoAlpha: 1 })
-      .to('.box26', { autoAlpha: 1 })
-      .to('.box27', { autoAlpha: 1 })
-      .to('.box28', { autoAlpha: 1 })
-      .to('.box29', { autoAlpha: 1 })
-      .to('.box30', { autoAlpha: 1 })
-      .to('.box31', { autoAlpha: 1 })
-      .to('.box32', { autoAlpha: 1 })
-      .to('.box33', { autoAlpha: 1 })
-      .to('.box34', { autoAlpha: 1 })
-      .to('.box35', { autoAlpha: 1 })
-      .to('.box36', { autoAlpha: 1 })
-      .to('.box37', { autoAlpha: 1 })
-      .to('.box38', { autoAlpha: 1 })
-      .to('.box39', { autoAlpha: 1 })
 
     return () => {
       tl.kill();
+      tl2.kill();
     }
   })
-
-
 
   return (
     <>
@@ -472,25 +344,25 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         }
       </div>
 
-
-
       {/* Boxes */}
 
       <div className="wrap">
         <div className="box box1">
-          <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
-        </div>
-        <div className="box box2">
-          <div id='guaviare-jorge-navegacion'>
-            <JorgeBio />
+          <div className='bg'>
+            <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
           </div>
         </div>
-        <div className="box box3-negro"></div>
-        <div className="box box3">
+        <div className="box box2">
+          <div className='bg' id='guaviare-jorge-navegacion'> 
+            {pintarBioJorge ? <JorgeBio /> : <div>Descargando</div>}            
+          </div>
+        </div>
+  
+
+        {/* <div className="box box3">
           {jorgeYoutubeRef != null && <JorgeYoutube youtubeRef={jorgeYoutubeRef} />}
           {jorgeYoutubeRef == null && <div>Descargando...</div>}
         </div>
-        <div className="box box4-negro"></div>
         <div className="box box4">
           <JorgeRelatos jorgeRelatoVideoRef={jorgeRelatoVideoRef} />
         </div>
@@ -500,13 +372,10 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box6">
           <CarlosBio />
         </div>
-        <div className="box box7-negro"></div>
         <div className="box box7">
           {carlosYoutubeRef != null && <CarlosYoutube youtubeRef={carlosYoutubeRef} />}
           {carlosYoutubeRef == null && <div>Descargando...</div>}
-          {/* <CarlosYoutube /> */}
         </div>
-        <div className="box box8-negro"></div>
         <div className="box box8">
           <CarlosRelatos carlosRelatoVideoRef={carlosRelatoVideoRef} />
         </div>
@@ -520,7 +389,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           {dayana1YoutubeRef != null && <DayanaYoutube1 youtubeRef={dayana1YoutubeRef} />}
           {dayana1YoutubeRef == null && <div>Descargando...</div>}
         </div>
-        <div className="box box12-negro"></div>
         <div className="box box12">
           {dayana2YoutubeRef != null && <DayanaYoutube2 youtubeRef={dayana2YoutubeRef} />}
           {dayana2YoutubeRef == null && <div>Descargando...</div>}
@@ -533,7 +401,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
             <WilliamBio />
           </div>
         </div>
-        <div className="box box15-negro"></div>
         <div className="box box15">
           {williamYoutubeRef != null && <WilliamYoutube youtubeRef={williamYoutubeRef} />}
           {williamYoutubeRef == null && <div>Descargando...</div>}
@@ -543,8 +410,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         </div>
         <div className="box box17">
           <WilliamGaleria />
-        </div>
-        <div className="box box18">18</div>
+        </div> */}
+        {/* <div className="box box18">18</div>
         <div className="box box19">19</div>
         <div className="box box20">20</div>
         <div className="box box21">21</div>
@@ -566,7 +433,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box36">36</div>
         <div className="box box37">37</div>
         <div className="box box38">38</div>
-        <div className="box box39">39</div>
+        <div className="box box39">39</div> */}
 
       </div>
     </>

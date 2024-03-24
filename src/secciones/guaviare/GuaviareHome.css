@@ -1,7 +1,7 @@
-.guaviare-gsap{
-    position: absolute;
-    width: 20px;
-    height: 20px;
+.guaviare-gsap {
+  position: absolute;
+  width: 20px;
+  height: 20px;
 }
 
 @media screen and (orientation: portrait) {
@@ -48,16 +48,16 @@
   background-color: rgb(93, 209, 255);
 }
 
-.guaviare-contenedor-general{
+.guaviare-contenedor-general {
   position: relative;
 }
 
-.guaviare-jorge-gsap{
+.guaviare-jorge-gsap {
   position: relative;
   height: 100vh;
 }
 
-.guaviare-carlos-gsap{
+.guaviare-carlos-gsap {
   position: relative;
   height: 100vh;
 }
@@ -65,34 +65,37 @@
 /* Nuevos estilos */
 
 .wrap {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; */
 }
 
 .box {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(31, 31, 31);
-  visibility: hidden;
 
-  button{
-    cursor: pointer;
+  .bg {
+
+  }
+  &.box1{
+    z-index: 2;
+
+  }
+  &.box2 {
+    z-index: 1;    
+
+  }
+  &.box3 {
+
   }
 }
 
-.box1{
-  visibility: visible;
-}
-
-.yt-contenedor{
+.yt-contenedor {
   position: fixed;
-  width:100vw;
+  width: 100vw;
   height: 100vh;
   z-index: 2000;
   overflow: hidden;
