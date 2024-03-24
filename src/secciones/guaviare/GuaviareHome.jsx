@@ -228,6 +228,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         videoGuaviareRef.current.play();
         dispatch(escogerCancion(null))
       })
+      .to('.box2-negro', { autoAlpha: 1 })
       .call(() => {
         videoGuaviareRef.current.pause();
         dispatch(establecerPersonaje('linea-jorge'));
@@ -480,6 +481,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box1">
           <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
         </div>
+        <div className="box box2-negro"></div>
         <div className="box box2">
           <div id='guaviare-jorge-navegacion'>
             <JorgeBio />
