@@ -1,19 +1,24 @@
-.info-popup{
+.info-popup-bg{
     position: absolute;
     z-index: 100;
-    left: 10vw;
-    top:20vh;
-    width: 80vw;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.8);
+    left:0;
+    top:0;
+    width: 100vw !important;
+    height: 100vh;    
     color:#fff;
-    padding: 2% 2% 10%;
-    font-size: 1.2rem;
-    border-radius: 12px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    .info-popup-interior{
+        width:80vw;
+        height: auto;
+        max-width: 900px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+    }
     .info-salida{
         text-align: right;
-
         img{
             width:50px;
             cursor: pointer;
@@ -24,5 +29,6 @@
         width:80%;
         margin: auto;
         padding: 0px !important;
+        margin-bottom: 50px;
     }
 }

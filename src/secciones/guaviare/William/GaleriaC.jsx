@@ -36,12 +36,14 @@ const GaleriaC = () => {
                     {!booleanImg && <img className='image-n' src={images[currentImage]} alt='images' />}
                 </div>
                 <div className='carousel-botones william-galeria-botones'>
-                    <button onClick={prevImage}>
-                        <img src={flechaAtras} alt='flecha'></img>
-                    </button>
-                    <button onClick={nextImage}>
-                        <img src={flechaAdelante} alt='flecha'></img>
-                    </button>
+                    <div>
+                        <button onClick={prevImage}>
+                            <img src={flechaAtras} alt='flecha'></img>
+                        </button>
+                        <button onClick={nextImage}>
+                            <img src={flechaAdelante} alt='flecha'></img>
+                        </button>
+                    </div>
                 </div>
                 <div className='carousel-navegacion'>
                     {images.map((img, index) => {

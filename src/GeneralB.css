@@ -52,61 +52,6 @@
   }
 }
 
-.relatos-audio-obj {
-  padding: 10px 16vw;
-  font-size: 0.8rem;
-
-  audio {
-    visibility: hidden;
-    display: none;
-  }
-
-  .relatos-audio-obj-top {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-
-    img {
-      width: 40px;
-      cursor: pointer;
-    }
-
-    h2 {
-      text-align: left;
-      padding-left: 15px;
-    }
-  }
-
-  p{
-    text-align: right;
-    font-size: 0.9rem;
-    padding: 4px 10vw;
-  }
-
-  div{
-    text-align: center;
-  }
-
-  .audio-visual{
-    margin: auto;
-    height: 80px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    border:1px solid rgb(49, 49, 49);
-    width: 60vw;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  iframe{
-    border:none;
-    opacity:0.2;
-    width:100%;
-  }
-}
-
 .seccion-b-abajo {
   position: absolute;
   bottom: 10vw;

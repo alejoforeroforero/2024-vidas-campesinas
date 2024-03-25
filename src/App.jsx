@@ -69,6 +69,7 @@ function App() {
   const handleCanalAOnClick = () => {
     setHideCanalB(!hidennCanalB);
     dispatch(escogerCancion(null));
+    window.scrollTo({ top: yCanalA, behavior: 'smooth' });
   }
 
   return (

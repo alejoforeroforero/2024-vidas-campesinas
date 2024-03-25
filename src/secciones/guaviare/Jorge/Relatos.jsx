@@ -65,15 +65,20 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
                     video={relatosVideo}
                 />
             }
-            <div className="relatos-mask"></div>
-            <div className="relatos-contenido jorge-relatos-gsap">
-                <div className='relatos-audio-obj'>
-                    <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
-                    <h2>"Cuando llegué al Raudal"</h2>
-                </div>
-                <div className='relatos-audio-obj'>
-                    <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
-                    <h2>"Somos nuestras propias ambulancias"</h2>
+            <div className='mask-general'>
+                <div className="relatos-contenido jorge-relatos-gsap">
+                    <div className='relatos-audio-obj'>
+                        <div className='relatos-audio-obj-top'>
+                            <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
+                            <h2>"Cuando llegué al Raudal"</h2>
+                        </div>
+                    </div>
+                    <div className='relatos-audio-obj'>
+                        <div className='relatos-audio-obj-top'>
+                            <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
+                            <h2>"Somos nuestras propias ambulancias"</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ const Relatos = ({ eliasRelatoVideoRef }) => {
         return () => clearTimeout(timer);
     }, [])
 
- 
+
     return (
         <div className="seccion elias-relatos" >
             {!mostrarVideo && <div>Loading</div>}
@@ -27,9 +27,10 @@ const Relatos = ({ eliasRelatoVideoRef }) => {
                     video={relatosVideo}
                 />
             }
-            <div className="relatos-mask"></div>
-            <div className="relatos-contenido">
-                <p>"Actualmente nuestro sustento depende de estas pinturas, si no las cuidamos, no vamos a tener de qué sobrevivir"</p>
+            <div className='mask-general'>
+                <div className="relatos-contenido">
+                    <p>"Actualmente nuestro sustento depende de estas pinturas, si no las cuidamos, no vamos a tener de qué sobrevivir"</p>
+                </div>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@
 import playImg from '../../../assets/generales/play_video.png'
 import './Youtube2.css';
 
-const Youtube = ({youtubeRef}) => {
+const Youtube = ({ youtubeRef }) => {
 
     const handleOnClick = () => {
         const div = document.getElementById('youtube-dayana2');
@@ -12,12 +12,14 @@ const Youtube = ({youtubeRef}) => {
 
     return (
         <div className='seccion dayana-youtube2'>
-            <div className='contenido'>
-                <div>
-                    <img onClick={handleOnClick} src={playImg} alt="play" />
-                </div>
-                <div>
-                    <p>“Señor Pronto alivio”</p>
+            <div className='mask-general'>
+                <div className='youtube-contenido'>
+                    <div>
+                        <img onClick={handleOnClick} src={playImg} alt="play" />
+                    </div>
+                    <div>
+                        <p>“Señor Pronto alivio”</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -53,16 +53,19 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
                     video={relatosVideo}
                 />
             }
-            <div className="relatos-mask"></div>
-            <div className="relatos-contenido carlos-relatos-gsap">
-                <div className='relatos-audio-obj'>
-                    <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
-                    <p> “Llegamos a este territorio porque era muy productivo en Cacao”</p>
-                </div>
-                {/* <div className='relatos-audio-obj'>
+            <div className='mask-general'>
+                <div className="relatos-contenido carlos-relatos-gsap">
+                    <div className='relatos-audio-obj'>
+                        <div className='relatos-audio-obj-top'>
+                            <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
+                            <h2> “Llegamos a este territorio porque era muy productivo en Cacao”</h2>
+                        </div>
+                    </div>
+                    {/* <div className='relatos-audio-obj'>
                     <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
                     <p>"Somos nuestras propias ambulancias"</p>
                 </div> */}
+                </div>
             </div>
         </div>
     )

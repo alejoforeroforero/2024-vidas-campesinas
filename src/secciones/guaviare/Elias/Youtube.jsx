@@ -11,12 +11,14 @@ const Youtube = ({ youtubeRef }) => {
 
     return (
         <div className='seccion elias-youtube'>
-            <div className='contenido'>
-                <div>
-                    <img onClick={handleOnClick} src={playImg} alt="play" />
-                </div>
-                <div>
-                    <p>“Estas pinturas significan una cultura muy valiosa, a la cual admiro y respeto. Nadie sabe exactamente cómo se hicieron”</p>
+            <div className='mask-general'>
+                <div className='youtube-contenido'>
+                    <div>
+                        <img onClick={handleOnClick} src={playImg} alt="play" />
+                    </div>
+                    <div>
+                        <p>“Estas pinturas significan una cultura muy valiosa, a la cual admiro y respeto. Nadie sabe exactamente cómo se hicieron”</p>
+                    </div>
                 </div>
             </div>
         </div>

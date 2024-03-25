@@ -11,12 +11,14 @@ const Youtube = ({ youtubeRef }) => {
 
     return (
         <div className='seccion william-youtube'>
-            <div className='contenido'>
-                <div>
-                    <img onClick={handleOnClick} src={playImg} alt="play" />
-                </div>
-                <div>
-                    <p>“Yo cultivé coca, pero es mejor la agricultura. Es mejor lo legal”</p>
+            <div className='mask-general'>
+                <div className='youtube-contenido'>
+                    <div>
+                        <img onClick={handleOnClick} src={playImg} alt="play" />
+                    </div>
+                    <div>
+                        <p>“Yo cultivé coca, pero es mejor la agricultura. Es mejor lo legal”</p>
+                    </div>
                 </div>
             </div>
         </div>

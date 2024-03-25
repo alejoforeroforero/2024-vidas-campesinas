@@ -20,13 +20,15 @@ const Bio = () => {
 
     return (
         <div className='seccion william-bio'>
-            <div className='bio-contenido'>
-                <h1 className='william-titulo-h1'>William <br />Mora</h1>
-                <div className='info william-info'>
-                    <img onClick={() => setShowingPopup(true)} src={infoImg} alt="info" />
+            <div className='mask-general'>
+                <div className='bio-contenido'>
+                    <h1 className='william-titulo-h1'>William <br />Mora</h1>
+                    <div className='info william-info'>
+                        <img onClick={() => setShowingPopup(true)} src={infoImg} alt="info" />
+                    </div>
                 </div>
-                {showingPopup && <InfoPopup biografia={biografia} handleClosePopup={handleClosePopup} />}
             </div>
+            {showingPopup && <InfoPopup biografia={biografia} handleClosePopup={handleClosePopup} />}
         </div>
     )
 }

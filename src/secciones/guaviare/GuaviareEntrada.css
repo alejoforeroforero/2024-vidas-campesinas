@@ -7,10 +7,11 @@
 
   .guaviare-video {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background: url('../../assets/guaviare/home/guaviare-poster.jpg');
     background-repeat: no-repeat;
 
@@ -29,16 +30,15 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
   }
 
   .guaviare-contenido {
-    position: absolute;
-    left: 0px;
-    top: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
     visibility: hidden;
+    max-width: 900px;
 
     .guaviare-titulo {
       height: 28vh;
@@ -58,10 +58,10 @@
       justify-content: center;
       flex-direction: column;
       align-items: start;
-      padding: 5vh 18vw;
+      padding: 5vh 12vw;
 
       h2 {
-        color: rgb(199, 199, 199);
+        color: rgb(255, 255, 255);
         width: 100%;
         text-align: left;
         font-size: 2rem;
@@ -69,7 +69,7 @@
       }
 
       hr {
-        width: 58vw;
+        width: 90%;
         height: 6px;
         background-color: brown;
         border: 0px;
@@ -78,8 +78,8 @@
 
       .guaviare-descripcion-p-contenedor {
         position: relative;
-        width: 60vw;
         height: 40vh;
+        width: 95%;
       }
 
       p {
@@ -87,7 +87,6 @@
         font-size: 1rem;
         text-align: left;
         margin-top: 2vh;
-        width: 60vw;
       }
 
       .guaviare-descripcion-p1 {

@@ -53,11 +53,14 @@ const Relatos = ({ williamRelatoVideoRef }) => {
                     video={relatosVideo}
                 />
             }
-            <div className="relatos-mask"></div>
-            <div className="relatos-contenido william-relatos-gsap">
-                <div className='relatos-audio-obj'>
-                    <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
-                    <p>"Cuando me curaron de la picadura de raya"</p>
+            <div className='mask-general'>
+                <div className="relatos-contenido william-relatos-gsap">
+                    <div className='relatos-audio-obj'>
+                        <div className='relatos-audio-obj-top'>
+                            <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
+                            <h2>"Cuando me curaron de la picadura de raya"</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

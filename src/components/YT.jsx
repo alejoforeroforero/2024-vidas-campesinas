@@ -1,13 +1,17 @@
 import { useState, useRef, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import YouTube from "react-youtube";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faPause } from '@fortawesome/free-solid-svg-icons';
+import playImg from '../assets/generales/play_video.png';
+import salidaImg from '../assets/generales/salida.png';
+import pauseImg from '../assets/generales/salida.png';
 import LoadingIcons from 'react-loading-icons';
 
 import './YT.css';
 
 const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
+
+    const yCanalA = useSelector(state => state.managerReducer.yCanalA);
+
     const [video, setVideo] = useState(null);
     const [showControls, setShowControls] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -123,16 +127,18 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
 
     const handleOnCerrar = () => {
         const div = document.getElementById(id);
-        div.style.animation = booleano ? 'fadeOut 1s' : 'fadeOut2 1s';
-        setShowControls(false);        
+        div.style.animation = booleano ? 'fadeOut 1s' : 'fadeOut2 1s';           
 
         setTimeout(() => {
-            div.style.visibility = 'hidden';
             setIsPlaying(false);
-            video.pauseVideo();
+            setShowControls(false); 
             setMostrarMask(true);
+            video.pauseVideo(); 
             setBooleano(!booleano);
-        }, 1000);
+            imgThumbnailRef.current.style.visibility = 'hidden';
+            div.style.visibility = 'hidden'; 
+            window.scrollTo({ top: yCanalA, behavior: 'smooth' }); 
+        }, 980);
     }
 
     const handleOnEnd = () => {
@@ -148,13 +154,16 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
     const drawControls = () => {
         return (
             <div onClick={handleGeneralOnClick} className='video-controls' style={{ opacity: showControls ? '1' : '0' }}>
+                <div className="player-cerrar">
+                     <img onClick={handleOnCerrar} src={salidaImg} alt="play" />
+                </div>
                 <div className='video-play-img-container'>
-                    <FontAwesomeIcon
-                        onClick={handleIconOnClick}
-                        icon={isPlaying ? faPause : faPlay}
-                        size="2xl"
-                        style={{ color: "rgb(215, 215, 215)", }}
-                    />
+                    {isPlaying && 
+                        <img onClick={handleIconOnClick} src={salidaImg} alt="play" />
+                    }
+                    {!isPlaying && 
+                        <img onClick={handleIconOnClick} src={playImg} alt="play" />
+                    }
                 </div>
                 <div className='video-img-container'>
                     <img ref={imgThumbnailRef} src={imgThumbnail}></img>
@@ -171,9 +180,6 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
 
     return (
         <div ref={parentRef} id="player-container" className='player-container'>
-            {showControls &&
-                <div onClick={handleOnCerrar} className="player-cerrar">X</div>
-            }
             {mostrarMask &&
                 <div className="player-mask">
                     <LoadingIcons.ThreeDots stroke="#888" fill="666" />

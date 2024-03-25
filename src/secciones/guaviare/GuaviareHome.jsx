@@ -218,6 +218,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         });
       })
       .to('.box1', { autoAlpha: 1 })
+      .to('.guaviare-mask', { autoAlpha: 1 })
       .to('.guaviare-contenido', { autoAlpha: 1 })
       .to('.guaviare-descripcion-p1', { autoAlpha: 1 })
       .to('.guaviare-descripcion-p1', { opacity: 0 })
@@ -245,9 +246,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(0));
       })
       .to('.box2', { opacity: 1, duration: 2 })
-      .fromTo('.jorge-info', { opacity: 0 }, { opacity: 1, duration: 2 })
       .to('.jorge-info', { opacity: 1, duration: 2 })
-      .to('.jorge-info', { opacity: 0, duration: 2 })
+      .to('.jorge-info', { opacity: 1, duration: 2 })
       .to('.box2', { opacity: 1, duration: 2 })
       .call(() => {
         dispatch(escogerCancion(null))
@@ -260,10 +260,10 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           }
         });
       })
-      .to('.box3-negro', { autoAlpha: 1, zIndex: 0 })
+      .to('.box3-negro', { autoAlpha: 1 })
       .to('.box3', { autoAlpha: 1 })
-      .to('.box3', { opacity: 1, duration: 2 })
-      .to('.box3', { opacity: 1, duration: 2 })
+      .to('.box3', { opacity: 1, duration: 4 })
+      .to('.box3', { opacity: 1, duration: 4 })
       .to('.box4-negro', { autoAlpha: 1 })
       .call(() => {
         jorgeRelatoVideoRef.current?.pause();
@@ -288,8 +288,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box5-negro', { autoAlpha: 1 })
       .to('.box5', { autoAlpha: 1 })
-      .to('.box5', { opacity: 1, duration: 2 })
-      .to('.box5', { opacity: 1, duration: 2 })
+      .to('.box5', { opacity: 1, duration: 4 })
+      .to('.box5', { opacity: 1, duration: 4 })
       .call(() => {
         carlosRelatoVideoRef.current?.pause();
         dispatch(escogerCancion(null))
@@ -309,16 +309,15 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box6', { autoAlpha: 1 })
       .to('.box6', { opacity: 1, duration: 2 })
-      .fromTo('.carlos-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.carlos-info', { opacity: 1, duration: 2 })
-      .to('.carlos-info', { opacity: 0, duration: 2 })
+      .to('.carlos-info', { opacity: 1, duration: 4 })
+      .to('.carlos-info', { opacity: 1, duration: 4 })
       .to('.box6', { opacity: 1, duration: 2 })
       .to('.box7-negro', { autoAlpha: 1 })
       .to('.box7', { autoAlpha: 1 })
       .call(() => {
         dispatch(escogerCancion(null))
       })
-      .to('.box7', { opacity: 1, duration: 2 })
+      .to('.box7', { opacity: 1, duration: 4 })
       .call(() => {
         carlosRelatoVideoRef.current?.pause();
       })
@@ -328,7 +327,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box8', { autoAlpha: 1 })
       .fromTo('.carlos-relatos-gsap', { opacity: 0 }, { opacity: 1, duration: 5 })
-      .to('.carlos-relatos-gsap', { opacity: 1, duration: 2 })
+      .to('.carlos-relatos-gsap', { opacity: 1, duration: 4 })
       .fromTo('.carlos-relatos-gsap', { opacity: 1 }, { opacity: 0, duration: 2 })
       .call(() => {
         carlosRelatoVideoRef.current?.play();
@@ -340,7 +339,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box9-negro', { autoAlpha: 1 })
       .to('.box9', { autoAlpha: 1 })
-      .to('.box9', { opacity: 1, duration: 2 })
+      .to('.box9', { opacity: 1, duration: 4 })
       .call(() => {
         setPintarYoutubeDayana2(true);
         const s5 = agregarS5();
@@ -362,16 +361,15 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box10', { autoAlpha: 1 })
       .to('.box10', { opacity: 1, duration: 2 })
-      .fromTo('.dayana-info', { opacity: 0 }, { opacity: 1, duration: 2 })
       .to('.dayana-info', { opacity: 1, duration: 2 })
       .to('.dayana-info', { opacity: 0, duration: 2 })
       .to('.box10', { opacity: 1, duration: 2 })
       .to('.box11-negro', { autoAlpha: 1 })
       .to('.box11', { autoAlpha: 1 })
-      .to('.box11', { opacity: 1, duration: 2 })
+      .to('.box11', { opacity: 1, duration: 4 })
       .to('.box12-negro', { autoAlpha: 1 })
       .to('.box12', { autoAlpha: 1 })
-      .to('.box12', { opacity: 1, duration: 2 })
+      .to('.box12', { opacity: 1, duration: 4 })
       .to('.box13-negro', { autoAlpha: 1 })
       .call(() => {
         setPintarYoutubeWilliam(true);
@@ -385,7 +383,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         });
       })
       .to('.box13', { autoAlpha: 1 })
-      .to('.box13', { opacity: 1, duration: 2 })
+      .to('.box13', { opacity: 1, duration: 4 })
       .call(() => {
         dispatch(establecerPersonaje('linea-dayana'));
         dispatch(escogerCancion(null))
@@ -398,16 +396,14 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box14', { autoAlpha: 1 })
       .to('.box14', { opacity: 1, duration: 2 })
-      .fromTo('.william-info', { opacity: 0 }, { opacity: 1, duration: 2 })
-      .to('.william-info', { opacity: 1, duration: 2 })
-      .to('.william-info', { opacity: 0, duration: 2 })
+      .to('.william-info', { opacity: 1, duration: 4 })
       .call(() => {
         dispatch(escogerCancion(null))
       })
       .to('.box14', { opacity: 1, duration: 2 })
       .to('.box15-negro', { autoAlpha: 1 })
       .to('.box15', { autoAlpha: 1 })
-      .to('.box15', { opacity: 1, duration: 2 })
+      .to('.box15', { opacity: 1, duration: 4 })
       .call(() => {
         williamRelatoVideoRef.current?.pause();
         dispatch(escogerCancion(null))
@@ -431,7 +427,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       })
       .to('.box17-negro', { autoAlpha: 1 })
       .to('.box17', { autoAlpha: 1 })
-      .to('.box17', { opacity: 1, duration: 2 })
+      .to('.box17', { opacity: 1, duration: 4 })
       .call(() => {
         dispatch(establecerPersonaje('linea-william'));
       })
@@ -441,22 +437,26 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         setPintarYoutubeMarisol(true);
       })
       .to('.box18', { autoAlpha: 1 })
-      .to('.box18', { opacity: 1, duration: 2 })
+      .to('.box18', { opacity: 1, duration: 4 })
       .to('.box19-negro', { autoAlpha: 1 })
       .to('.box19', { autoAlpha: 1 })
+      .to('.box19', { opacity: 1, duration: 4 })
       .to('.box20-negro', { autoAlpha: 1 })
       .to('.box20', { autoAlpha: 1 })
       .call(() => {
         dispatch(establecerPersonaje('linea-marisol'));
       })
+      .to('.box20', { opacity: 1, duration: 4 })
       .to('.box21-negro', { autoAlpha: 1 })
       .call(() => {
         dispatch(establecerPersonaje('linea-elias'));
         setPintarYoutubeElias(true);
       })
       .to('.box21', { autoAlpha: 1 })
+      .to('.box21', { opacity: 1, duration: 4 })
       .to('.box22-negro', { autoAlpha: 1 })
       .to('.box22', { autoAlpha: 1 })
+      .to('.box22', { opacity: 1, duration: 4 })
       .call(() => {
         eliasRelatoVideoRef.current?.pause();
       })
@@ -465,8 +465,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         eliasRelatoVideoRef.current?.play();
       })
       .to('.box23', { autoAlpha: 1 })
-      .to('.box23', { opacity: 1, duration: 2 })
-
+      .to('.box23', { opacity: 1, duration: 4 })
 
     return () => {
       tl.kill();
