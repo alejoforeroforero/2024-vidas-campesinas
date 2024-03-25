@@ -52,7 +52,16 @@ const CaceriaF2 = () => {
                         <h2>“En ese tiempo se trabajaba con las pieles del tigrillo y el cachirre”</h2>
                     </div>
                     <p> - Carlos Mancera</p>
-                    {!isPlaying && <div>img audio</div>}
+                    {!isPlaying &&
+                        <div className='audio-visual'>
+                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                            }
+                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+
+                        </div>
+                    }
                 </div>
             </div>
         </div>

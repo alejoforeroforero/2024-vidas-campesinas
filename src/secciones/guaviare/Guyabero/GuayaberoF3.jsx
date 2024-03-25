@@ -47,7 +47,16 @@ const GuayaberoF3 = () => {
                         <h2>“Yo me acuerdo que en verano se escuchaba la cantidad de pescado subiendo el río”.</h2>
                     </div>
                     <p>- Disney Ardila</p>
-                    {!isPlaying && <div>img audio</div>}
+                    {!isPlaying &&
+                        <div className='audio-visual'>
+                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                            }
+                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+
+                        </div>
+                    }
                 </div>
                 <p></p>
             </div>
@@ -62,7 +71,15 @@ const GuayaberoF3 = () => {
                         <h2>“Uno en la noche pescaba 20 o 30 arrobas en dos horas”.</h2>
                     </div>
                     <p>- Carlos Mancera</p>
-                    {!isPlaying2 && <div>img audio</div>}
+                    {!isPlaying2 &&
+                        <div className='audio-visual'>
+                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                            }
+                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+                        </div>
+                    }
                 </div>
                 <p></p>
             </div>

@@ -48,7 +48,16 @@ const GuayaberoF4 = () => {
                         <h2>“Las Toninas se dispersaron por los otros ríos, como son territoriales”.</h2>
                     </div>
                     <p>- Jorge Cano</p>
-                    {!isPlaying2 && <div>img audio</div>}
+                    {!isPlaying2 &&
+                        <div className='audio-visual'>
+                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                            }
+                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+
+                        </div>
+                    }
                 </div>
                 <p></p>
             </div>

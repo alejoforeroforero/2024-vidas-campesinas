@@ -39,7 +39,16 @@ const CaceriaF3 = () => {
                         <h2>“La tecnología del jaguar”</h2>
                     </div>
                     <p></p>
-                    {!isPlaying && <div>img audio</div>}
+                    {!isPlaying &&
+                        <div className='audio-visual'>
+                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                            }
+                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+
+                        </div>
+                    }
                 </div>
                 <p>Cae la noche en Raudal del Guayabero, misteriosa, imponente, y con ella, sus peligros. 
 No se vale tener miedo, el jaguar sabe rastrearlo con su tecnología infalible, posando su pata sobre las huellas del caminante. Seguir el paso con valentía es la única defensa. 
