@@ -148,14 +148,14 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
     const drawControls = () => {
         return (
             <div onClick={handleGeneralOnClick} className='video-controls' style={{ opacity: showControls ? '1' : '0' }}>
-                {/* <div className='video-play-img-container'>
+                <div className='video-play-img-container'>
                     <FontAwesomeIcon
                         onClick={handleIconOnClick}
                         icon={isPlaying ? faPause : faPlay}
                         size="2xl"
                         style={{ color: "rgb(215, 215, 215)", }}
                     />
-                </div> */}
+                </div>
                 <div className='video-img-container'>
                     <img ref={imgThumbnailRef} src={imgThumbnail}></img>
                 </div>

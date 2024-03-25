@@ -7,7 +7,6 @@ const Video = ({ videoRef, video, vId }) => {
             <video
                 ref={videoRef}
                 id={vId}
-                playsInline
                 className="jorge-relatos-video"
                 src={video}
                 controls

@@ -13,14 +13,25 @@
     margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
 
-    img {
-      width: 20vw;
-      margin-top: 44vh;
+    @media screen and (orientation: portrait) {
+      img {
+        width: 35vw;
+        margin-top: 44vh;
+        cursor:pointer;
+      }
+    }
+
+    @media screen and (orientation: landscape) {
+      img {
+        width: 15vw;
+        margin-top: 30vh;
+        cursor:pointer;
+      }
     }
 
     p{
       padding: 10vh 10vw;
-      font-size: 2rem;
+      font-size: 1.3rem;
       font-weight: bold;
       text-align: center;
     }

@@ -43,11 +43,11 @@ import LoadingIcons from 'react-loading-icons';
 
 /* Youtube componentes */
 import YT from '../../components/YT';
-import jorgeThumbnail from '../../assets/guaviare/jorge/fondo-video-cel.jpg';
-import carlosThumbnail from '../../assets/guaviare/carlos/fondo-video-cel.jpg';
-import dayanaThumbnail1 from '../../assets/guaviare/dayana/fondo-video-cel.jpg';
-import dayanaThumbnail2 from '../../assets/guaviare/dayana/fondo-video-cel2.jpg';
-import williamThumbnail from '../../assets/guaviare/william/fondo-video-cel.jpg';
+import jorgeThumbnail from '../../assets/guaviare/jorge/fondo-video.jpg';
+import carlosThumbnail from '../../assets/guaviare/carlos/fondo-video.jpg';
+import dayanaThumbnail1 from '../../assets/guaviare/dayana/fondo-video1.jpg';
+import dayanaThumbnail2 from '../../assets/guaviare/dayana/fondo-video2.jpg';
+import williamThumbnail from '../../assets/guaviare/william/fondo-video.jpg';
 import marisolThumbnail from '../../assets/guaviare/marisol/fondo-video.jpg';
 import eliasThumbnail from '../../assets/guaviare/elias/fondo-video.jpg';
 
@@ -342,10 +342,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .to('.box9', { autoAlpha: 1 })
       .to('.box9', { opacity: 1, duration: 2 })
       .call(() => {
-        dispatch(establecerPersonaje('linea-carlos'));
-      })
-      .call(() => {
-        dispatch(establecerPersonaje('linea-dayana'));
         setPintarYoutubeDayana2(true);
         const s5 = agregarS5();
         setSonidos(prevItems => {
@@ -357,7 +353,13 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         });
       })
       .to('.box9', { opacity: 1, duration: 2 })
+      .call(() => {
+        dispatch(establecerPersonaje('linea-carlos'));
+      })
       .to('.box10-negro', { autoAlpha: 1 })
+      .call(() => {
+        dispatch(establecerPersonaje('linea-dayana'));
+      })
       .to('.box10', { autoAlpha: 1 })
       .to('.box10', { opacity: 1, duration: 2 })
       .fromTo('.dayana-info', { opacity: 0 }, { opacity: 1, duration: 2 })
@@ -389,11 +391,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         dispatch(escogerCancion(null))
       })
       .to('.box13', { opacity: 1, duration: 2 })
+      .to('.box14-negro', { autoAlpha: 1 })
       .call(() => {
         dispatch(establecerPersonaje('linea-william'));
         dispatch(escogerCancion(4))
       })
-      .to('.box14-negro', { autoAlpha: 1 })
       .to('.box14', { autoAlpha: 1 })
       .to('.box14', { opacity: 1, duration: 2 })
       .fromTo('.william-info', { opacity: 0 }, { opacity: 1, duration: 2 })
@@ -455,11 +457,11 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
       .to('.box21', { autoAlpha: 1 })
       .to('.box22-negro', { autoAlpha: 1 })
       .to('.box22', { autoAlpha: 1 })
-      .call(()=>{
+      .call(() => {
         eliasRelatoVideoRef.current?.pause();
       })
       .to('.box23-negro', { autoAlpha: 1 })
-      .call(()=>{
+      .call(() => {
         eliasRelatoVideoRef.current?.play();
       })
       .to('.box23', { autoAlpha: 1 })

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './GuayaberoIntro.css';
 import GuayaberoF1 from './GuayaberoF1';
 import GuayaberoF2 from './GuayaberoF2';
+import GuayaberoF3 from './GuayaberoF3';
+import GuayaberoF4 from './GuayaberoF4';
 import flechaAdelante from '../../../assets/generales/flecha-adelante.png';
 import flechaAtras from '../../../assets/generales/flecha-atras.png';
 import abajoImg from '../../../assets/generales/abajo.png';
@@ -10,7 +12,7 @@ import abajoImg from '../../../assets/generales/abajo.png';
 
 const GuayaberoIntro = () => {
 
-    const secciones = ['intro', 'video']
+    const secciones = ['intro', 'video', 'audio1', 'audio2']
 
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -27,7 +29,8 @@ const GuayaberoIntro = () => {
             <div className="guaviare-guayabero-contenido">
                 {currentImage == 0 && <GuayaberoF1 />}
                 {currentImage == 1 && <GuayaberoF2 />}
-                {/* {currentImage == 2 && <GuayaberoF3 />} */}
+                {currentImage == 2 && <GuayaberoF3 />}
+                {currentImage == 3 && <GuayaberoF4 />}
             </div>
             {currentImage != 0 &&
                 <button className='flecha-atras' onClick={prevImage}>

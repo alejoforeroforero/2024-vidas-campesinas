@@ -69,11 +69,11 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
             <div className="relatos-contenido jorge-relatos-gsap">
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio1) ? audioOnImg : audioImg} onClick={() => { playAudio1() }} ></img>
-                    <p>"Cuando llegué al Raudal"</p>
+                    <h2>"Cuando llegué al Raudal"</h2>
                 </div>
                 <div className='relatos-audio-obj'>
                     <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
-                    <p>"Somos nuestras propias ambulancias"</p>
+                    <h2>"Somos nuestras propias ambulancias"</h2>
                 </div>
             </div>
         </div>

@@ -14,18 +14,19 @@ const GuayaberoF2 = () => {
 
     const vId = 'guayabero-video'
 
-    useEffect(() => {
-        dispatch(changeVideo(vId))
-    }, []);
+    // useEffect(() => {
+    //     dispatch(changeVideo(vId))
+    // }, []);
 
     return (
         <div className='guayabero-f2'>
-            <Video
+            Video
+            {/* <Video
                 videoRef={videoref}
                 vId={vId}
                 tiempo='3000'
                 video={loop}
-            />
+            /> */}
         </div>
     )
 }
