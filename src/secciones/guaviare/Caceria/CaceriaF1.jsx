@@ -13,6 +13,7 @@ const CaceriaF1 = () => {
             </div>
             <div className='caceria-f1-titulo'>
                 <h1>En los tiempos de la cacería</h1>
+                <hr />
             </div>
             <div className='caceria-f1-bottom'>
                 <img className = 'danta' src={danta} alt='danta' />

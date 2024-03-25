@@ -7,18 +7,24 @@
   width: 100vw;
   animation: fadeIn 4s;
 
-  h2{
+  .caceria-f2-cocodrilo{
     position: absolute;
+    left: 0px;
+    top: 33vh;
+    cursor: pointer;
     z-index: 300;
-    width: 70vw;
-    left: 15vw;
-    top: 40vh;
+    text-align: center;
+    width: 100vw;
+
+    img{
+      width:50vw;
+    }
   }
 
   .caceria-audio-contenedor {
     position: absolute;
     left: 0px;
-    bottom: 30vh;
+    top: 50vh;
     cursor: pointer;
     z-index: 300;
   }

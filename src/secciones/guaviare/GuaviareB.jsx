@@ -1,4 +1,5 @@
 import CaceriaIntro from './Caceria/CaceriaIntro';
+import GuayaberoIntro from './Guyabero/GuayaberoIntro';
 import './GuaviareB.css';
 
 const GuaviareB = ({ hideCanalB, seccionBRef }) => {
@@ -10,7 +11,7 @@ const GuaviareB = ({ hideCanalB, seccionBRef }) => {
                         <CaceriaIntro />
                     </div>
                     <div>
-                        <CaceriaIntro />
+                        <GuayaberoIntro />
                     </div>
                 </div>
             </div>

@@ -32,10 +32,24 @@
   }
 }
 
+.flecha-adelante-inicio {
+  position: absolute;
+  width: 100vw;
+  height: 40px;
+  overflow: hidden;
+  left: 0;
+  bottom: 15vh;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+
+  img {
+    height: 40px;
+    cursor: pointer;
+  }
+}
+
 .relatos-audio-obj {
-  display: flex;
-  justify-content: left;
-  align-items: center;
   padding: 10px 10vw;
   font-size: 0.8rem;
 
@@ -44,21 +58,39 @@
     display: none;
   }
 
-  img {
-    width: 40px;
-    cursor: pointer;
+  .relatos-audio-obj-top {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    img {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: left;
+      padding-left: 15px;
+    }
   }
 
-  p {
-    text-align: left;
-    padding-left: 4px;
+  p{
+
+    text-align: right;
+    font-size: 0.9rem;
+  }
+
+  div{
+    text-align: center;
   }
 }
 
-.seccion-b-abajo{
+.seccion-b-abajo {
   position: absolute;
   bottom: 10vw;
-  width: 16vw;
-  left: 42vw;
-  opacity: 0.6;
+  width: 100vw;
+  text-align: center;
+  img{
+    width:40px;
+  }
 }

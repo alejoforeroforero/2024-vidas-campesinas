@@ -35,11 +35,10 @@ const CaceriaIntro = () => {
                 </button>
             }
             {currentImage != secciones.length - 1 &&
-                <button className='flecha-adelante' onClick={nextImage}>
+                <button className={currentImage == 0 ? 'flecha-adelante-inicio' : 'flecha-adelante'} onClick={nextImage}>
                     <img src={flechaAdelante} alt='flecha'></img>
                 </button>
             }
-            <img className='seccion-b-abajo' src={abajoImg} alt="abajo" />
         </div>
     )
 }

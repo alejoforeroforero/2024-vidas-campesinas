@@ -7,6 +7,7 @@ import { changeVideo } from '../../../redux/states/managerSlice';
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
 import audioCaceria from '../../../assets/guaviare/caceria/audio-caceria.mp3';
+import cocodriloImg from '../../../assets/guaviare/caceria/cocodrilo.png';
 
 
 const CaceriaF2 = () => {
@@ -22,10 +23,10 @@ const CaceriaF2 = () => {
         dispatch(changeVideo(vId))
     }, []);
 
-    useEffect(()=>{
-        if(isPlaying){
+    useEffect(() => {
+        if (isPlaying) {
             audioRef.current.pause();
-        }else{
+        } else {
             audioRef.current.play();
         }
     }, [isPlaying])
@@ -39,15 +40,21 @@ const CaceriaF2 = () => {
                 tiempo='3000'
                 video={loop}
             />
-            <h2>“En ese tiempo se trabajaba con las pieles del tigrillo y el cachirre”</h2>
+            <div className='caceria-f2-cocodrilo'>
+                <img src={cocodriloImg} alt="cocodrilo" />
+            </div>
+
             <div className='caceria-audio-contenedor'>
                 <div className='relatos-audio-obj'>
                     <audio ref={audioRef} src={audioCaceria} controls></audio>
-                    <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={()=>setIsPlaying(!isPlaying)}></img>
-                    <p>“Relato cacería”</p>
+                    <div className='relatos-audio-obj-top'>
+                        <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={() => setIsPlaying(!isPlaying)}></img>
+                        <h2>“En ese tiempo se trabajaba con las pieles del tigrillo y el cachirre”</h2>
+                    </div>
+                    <p> - Carlos Mancera</p>
+                    {!isPlaying && <div>img audio</div>}
                 </div>
             </div>
-
         </div>
     )
 }
