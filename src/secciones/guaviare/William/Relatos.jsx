@@ -21,7 +21,7 @@ const Relatos = ({ williamRelatoVideoRef }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setMostrarVideo(true);
-        }, 10000)
+        }, 25000)
 
         return () => clearTimeout(timer);
     }, [])

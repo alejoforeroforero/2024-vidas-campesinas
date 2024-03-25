@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Howl } from 'howler';
 
 import s1 from '../../../assets/guaviare/jorge/jorge1.mp3';

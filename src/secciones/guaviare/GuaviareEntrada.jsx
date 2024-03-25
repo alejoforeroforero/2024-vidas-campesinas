@@ -11,7 +11,6 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
       <div className="guaviare-video">
         <video
           ref={videoGuaviareRef}
-          poster={guaviarePoster}
           loop
           playsInline
           muted

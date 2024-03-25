@@ -1,6 +1,6 @@
-.menu{
+.menu {
   position: fixed;
-  top:0px;
+  top: 0px;
   right: 0px;
   width: 60px;
   height: 60px;
@@ -9,15 +9,15 @@
   justify-content: center;
   align-items: center;
 
-  img{
-    width:90%;
+  img {
+    width: 90%;
     cursor: pointer;
   }
 }
 
-.menu-contenido{
+.menu-contenido {
   position: fixed;
-  top:0px;
+  top: 0px;
   right: 0px;
   width: 100vw;
   height: 100vh;
@@ -29,26 +29,26 @@
   background-color: rgba(0, 0, 0, 0.8);
   transition: 1s cubic-bezier(0.77, 0, 0.175, 1);
 
-  a{
-    width:90%;
+  a {
+    width: 90%;
     cursor: pointer;
     text-align: center;
     font-size: 2rem;
     height: 10vh;
-    color:#fff;
+    color: #fff;
     text-decoration: none;
   }
 }
 
-.menu-hide{
+.menu-hide {
   left: 100vw;
 }
 
-.menu-show{
+.menu-show {
   left: 0;
 }
 
-.seccion-general{
+.seccion-general {
   position: relative;
 }
 
@@ -67,8 +67,8 @@
 
 .logo {
   position: fixed;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
   z-index: 130 !important;
   width: 100vw;
   height: 40vh;
@@ -83,11 +83,11 @@
   }
 }
 
-.hide-logo{
+.hide-logo {
   visibility: hidden !important;
 }
 
-.show-logo{
+.show-logo {
   visibility: visible;
 }
 
@@ -136,8 +136,8 @@
   display: flex;
   align-items: center;
   animation: fadeIn 2s cubic-bezier(0.77, 0, 0.175, 1);
-   
-  img{
+
+  img {
     height: 100%;
     margin-right: -10px;
   }
@@ -154,110 +154,124 @@
   display: flex;
   align-items: center;
   animation: fadeIn 2s cubic-bezier(0.77, 0, 0.175, 1);
-  
-  img{
+
+  img {
     height: 100%;
     margin-left: -10px;
   }
 }
 
-.carousel-general{
+.carousel-general {
   width: 100vw;
   height: 100vh;
+  position: relative;
 
-  .image-container{
-      width:100vw;
-      height: 70vh;
-      
-
-      img{
-          width:100vw;
-          height: 70vh;
-          aspect-ratio: 3/2;
-          object-fit:contain;
-          
-      }
-
-      .image-s{
-        animation: fadeIn 3s ease-out;
-      }
-
-      .image-n{
-        animation: fadeIn 3s ease-out;
-      }
-  }
-
-  .carousel-botones{
-    height: 10vh;
+  .image-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 
-    button{
+    @media screen and (orientation: landscape) {
+      img {
+        object-fit: cover; 
+        width: 100%;
+      }
+    }
+
+    img {
+      object-fit: cover; 
+      height: 100%;
+    }
+
+    .image-s {
+      animation: fadeIn 3s ease-out;
+    }
+
+    .image-n {
+      animation: fadeIn 3s ease-out;
+    }
+  }
+
+  .carousel-botones {
+    left: 0px;
+    bottom: 15vh;
+    height: 10vh;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+
+    button {
       border: none;
       cursor: pointer;
-      background-color:transparent;
-      
-      img{
+      background-color: transparent;
+
+      img {
         width: 35px;
         margin: 0 30px;
       }
     }
   }
 
-  .carousel-navegacion{
-    margin-top: 3vh;
-      display: flex;
-      justify-content:center;
+  .carousel-navegacion {
+    left: 0px;
+    bottom: 12vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
   }
 
-  .galerias-s{
-      width:10px;
-      height:10px;
-      border-radius: 50%;
-      background-color: rgb(255, 255, 255);
-      cursor: pointer;
-      margin: 0 5px;
-      transition: 2s;
+  .galerias-s {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin: 0 5px;
+    transition: 2s;
   }
 
-  .galerias-n{
-      width:10px;
-      height:10px;
-      border-radius: 50%;
-      background-color: rgb(112, 111, 111);
-      cursor: pointer;
-      margin: 0 5px;
+  .galerias-n {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(112, 111, 111);
+    cursor: pointer;
+    margin: 0 5px;
   }
 
-  p{
-      margin-top: 2vh;
-      font-size: 0.7rem;
+  p {
+    margin-top: 2vh;
+    font-size: 0.7rem;
   }
 }
-
 
 @keyframes fadeIn {
-  from{
-    opacity:0;
+  from {
+    opacity: 0;
   }
-  to{
-    opacity:1;
-  }
-}
-
-@keyframes fadeOut{
-  from{
-    opacity:1;
-  }
-  to{
-    opacity:0;
+  to {
+    opacity: 1;
   }
 }
 
-@keyframes fadeOut2{
-  from{
-    opacity:1;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
-  to{
-    opacity:0;
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut2 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

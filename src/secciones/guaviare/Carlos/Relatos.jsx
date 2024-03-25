@@ -21,7 +21,7 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setMostrarVideo(true);
-        }, 6000)
+        }, 15000)
 
         return () => clearTimeout(timer);
     }, [])
@@ -43,8 +43,6 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
             dispatch(escogerCancion(3));
         }
     }
-
-
 
     return (
         <div className="seccion carlos-relatos" >

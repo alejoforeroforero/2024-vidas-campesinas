@@ -1,0 +1,24 @@
+.elias-relatos {
+  width: 100vw;
+  height: 100vh important;
+  overflow: hidden;
+  background-image: url("../../../assets/home/home-poster.jpg");
+
+  .relatos-contenido{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+
+    p{
+      font-weight: bold;
+      padding-top: 45vh;
+      font-size: 2rem;
+      width: 54vw;
+      margin: auto;
+    }
+  }
+}

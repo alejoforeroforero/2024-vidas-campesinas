@@ -3,13 +3,14 @@ import img1 from '../../../assets/guaviare/carlos/foto1.jpg';
 import img2 from '../../../assets/guaviare/carlos/foto2.jpg';
 import img3 from '../../../assets/guaviare/carlos/foto3.jpg';
 import img4 from '../../../assets/guaviare/carlos/foto4.jpg';
+import img5 from '../../../assets/guaviare/carlos/foto5.jpg';
 import flechaAdelante from '../../../assets/generales/flecha-adelante.png';
 import flechaAtras from '../../../assets/generales/flecha-atras.png';
 
 
 const GaleriaC = () => {
 
-    const images = [img1, img2, img3, img4];
+    const images = [img1, img2, img3, img4, img5];
 
     const [currentImage, setCurrentImage] = useState(0);
     const [booleanImg, setBooleanImg] = useState(false);
