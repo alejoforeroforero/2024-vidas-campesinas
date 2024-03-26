@@ -10,10 +10,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   img{
     width:80px;
     cursor: pointer;
+  }
+
+  .guayabero-f2-frase{
+    margin-top: 10vh;
+
+    p{
+      text-align: right;
+      transform: translate(25px, 0);
+    }
+
   }
 }
 

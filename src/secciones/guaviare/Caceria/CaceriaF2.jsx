@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import loop from '../../../assets/guaviare/caceria/loop-caceria.mp4';
 import LoopVideo from '../../../components/LoopVideo';
-import './CaceriaF2.css';
 import { changeVideo } from '../../../redux/states/managerSlice';
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
 import audioCaceria from '../../../assets/guaviare/caceria/audio-caceria.mp3';
 import cocodriloImg from '../../../assets/guaviare/caceria/cocodrilo.png';
 
+import './CaceriaF2.css';
 
 const CaceriaF2 = () => {
     const [isPlaying, setIsPlaying] = useState(true);

@@ -1,4 +1,21 @@
-.marisol-galeria{
-    background-color: rgb(2, 15, 26);
-    position: absolute;
+.marisol-galeria {
+  background-color: rgb(2, 15, 26);
+  position: absolute;
+}
+
+.galeria-marisol-frase {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  margin-top: 55vh;
+  display: flex;
+  justify-content: center;
+
+  p {
+    width:70vw;
+    max-width: 500px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+  }
 }

@@ -205,8 +205,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     })
       .to(".logo", { opacity: 0, y: -70, duration: 0.2 })
       .to(".scroll", { opacity: 0, y: 70, duration: 0.2 }, '<0.05')
-      .to(".logo", { visibility: 'hidden', duration: 0 })
-      .to(".scroll", { visibility: 'hidden', duration: 0 })
+      .to(".logo", { visibility: 'hidden', duration: 0.5 })
       .call(() => {
         videoGuaviareRef.current.play();
         const s1 = agregarS1();
@@ -218,6 +217,8 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           }
         });
       })
+      .to(".scroll", { visibility: 'hidden', duration: 0.5})
+      .fromTo('.toogle-canal-b', {opacity:0, visibility:'hidden'}, {opacity:1, visibility:'visible', duration:4})
       .to('.box1', { autoAlpha: 1 })
       .to('.guaviare-mask', { autoAlpha: 1 })
       .to('.guaviare-contenido', { autoAlpha: 1 })
@@ -561,8 +562,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
           />
         }
       </div>
-
-
 
       {/* Boxes */}
 

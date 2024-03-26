@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import { establecerYCanalA, escogerCancion } from './redux/states/managerSlice';
+import { establecerYCanalA, escogerCancion, changeVideo } from './redux/states/managerSlice';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -64,11 +64,13 @@ function App() {
     setHideCanalB(!hidennCanalB);
     dispatch(establecerYCanalA(window.scrollY));
     dispatch(escogerCancion(null));
+    dispatch(changeVideo(null));
   }
 
   const handleCanalAOnClick = () => {
     setHideCanalB(!hidennCanalB);
     dispatch(escogerCancion(null));
+    dispatch(changeVideo(null));
     window.scrollTo({ top: yCanalA, behavior: 'smooth' });
   }
 

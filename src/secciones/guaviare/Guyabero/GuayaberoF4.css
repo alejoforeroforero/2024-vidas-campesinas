@@ -54,7 +54,7 @@
     h2 {
       width: 40vw;
       text-align: left;
-      font-size: 1.3rem;
+      font-size: 1rem;
       margin: auto;
     }
 
@@ -64,6 +64,7 @@
       p {
         margin-left: 100px;
         text-align: center;
+        font-size: 0.9rem;
       }
     }
   }

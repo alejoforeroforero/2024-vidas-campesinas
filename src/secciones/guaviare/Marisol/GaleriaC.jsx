@@ -28,37 +28,45 @@ const GaleriaC = () => {
     }
 
     return (
-        <div className="carousel-general">
-            <div className="container">
-                <div className="image-container">
-                    {booleanImg && <img className='image-s' src={images[currentImage]} alt='images' />}
-                    {!booleanImg && <img className='image-n' src={images[currentImage]} alt='images' />}
-                </div>
-                <div className='carousel-botones marisol-galeria-botones'>
-                    <div>
-                        <button onClick={prevImage}>
-                            <img src={flechaAtras} alt='flecha'></img>
-                        </button>
-                        <button onClick={nextImage}>
-                            <img src={flechaAdelante} alt='flecha'></img>
-                        </button>
-                    </div>
-                </div>
-                <div className='carousel-navegacion'>
-                    {images.map((img, index) => {
-                        return (
-                            <div
-                                onClick={() => { handleOnClick(index) }}
-                                key={index}
-                                className={(index == currentImage) ? 'galerias-s' : 'galerias-n'}
-                            >
+        <>
+            <div className="carousel-general">
+                <div className="container">
+                    <div className="image-container">
+                        
+                        {booleanImg && <img className='image-s' src={images[currentImage]} alt='images' />}
+                        {!booleanImg && <img className='image-n' src={images[currentImage]} alt='images' />}
+                        {currentImage == 0 &&
+                            <div className='galeria-marisol-frase'>
+                                <p>“No todos los campesinos siembran comida. Yo soy campesina, pero en el momento no tenemos una tierra para cultivar”</p>
                             </div>
-                        )
-                    })}
+                        }
+                    </div>
+                    <div className='carousel-botones marisol-galeria-botones'>
+                        <div>
+                            <button onClick={prevImage}>
+                                <img src={flechaAtras} alt='flecha'></img>
+                            </button>
+                            <button onClick={nextImage}>
+                                <img src={flechaAdelante} alt='flecha'></img>
+                            </button>
+                        </div>
+                    </div>
+                    <div className='carousel-navegacion'>
+                        {images.map((img, index) => {
+                            return (
+                                <div
+                                    onClick={() => { handleOnClick(index) }}
+                                    key={index}
+                                    className={(index == currentImage) ? 'galerias-s' : 'galerias-n'}
+                                >
+                                </div>
+                            )
+                        })}
+                    </div>
+                    {/* <p>{currentImage + 1} de {images.length}</p> */}
                 </div>
-                {/* <p>{currentImage + 1} de {images.length}</p> */}
             </div>
-        </div>
+        </>
     );
 }
 

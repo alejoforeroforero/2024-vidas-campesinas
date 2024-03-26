@@ -28,12 +28,15 @@ const managerSlice = createSlice({
       state.yCanalA = action.payload;
     },
     changeVideo(state, action) {
+
       if (state.videoActual !== action.payload) {
         if (state.videoActual != null) {
           const prevVideo = document.getElementById(state.videoActual);
 
-          if (!prevVideo.paused) {
-            prevVideo?.pause();
+          if(prevVideo){
+            if (!prevVideo.paused) {
+              prevVideo?.pause();
+            }
           }
         }
       }

@@ -1,21 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { changeVideo } from '../../../redux/states/managerSlice';
+import LoopVideo from '../../../components/LoopVideo';
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
 import audio1 from '../../../assets/guaviare/guayabero/audio-guayabero1.mp3';
 import audio2 from '../../../assets/guaviare/guayabero/audio-guayabero2.mp3';
 import lanchaImg from '../../../assets/guaviare/guayabero/lancha.png';
-
+import loop from '../../../assets/guaviare/guayabero/guayabero-loop.mp4';
 
 import './GuayaberoF3.css';
 
-
 const GuayaberoF3 = () => {
+
+    const dispatch = useDispatch();
+    const videoref = useRef(null);
+
     const [isPlaying, setIsPlaying] = useState(true);
     const [isPlaying2, setIsPlaying2] = useState(true);
 
     const audioRef = useRef(null);
     const audioRef2 = useRef(null);
+
+    const vId = 'guyabero-video'
+
+    useEffect(() => {
+        dispatch(changeVideo(vId))
+    }, []);
 
     useEffect(() => {
         if (isPlaying) {
@@ -33,9 +44,14 @@ const GuayaberoF3 = () => {
         }
     }, [isPlaying2])
 
-
     return (
         <div className='guayabero-f3'>
+            <LoopVideo
+                videoRef={videoref}
+                vId={vId}
+                tiempo='3000'
+                video={loop}
+            />
             <div className='mask-general'>
                 <div className='guayabero-f3-interior'>
                     <div className='guayabero-audio-contenedor1'>

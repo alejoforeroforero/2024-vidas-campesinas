@@ -3,13 +3,17 @@ import './GuayaberoF2.css';
 
 const GuayaberoF2 = () => {
 
-    const handleOnClick = ()=>{
+    const handleOnClick = () => {
         alert('por resolver video youtube vertical');
     }
 
     return (
         <div className='guayabero-f2'>
             <img onClick={handleOnClick} src={playImg} alt="play" />
+            <div className='guayabero-f2-frase'>
+                <h3>“El río es fuente de vida”.</h3>
+                <p>- Antonio Molano</p>
+            </div>
         </div>
     )
 }

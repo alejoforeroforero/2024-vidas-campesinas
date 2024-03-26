@@ -22,6 +22,21 @@
   }
 }
 
+.guaviare-lineas-b {
+  position: fixed;
+  height: 100%;
+  right:0px;
+  top:0px;
+  width: 10vw;
+  z-index: 190;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding-left: 10px;
+  opacity: 1;
+}
+
 .guaviare-lineas {
   position: fixed;
   height: 100%;
