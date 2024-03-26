@@ -364,6 +364,16 @@
   }
 }
 
+.descargando{
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

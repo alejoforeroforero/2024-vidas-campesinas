@@ -40,30 +40,32 @@ const CaceriaF2 = () => {
                 tiempo='3000'
                 video={loop}
             />
-            <div className='caceria-f2-cocodrilo'>
-                <img src={cocodriloImg} alt="cocodrilo" />
-            </div>
-
-            <div className='caceria-audio-contenedor'>
-                <div className='relatos-audio-obj'>
-                    <audio ref={audioRef} src={audioCaceria} controls></audio>
-                    <div className='relatos-audio-obj-top'>
-                        <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={() => setIsPlaying(!isPlaying)}></img>
-                        <h2>“En ese tiempo se trabajaba con las pieles del tigrillo y el cachirre”</h2>
-                    </div>
-                    <p> - Carlos Mancera</p>
-                    {!isPlaying &&
-                        <div className='audio-visual'>
-                            {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
-                                //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
-                                // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
-                            }
-                            <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
-
+            <div className='caceria-f2-interior'>
+                <div className='caceria-f2-cocodrilo'>
+                    <img src={cocodriloImg} alt="cocodrilo" />
+                </div>
+                <div className='caceria-audio-contenedor'>
+                    <div className='relatos-audio-obj'>
+                        <audio ref={audioRef} src={audioCaceria} controls></audio>
+                        <div className='relatos-audio-obj-top'>
+                            <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={() => setIsPlaying(!isPlaying)}></img>
+                            <h2>“En ese tiempo se trabajaba con las pieles del tigrillo y el cachirre”</h2>
                         </div>
-                    }
+                        <p> - Carlos Mancera</p>
+                        {!isPlaying &&
+                            <div className='audio-visual'>
+                                {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
+                                    //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
+                                    // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
+                                }
+                                <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
+
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
+
         </div>
     )
 }

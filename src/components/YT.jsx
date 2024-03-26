@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import YouTube from "react-youtube";
 import playImg from '../assets/generales/play_video.png';
 import salidaImg from '../assets/generales/salida.png';
-import pauseImg from '../assets/generales/salida.png';
+import pauseImg from '../assets/generales/pause_video.png';
 import LoadingIcons from 'react-loading-icons';
 
 import './YT.css';
@@ -159,7 +159,7 @@ const YT = ({ youtubeVideoId, refYoutubeFx, imgThumbnail, id }) => {
                 </div>
                 <div className='video-play-img-container'>
                     {isPlaying && 
-                        <img onClick={handleIconOnClick} src={salidaImg} alt="play" />
+                        <img onClick={handleIconOnClick} src={pauseImg} alt="play" />
                     }
                     {!isPlaying && 
                         <img onClick={handleIconOnClick} src={playImg} alt="play" />

@@ -1,12 +1,16 @@
+import { useDispatch } from 'react-redux';
+import { establecerYCanalA } from '../../../redux/states/managerSlice';
 import playImg from '../../../assets/generales/play_video.png'
 import './Youtube.css';
 
 const Youtube = ({ youtubeRef }) => {
+    const dispatch = useDispatch();
 
     const handleOnClick = () => {
         const div = document.getElementById('youtube-elias');
         div.style.visibility = 'visible';
         youtubeRef.playVideo();
+        dispatch(establecerYCanalA(window.scrollY));
     }
 
     return (

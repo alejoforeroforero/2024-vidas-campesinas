@@ -1,17 +1,27 @@
 .guayabero-f2 {
-  background-color: rgb(0, 0, 0);
-  background-repeat: no-repeat;
+  background: url("../../../assets/guaviare/guayabero/guayabero-fondo-video.jpg");
+  width: 100%;
+  height: 100%;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
-  height: 100vh;
-  width: 100vw;
   animation: fadeIn 4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    width:80px;
+    cursor: pointer;
+  }
 }
 
 @keyframes fadeIn {
-    from{
-        opacity: 0;
-    }to{
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

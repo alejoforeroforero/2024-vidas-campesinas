@@ -11,27 +11,4 @@
     background-color: rgb(12, 12, 12);
     border-bottom:1px solid black;
   }
-
-  /* .guaviare-caceria-prev{
-    position: absolute;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    left: 30vw;
-    bottom:20vh;
-    text-align: center;
-    border:1px solid red;
-  }
-
-  .guaviare-caceria-next{
-    padding: 10px;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    right: 30vw;
-    bottom:20vh;
-    text-align: center;
-  } */
 }

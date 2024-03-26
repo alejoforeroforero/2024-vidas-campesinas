@@ -8,11 +8,11 @@
   background-repeat: no-repeat;
   animation: fadeIn 4s;
 
-  .guayabero-f3-mask{
-    position: absolute;
-    width: 100vw;
+  .guayabero-f3-interior{
+    position: relative;
+    width:100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4); 
+    max-width: 900px;
   }
 
   .guayabero-f3-ilustraciones{
@@ -22,7 +22,7 @@
     cursor: pointer;
     z-index: 300;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     height: 25vh;
 
     img:first-child{
@@ -40,9 +40,7 @@
         max-width: 300px;
       }
     }
-
   }
-
 
   .guayabero-audio-contenedor1 {
     position: absolute;
@@ -50,14 +48,8 @@
     top: 15vh;
     cursor: pointer;
     z-index: 300;
-    width: 100vw;
+    width: 100%;
     text-align: center;
-
-    p{
-      width:70vw;
-      font-size: 0.9rem;
-      margin: auto;
-    }
   }
 
   .guayabero-audio-contenedor2 {
@@ -66,14 +58,8 @@
     top: 60vh;
     cursor: pointer;
     z-index: 300;
-    width: 100vw;
+    width: 100%;
     text-align: center;
-
-    p{
-      width:70vw;
-      font-size: 0.9rem;
-      margin: auto;
-    }
   }
 }
 

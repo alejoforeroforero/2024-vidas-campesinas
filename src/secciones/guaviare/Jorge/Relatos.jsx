@@ -57,7 +57,7 @@ const Relatos = ({ jorgeRelatoVideoRef }) => {
 
     return (
         <div className="seccion jorge-relatos" >
-            {!mostrarVideo && <div>Loading</div>}
+            {!mostrarVideo && <div className='descargando'>Descargando...</div>}
             {mostrarVideo &&
                 <LoopVideo
                     videoRef={jorgeRelatoVideoRef}

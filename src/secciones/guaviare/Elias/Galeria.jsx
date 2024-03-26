@@ -19,7 +19,7 @@ const Galeria = () => {
     return (
         <div className='seccion elias-galeria'>
             {!mostrarGaleria &&
-                <div>Loading...</div>
+                <div className='descargando'>Descargando...</div>
             }
             {mostrarGaleria &&
                 <GaleriaElias />

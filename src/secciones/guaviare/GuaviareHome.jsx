@@ -133,20 +133,21 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
     dispatch(cambiarDepartamento('guaviare'))
   }, [dispatch])
 
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setEsconderLoading(true);
+    }, 6000);
+
+    return ()=> clearTimeout(timer);
+  })
+
   useEffect(() => {
     console.log(audioObj);
   }, [audioObj])
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setEsconderLoading(true);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    }
-  }, [])
-
+  const onPlayReady = ()=>{
+    setEsconderLoading(true);
+  }
 
   useEffect(() => {
     if (cancionAnterior != null) {
@@ -473,7 +474,6 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
   })
 
 
-
   return (
     <>
       {!esconderLoading &&
@@ -568,7 +568,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
 
       <div className="wrap">
         <div className="box box1">
-          <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} />
+          <GuaviareEntrada videoGuaviareRef={videoGuaviareRef} onPlayReady={onPlayReady} />
         </div>
         <div className="box box2-negro"></div>
         <div className="box box2">
@@ -579,7 +579,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box3-negro"></div>
         <div className="box box3">
           {jorgeYoutubeRef != null && <JorgeYoutube youtubeRef={jorgeYoutubeRef} />}
-          {jorgeYoutubeRef == null && <div>Descargando...</div>}
+          {jorgeYoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box4-negro"></div>
         <div className="box box4">
@@ -596,8 +596,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box7-negro"></div>
         <div className="box box7">
           {carlosYoutubeRef != null && <CarlosYoutube youtubeRef={carlosYoutubeRef} />}
-          {carlosYoutubeRef == null && <div>Descargando...</div>}
-          {/* <CarlosYoutube /> */}
+          {carlosYoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box8-negro"></div>
         <div className="box box8">
@@ -614,12 +613,12 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box11-negro"></div>
         <div className="box box11">
           {dayana1YoutubeRef != null && <DayanaYoutube1 youtubeRef={dayana1YoutubeRef} />}
-          {dayana1YoutubeRef == null && <div>Descargando...</div>}
+          {dayana1YoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box12-negro"></div>
         <div className="box box12">
           {dayana2YoutubeRef != null && <DayanaYoutube2 youtubeRef={dayana2YoutubeRef} />}
-          {dayana2YoutubeRef == null && <div>Descargando...</div>}
+          {dayana2YoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box13-negro"></div>
         <div className="box box13">
@@ -634,7 +633,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box15-negro"></div>
         <div className="box box15">
           {williamYoutubeRef != null && <WilliamYoutube youtubeRef={williamYoutubeRef} />}
-          {williamYoutubeRef == null && <div>Descargando...</div>}
+          {williamYoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box16-negro"></div>
         <div className="box box16">
@@ -653,7 +652,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box19-negro"></div>
         <div className="box box19">
           {marisolYoutubeRef != null && <MarisolYoutube youtubeRef={marisolYoutubeRef} />}
-          {marisolYoutubeRef == null && <div>Descargando...</div>}
+          {marisolYoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box20-negro"></div>
         <div className="box box20">
@@ -668,7 +667,7 @@ const GuaviareHome = ({ videoGuaviareRef }) => {
         <div className="box box22-negro"></div>
         <div className="box box22">
           {eliasYoutubeRef != null && <EliasYoutube youtubeRef={eliasYoutubeRef} />}
-          {eliasYoutubeRef == null && <div>Descargando...</div>}
+          {eliasYoutubeRef == null && <div className='descargando'>Descargando...</div>}
         </div>
         <div className="box box23-negro"></div>
         <div className="box box23">

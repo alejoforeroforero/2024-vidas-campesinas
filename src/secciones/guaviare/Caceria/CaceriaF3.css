@@ -8,6 +8,14 @@
   background-repeat: no-repeat;
   animation: fadeIn 4s;
 
+  .caceria-f3-interior{
+    width:100vw;
+    height: 100vh;
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+  }
+
   .caceria-f3-ilustraciones{
     position: absolute;
     left: 0px;
@@ -34,18 +42,19 @@
     }
   }
 
-
   .caceria-audio-contenedor {
     position: absolute;
     left: 0px;
     top: 45vh;
     cursor: pointer;
     z-index: 300;
-    width: 100vw;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     p{
-      width:70vw;
+      width: 80%;
       font-size: 0.9rem;
       margin: auto;
     }

@@ -46,7 +46,7 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
 
     return (
         <div className="seccion carlos-relatos" >
-            {!mostrarVideo && <div>Loading</div>}
+            {!mostrarVideo && <div className='descargando'>Descargando...</div>}
             {mostrarVideo &&
                 <LoopVideo
                     videoRef={carlosRelatoVideoRef}
@@ -61,10 +61,6 @@ const Relatos = ({ carlosRelatoVideoRef }) => {
                             <h2> “Llegamos a este territorio porque era muy productivo en Cacao”</h2>
                         </div>
                     </div>
-                    {/* <div className='relatos-audio-obj'>
-                    <img src={(pAudio2) ? audioOnImg : audioImg} onClick={() => { playAudio2() }} ></img>
-                    <p>"Somos nuestras propias ambulancias"</p>
-                </div> */}
                 </div>
             </div>
         </div>

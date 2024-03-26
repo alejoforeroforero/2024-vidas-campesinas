@@ -4,12 +4,17 @@ import guaviarePoster from '../../assets/guaviare/home/guaviare-poster.jpg';
 
 import './GuaviareEntrada.css'
 
-const GuaviareEntrada = ({ videoGuaviareRef }) => {
+const GuaviareEntrada = ({ videoGuaviareRef, onPlayReady }) => {
+
+  const handleVideoReady = ()=>{
+    onPlayReady();
+  }
 
   return (
     <div className="seccion guaviare" >
       <div className="guaviare-video">
         <video
+          onCanPlayThrough={handleVideoReady}
           ref={videoGuaviareRef}
           loop
           playsInline
@@ -24,7 +29,7 @@ const GuaviareEntrada = ({ videoGuaviareRef }) => {
             <h1 className='guaviare-titulo-h1'>GUAVIARE</h1>
           </div>
           <div className='guaviare-descripcion'>
-            <h2 className='guaviare-descripcion-h2'>RADUAL <br />
+            <h2 className='guaviare-descripcion-h2'>RAUDAL <br />
               DEL GUAYABERO
             </h2>
             <hr className='guaviare-descripcion-hr' />
