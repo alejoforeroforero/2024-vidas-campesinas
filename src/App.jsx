@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, NavLink } from 'react-router-dom';
-import { establecerYCanalA, escogerCancion, changeVideo } from './redux/states/managerSlice';
+import { establecerYCanalA, escogerCancion, changeVideo, pararAudio } from './redux/states/managerSlice';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -33,7 +33,7 @@ function App() {
   const departamento = useSelector(state => state.managerReducer.departamento);
   const yCanalA = useSelector(state => state.managerReducer.yCanalA);
 
-  const [yaEmpezo, setYaEmpezo] = useState(false);
+  const [yaEmpezo, setYaEmpezo] = useState(true);
   const [showingMenu, setShowingMenu] = useState(false);
   const [hidennCanalB, setHideCanalB] = useState(true);
   const [mostrarLogo, setMostrarLogo] = useState(true);
@@ -71,6 +71,7 @@ function App() {
     setHideCanalB(!hidennCanalB);
     dispatch(escogerCancion(null));
     dispatch(changeVideo(null));
+    dispatch(pararAudio(null)) 
     window.scrollTo({ top: yCanalA, behavior: 'smooth' });
   }
 

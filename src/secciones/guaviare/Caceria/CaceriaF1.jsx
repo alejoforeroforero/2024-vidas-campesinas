@@ -7,7 +7,9 @@ const CaceriaF1 = () => {
 
     return (
         <div className='caceria-f1'>
+            <div className='caceria-f1-fondo'></div>
             <div className='mask-general'>
+                
                 <div className='caceria-f1-contenido'>
                     <div className='caceria-f1-top'>
                         <img src={hojaTop} alt="" />

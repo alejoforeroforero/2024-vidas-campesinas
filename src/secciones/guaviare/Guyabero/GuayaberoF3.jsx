@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeVideo } from '../../../redux/states/managerSlice';
+import { changeVideo, pararAudio } from '../../../redux/states/managerSlice';
 import LoopVideo from '../../../components/LoopVideo';
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
@@ -16,8 +16,8 @@ const GuayaberoF3 = () => {
     const dispatch = useDispatch();
     const videoref = useRef(null);
 
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [isPlaying2, setIsPlaying2] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying2, setIsPlaying2] = useState(false);
 
     const audioRef = useRef(null);
     const audioRef2 = useRef(null);
@@ -28,21 +28,24 @@ const GuayaberoF3 = () => {
         dispatch(changeVideo(vId))
     }, []);
 
-    useEffect(() => {
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
+
+    const handleOnClick1 = ()=>{
+        dispatch(pararAudio(null)) 
+        if(!isPlaying){
             audioRef.current.play();
         }
-    }, [isPlaying])
+        setIsPlaying(!isPlaying);
+        setIsPlaying2(false);
+    }
 
-    useEffect(() => {
-        if (isPlaying2) {
-            audioRef2.current.pause();
-        } else {
+    const handleOnClick2 = ()=>{
+        dispatch(pararAudio(null)) 
+        if(!isPlaying2){
             audioRef2.current.play();
         }
-    }, [isPlaying2])
+        setIsPlaying(false);
+        setIsPlaying2(!isPlaying2);
+    }
 
     return (
         <div className='guayabero-f3'>
@@ -58,18 +61,13 @@ const GuayaberoF3 = () => {
                         <div className='relatos-audio-obj'>
                             <audio ref={audioRef} src={audio1} controls></audio>
                             <div className='relatos-audio-obj-top'>
-                                <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={() => setIsPlaying(!isPlaying)}></img>
+                                <img src={(isPlaying) ? audioOnImg : audioImg} onClick={handleOnClick1}></img>
                                 <h2>“Yo me acuerdo que en verano se escuchaba la cantidad de pescado subiendo el río”.</h2>
                             </div>
                             <p>- Disney Ardila</p>
-                            {!isPlaying &&
+                            {isPlaying &&
                                 <div className='audio-visual'>
-                                    {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
-                                        //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
-                                        // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
-                                    }
                                     <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
-
                                 </div>
                             }
                         </div>
@@ -82,16 +80,12 @@ const GuayaberoF3 = () => {
                         <div className='relatos-audio-obj'>
                             <audio ref={audioRef2} src={audio2} controls></audio>
                             <div className='relatos-audio-obj-top'>
-                                <img src={(!isPlaying2) ? audioOnImg : audioImg} onClick={() => setIsPlaying2(!isPlaying2)}></img>
+                                <img src={(isPlaying2) ? audioOnImg : audioImg} onClick={handleOnClick2}></img>
                                 <h2>“Uno en la noche pescaba 20 o 30 arrobas en dos horas”.</h2>
                             </div>
                             <p>- Carlos Mancera</p>
-                            {!isPlaying2 &&
+                            {isPlaying2 &&
                                 <div className='audio-visual'>
-                                    {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
-                                        //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
-                                        // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
-                                    }
                                     <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
                                 </div>
                             }
@@ -99,7 +93,6 @@ const GuayaberoF3 = () => {
                         <p></p>
                     </div>
                 </div>
-
             </div>
         </div>
     )

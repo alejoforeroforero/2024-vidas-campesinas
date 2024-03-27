@@ -13,7 +13,7 @@ const HomeV1 = ({videHomeRef}) => {
             scrollTrigger: {
               trigger: ".home",
               start: `top top`,
-              end: "+=8200",
+              end: "+=4200",
               invalidateOnRefresh: false,
               scrub: 1,
               pin: true,
@@ -23,20 +23,25 @@ const HomeV1 = ({videHomeRef}) => {
           .call(() => {
             videHomeRef.current.play();
           })
+          .fromTo('.toogle-canal-b', {opacity:0, visibility:'hidden'}, {opacity:0, visibility:'hidden', duration:1})
           .to(".logo", { opacity: 0, y: -70, duration: 5 })
           .to(".scroll", { opacity: 0, y: 70, duration: 3 }, '<')
-          .to(".home-textos", { opacity: 1, duration: 30 }, '<12')
+          .to(".home-textos", { opacity: 1, duration: 20 }, '<12')
+          .to(".logo", { visibility:'hidden', duration: 1 })
           .to(".home-textos-p1", { opacity: 1, y: 10, duration: 0 }, '>12')
-          .to(".home-textos-p1", { opacity: 1, duration: 40 })
-          .to(".home-textos-p1", { opacity: 1, duration: 30 })
-          .to(".home-textos-p1", { opacity: 0, duration: 30 })
-          .to(".home-textos-p2", { opacity: 1, y: 20, duration: 30 }, '>12')
-          .to(".home-textos-p2", { opacity: 1, duration: 120 })
-          .to(".home-textos-p2", { opacity: 1, duration: 30 }, '>30')
-          .to(".home-textos-p2", { opacity: 0, duration: 30 })
-          .to(".home-textos-p3", { opacity: 1, y: 10, duration: 30 }, '>12')
-          .to(".home-textos-p3", { opacity: 1, duration: 120 }, '>30')
-          .to(".home-textos-p3", { opacity: 0, duration: 30 })
+          .to(".scroll", { visibility:'hidden', duration: 1 })
+          .to(".home-textos-p1", { opacity: 1, duration: 20 })
+          .to(".home-textos-p1", { opacity: 1, duration: 10 })
+          .to(".home-textos-p1", { opacity: 0, duration: 20 })
+          .to(".home-textos-p2", { opacity: 1, y: 20, duration: 20 })
+          .to(".home-textos-p2", { opacity: 1, duration: 20 })
+          .to(".home-textos-p2", { opacity: 0, duration: 10 })
+          .to(".home-textos-p3", { opacity: 1, y: -20, duration: 20 })
+          .to(".home-textos-p3", { opacity: 1, duration: 20 })
+          .to(".home-textos-p3", { opacity: 0, duration: 10 })
+          .to(".home-textos-p4", { opacity: 1, y: 20, duration: 20 })
+          .to(".home-textos-p4", { opacity: 1, duration: 20 })
+          .to(".home-textos-p4", { opacity: 0, duration: 10 })
           .call(() => {
             videHomeRef.current.play();
           })
@@ -66,12 +71,10 @@ const HomeV1 = ({videHomeRef}) => {
           </video>
         </div>
         <div className="home-textos">
-          <p className="home-textos-p1"> HLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
-            facilisi.</p>
-          <p className="home-textos-p2"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-            aliquip ex ea commodo consequat. </p>
-          <p className="home-textos-p3"> Espero que muy bien compañeros</p>
+          <p className="home-textos-p1"> En Colombia, los campesinos y las campesinas han venido reivindicando desde hace más de una década su reconocimiento como sujeto integral de derechos. El Paro Nacional Agrario de 2013, así como mesas de negociación derivadas con el Estado, pusieron sobre la palestra nacional que campesinas y campesinos no aparecían como tales en los documentos e instrumentos de política pública, como tampoco en las concepciones generales del Estado.</p>
+          <p className="home-textos-p2"> La población campesina ha sufrido discriminaciones y exclusiones de larga data, y han sido estas comunidades las más afectadas por el conflicto armado. El 26.2% de la población colombiana se auto-reconoce como campesina.</p>
+          <p className="home-textos-p3"> Finalmente, en 2023, Colombia firma la <i>Declaración de Derechos Campesinos y de Otras Personas que Trabajan en las Zonas Rurales de la ONU</i>, y reforma el artículo 64 de la Constitución Política de 1991, que reconoce al campesinado como sujeto de derechos de especial protección. Esto da inicio a una nueva etapa en la historia del campesinado.</p>
+          <p className="home-textos-p4"> <i>Vidas campesinas</i> es un proyecto que busca reconocer y potenciar los procesos, las memorias y los aprendizajes de tres experiencias campesinas significativas, provenientes de tres departamentos: el Cauca, el Guaviare y el Caquetá.  </p>
         </div>
       </div>
     </div>

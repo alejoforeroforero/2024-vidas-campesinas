@@ -28,7 +28,6 @@ const managerSlice = createSlice({
       state.yCanalA = action.payload;
     },
     changeVideo(state, action) {
-
       if (state.videoActual !== action.payload) {
         if (state.videoActual != null) {
           const prevVideo = document.getElementById(state.videoActual);
@@ -40,9 +39,7 @@ const managerSlice = createSlice({
           }
         }
       }
-
       state.videoActual = action.payload;
-
       if (state.videoActual != null) {
         const currentVideo = document.getElementById(action.payload);
         if (currentVideo.paused) {
@@ -50,6 +47,15 @@ const managerSlice = createSlice({
         }
       }
     },
+    pararAudio(state, action){
+      const audios = document.getElementsByTagName('audio');
+      if(audios.length>0){
+        for(let i=0; i<audios.length; i++){
+          const audio = audios[i];
+          audio.pause();
+        }
+      }
+    }
   },
 });
 
@@ -59,6 +65,8 @@ export const {
   escogerCancion,
   establecerYCanalA,
   changeVideo,
+  agregarSonido,
+  pararAudio
 } = managerSlice.actions;
 
 export default managerSlice.reducer;

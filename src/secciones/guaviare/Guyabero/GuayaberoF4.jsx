@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { pararAudio } from '../../../redux/states/managerSlice';
 
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
@@ -9,18 +11,18 @@ import './GuayaberoF4.css';
 
 const GuayaberoF4 = () => {
 
-    const [isPlaying2, setIsPlaying2] = useState(true);
+    const dispatch = useDispatch();
+    const [isPlaying2, setIsPlaying2] = useState(false);
 
     const audioRef2 = useRef(null);
 
-
-    useEffect(() => {
-        if (isPlaying2) {
-            audioRef2.current.pause();
-        } else {
+    const handleOnClick1 = ()=>{
+        dispatch(pararAudio(null)) 
+        if(!isPlaying2){
             audioRef2.current.play();
         }
-    }, [isPlaying2])
+        setIsPlaying2(!isPlaying2);
+    }
 
 
     return (
@@ -42,18 +44,13 @@ const GuayaberoF4 = () => {
                         <div className='relatos-audio-obj'>
                             <audio ref={audioRef2} src={audio2} controls></audio>
                             <div className='relatos-audio-obj-top'>
-                                <img src={(!isPlaying2) ? audioOnImg : audioImg} onClick={() => setIsPlaying2(!isPlaying2)}></img>
+                                <img src={(isPlaying2) ? audioOnImg : audioImg} onClick={handleOnClick1}></img>
                                 <h2>“Las Toninas se dispersaron por los otros ríos, como son territoriales”.</h2>
                             </div>
                             <p>- Jorge Cano</p>
-                            {!isPlaying2 &&
+                            {isPlaying2 &&
                                 <div className='audio-visual'>
-                                    {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
-                                        //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
-                                        // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
-                                    }
                                     <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
-
                                 </div>
                             }
                         </div>

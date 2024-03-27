@@ -17,17 +17,17 @@
 
 .menu-contenido {
   position: fixed;
-  top: 0px;
-  right: 0px;
+  top:0;
   width: 100vw;
-  height: 100vh;
+  height: 0;
   z-index: 190;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.8);
-  transition: 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: 2s cubic-bezier(0,1,0.65,1);
 
   a {
     width: 90%;
@@ -41,11 +41,11 @@
 }
 
 .menu-hide {
-  left: 100vw;
+  height: 0;
 }
 
 .menu-show {
-  left: 0;
+  height: 100vh;
 }
 
 .seccion-general {

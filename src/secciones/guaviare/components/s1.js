@@ -6,6 +6,7 @@ import s3 from '../../../assets/guaviare/jorge/jorge3.mp3';
 import sCarlos1 from '../../../assets/guaviare/carlos/carlos1.mp3';
 import sWilliam1 from '../../../assets/guaviare/william/william1.mp3';
 import sWilliam2 from '../../../assets/guaviare/william/william2.mp3';
+import sCaceria from '../../../assets/guaviare/caceria/audio-caceria.mp3';
 
 export const agregarS1 = () => {
     return new Howl({ src: s1 })
@@ -29,4 +30,8 @@ export const agregarS5 = () => {
 
 export const agregarS6 = () => {
     return new Howl({ src: sWilliam2 })
+};
+
+export const agregarS7 = () => {
+    return new Howl({ src: sCaceria })
 };

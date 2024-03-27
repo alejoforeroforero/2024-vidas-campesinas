@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { pararAudio } from '../../../redux/states/managerSlice';
 
 import audioOnImg from '../../../assets/generales/audio-on.png'
 import audioImg from '../../../assets/generales/audio.png';
@@ -9,20 +11,19 @@ import abajoImg from '../../../assets/generales/abajo.png';
 
 import './CaceriaF3.css';
 
-
 const CaceriaF3 = () => {
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const dispatch = useDispatch();
 
     const audioRef = useRef(null);
 
-    useEffect(() => {
-        if (isPlaying) {
-            audioRef.current.pause();
-        } else {
+    const handleOnClick = () => {
+        dispatch(pararAudio(null))
+        if(!isPlaying){
             audioRef.current.play();
         }
-    }, [isPlaying])
-
+        setIsPlaying(!isPlaying)
+    }
 
     return (
         <div className='caceria-f3'>
@@ -36,18 +37,13 @@ const CaceriaF3 = () => {
                     <div className='relatos-audio-obj'>
                         <audio ref={audioRef} src={audioArte} controls></audio>
                         <div className='relatos-audio-obj-top'>
-                            <img src={(!isPlaying) ? audioOnImg : audioImg} onClick={() => setIsPlaying(!isPlaying)}></img>
+                            <img src={(isPlaying) ? audioOnImg : audioImg} onClick={handleOnClick}></img>
                             <h2>“La tecnología del jaguar”</h2>
                         </div>
                         <p></p>
-                        {!isPlaying &&
+                        {isPlaying &&
                             <div className='audio-visual'>
-                                {/* <iframe src="https://giphy.com/embed/UGrpkMXipFWQ06IHIM"></iframe> */
-                                    //https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video
-                                    // https://giphy.com/embed/9G1jYrLDMATYhV9ojO
-                                }
                                 <iframe src="https://giphy.com/embed/2mnoi0YXJdi2um7FTs/video" frameBorder="0" ></iframe>
-
                             </div>
                         }
                     </div>
@@ -60,8 +56,6 @@ const CaceriaF3 = () => {
                     <img src={abajoImg} alt="abajo" />
                 </div>
             </div>
-
-
         </div>
     )
 }

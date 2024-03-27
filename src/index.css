@@ -5,6 +5,11 @@
   src: url('./assets/fonts/OldNewspaperTypes.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'chinese';
+  src: url('./assets/fonts/chinese.otf') format('truetype');
+}
+
 html {
   font-size: 16px; 
 }
